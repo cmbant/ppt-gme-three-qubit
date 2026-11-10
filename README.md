@@ -4,6 +4,8 @@
 
 The public repository is [cmbant/ppt-gme-three-qubit](https://github.com/cmbant/ppt-gme-three-qubit).
 
+[![DOI](https://zenodo.org/badge/1452542690.svg)](https://doi.org/10.5281/zenodo.24113583)
+
 This is the companion to the paper *Genuinely multipartite bound entanglement of three qubits*. The paper gives the constructions and proofs; this tree also holds the exact certificates and the Lean
 formalisation that back them.
 
