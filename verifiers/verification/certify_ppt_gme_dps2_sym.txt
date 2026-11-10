@@ -1,0 +1,16 @@
+Exact symmetry-reduced level-two DPS certificates (Y: 10 parameters, Z1, Z2: 72 each)
+327/100: PASS extension identity (all 144 coefficients), block LDL of Z1, Z2 and P > 0, cyclic symmetry; negative control
+327/100: PASS white p=33/100000 (control 17/50000 fails), local q<=7/50000, GME D-ball=1/10000, PPT eigenvalues > 613/5000000; tr(Y rho) = -2456277/7315000000 ~ -3.35786e-04, -827/10000 < Y < 31389/10000
+327/100: PASS negative on the full rational bracket (32567/10000, 16943/5000)
+family: PASS uniform white p=0.00024 and GME D-ball=0.000075 throughout the PPT interval
+10/3: PASS extension identity (all 144 coefficients), block LDL of Z1, Z2 and P > 0, cyclic symmetry; negative control
+10/3: PASS white p=87/100000 (control 887/1000000 fails), local q<=37/100000, GME D-ball=27/100000, PPT eigenvalues > 3453/5000000; tr(Y rho) = -587661/665000000 ~ -8.83701e-04, -69/500 < Y < 30809/10000
+10/3: PASS negative on the full rational bracket (32567/10000, 16943/5000)
+169/50: PASS extension identity (all 144 coefficients), block LDL of Z1, Z2 and P > 0, cyclic symmetry; negative control
+169/50: PASS white p=7/5000 (control 29/20000 fails), local q<=61/100000, GME D-ball=11/25000, PPT eigenvalues > 2497/10000000; tr(Y rho) = -923733/638000000 ~ -1.44786e-03, -1757/10000 < Y < 3029/1000
+169/50: PASS negative for every s >= 3.27475
+state: PASS trace one, full rank, exact cyclic and global-parity symmetry (10 parameters)
+state: PASS extension identity (all 144 coefficients), block LDL of Z1, Z2 and P > 0, cyclic symmetry; negative control
+state: PASS white p=233/10000 (control 117/5000 fails), local q<=1/100, GME D-ball=73/10000, PPT eigenvalues > 249/10000000; tr(Y rho) = -95626652183/4000000000000 ~ -2.39067e-02, -4147/10000 < Y < 3571/1250
+surface: PASS certificate of Y_* (used by verify_ppt_gme_reused_witness_noise.py and verify_ppt_gme_rank5_flat_profile.py)
+ALL PASS

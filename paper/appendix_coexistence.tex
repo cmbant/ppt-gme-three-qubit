@@ -1,0 +1,151 @@
+\section{Exact data for one support, both phases}\label{sec:ppt3-app-coexistence}
+
+This appendix contains the proofs of Theorem~\ref{thm:ppt3-phase-coexistence} and
+Proposition~\ref{prop:ppt3-exposed-transition}, with the exact rational coefficient matrices and principal minors. The
+notation, including $\Gamma_z$ of \eqref{eq:ppt3-gamma}, is that of Section~\ref{sec:ppt3-coexistence}.
+
+In the basis $(u,v,w,e,o)$,
+\begin{equation}\label{eq:ppt3-bs-same-support}
+ X_{\rm BS}=\frac1{54375}
+ \begin{pmatrix}
+ 1232&0&0&0&0\\
+ 0&30493&32&0&0\\
+ 0&32&1693&0&0\\
+ 0&0&0&3700&0\\
+ 0&0&0&0&925
+ \end{pmatrix}.
+\end{equation}
+
+\begin{proof}[Proof of Theorem~\ref{thm:ppt3-phase-coexistence}]
+The norms
+$\|Bq_1(2)\|^2=1250$ and
+$\|Bq_1(2i)\|^2=290$ give by direct expansion
+\[
+ \sigma_{\rm BS}
+   =\tfrac13\bigl(\ket{111}\bra{111}+\Gamma_2+\Gamma_{2i}\bigr)
+   =BX_{\rm BS}B^\dagger ,
+\]
+with $X_{\rm BS}$ as in \eqref{eq:ppt3-bs-same-support}; $\sigma_{\rm BS}$ is biseparable because each
+$\Gamma_z$ is. The coefficient matrix
+is positive definite and, after applying $B$, gives a trace-one state on $R$.
+The state is invariant under cyclic permutations and global parity. For the unnormalised
+matrix $54375\,\sigma_{\rm BS}^{T_A}$,
+the leading principal minors of its even and odd
+parity blocks, in the orders of
+\eqref{eq:ppt3-minors}, are respectively
+\[
+\begin{array}{c|rrrr}
+&\Delta_1&\Delta_2&\Delta_3&\Delta_4\\\hline
+\mathrm{even}&1232&4558400&11751097500&13766553000000\\
+\mathrm{odd}&2618&4698075&8087598750&83202897843750
+\end{array}.
+\]
+All are strictly positive, so Sylvester's criterion
+and cyclic invariance give
+$\sigma_{\rm BS}^{T_c}\succ0$ for each cut.
+The exact expansion and minors are checked
+independently (Appendix~\ref{sec:ppt3-verifiers}).
+
+The state $\rho_{10/3}$ has range $R$,
+rank five and strictly positive partial transposes,
+but is GME by \eqref{eq:ppt3-h5-value}.
+For the interior assertion, let $\mu$ be a probability
+measure of full support on the complex projective line $\mathbb{CP}^1$ (for example
+normalised Fubini--Study measure) and
+$M=\int q_1(z)q_1(z)^\dagger\,d\mu/\|Bq_1(z)\|^2$, the
+coefficient matrix of a biseparable state on the
+$A|BC$ product curve. If a Hermitian $H$ has
+$q_1(z)^\dagger Hq_1(z)\ge0$ for all $z$ and
+$\tr(HM)=0$, the nonnegative integrand vanishes on the full support of the measure, so the polynomial vanishes identically. The
+five entries of $q_1(z)$ form a basis of the polynomials of degree at most four. Their products are therefore an
+invertible change of basis from the independent monomials $\bar z^i z^j$, $0\le i,j\le4$, so $H=0$. Hence $M$ is
+interior to the cone of supported $A|BC$-biseparable
+coefficient matrices. (A measure on the unit circle
+would not do: $H_5$ vanishes there.)
+Mixing a sufficiently small amount
+of such a moment matrix into $\sigma_{\rm BS}$
+produces a biseparable state interior to the
+supported biseparable cone, while retaining
+strict PPT and rank five. GME is open and $\rho_{10/3}^{T_c}\succ0$,
+so a relative neighbourhood of $\rho_{10/3}$
+consists of fully-PPT GME states. Both regions therefore have relative interior in the same PPT spectrahedron.
+\end{proof}
+
+In the basis $(u,v,w,e,o)$,
+\begin{equation}\label{eq:ppt3-xdelta}
+ X_\partial=\frac1{3360}
+ \begin{pmatrix}
+ 293&0&0&0&0\\
+ 0&577&-105&0&0\\
+ 0&-105&273&0&0\\
+ 0&0&0&188&0\\
+ 0&0&0&0&76
+ \end{pmatrix}.
+\end{equation}
+
+\begin{proof}[Proof of Proposition~\ref{prop:ppt3-exposed-transition}]
+For the rays in \eqref{eq:ppt3-exposed-state},
+$|z|=1$ at $z=\pm1,\pm i$, while at
+$z=\pm i\sqrt5$ one has $r=5$ and
+$\operatorname{Re}z=0$. The factorisation
+\eqref{eq:ppt3-h5} therefore vanishes on every
+summand, proving $\tr(H_5X_\partial)=0$.
+Their squared physical norms
+$\|Bq_1(1)\|^2=56$, $\|Bq_1(i)\|^2=32$
+and $\|Bq_1(i\sqrt5)\|^2=576$ give the
+coefficient matrix \eqref{eq:ppt3-xdelta} upon
+cyclic and sign averaging. It has
+$\tr(BX_\partial B^\dagger)=1$ and
+$X_\partial\succ I_5/100$ (a diagonal and
+$2\times2$ block check).
+
+For a quantitative PPT bound, the leading
+principal minors of the even and odd
+$4\times4$ parity blocks of
+$5\,(3360\,\sigma_\partial^{T_A})-56I_8$,
+in the orders of \eqref{eq:ppt3-minors}, are
+\[
+\begin{array}{c|rrrr}
+ &\Delta_1&\Delta_2&\Delta_3&\Delta_4\\\hline
+\mathrm{even}&1409&1163516&654702384&109183407616\\
+\mathrm{odd}&1689&1363796&97132144&7881970176
+\end{array}.
+\]
+They are positive. Hence
+$\sigma_\partial^{T_A}\succ I/300$ by
+Sylvester's criterion, and cyclic symmetry
+gives the other cuts.
+
+Let $\Delta=\sigma_{\rm BS}-\sigma_\partial$
+and $X_\Delta=X_{\rm BS}-X_\partial$.
+Direct rational arithmetic gives
+\[
+ \|\Delta\|_2^2=
+ \frac{575589900887}{2318006250000}<\frac14 .
+\]
+Partial transposition preserves the
+Hilbert--Schmidt norm, so
+$\|\Delta^{T_c}\|_\infty<1/2$.
+Likewise $B^\dagger B=\operatorname{diag}(4,1,3,3,3)
+\succeq I_5$ implies
+$\|X_\Delta\|_\infty\le\|X_\Delta\|_2
+\le\|\Delta\|_2<1/2$.
+For $-1/200\le t\le0$, it follows that
+\[
+ \sigma(t)^{T_c}\succ
+   \left(\frac1{300}-\frac1{400}\right)I
+      =\frac1{1200}I,\qquad
+ X_\partial+tX_\Delta\succ
+   \left(\frac1{100}-\frac1{400}\right)I_5 .
+\]
+For $0\le t\le1$ strict PPT and rank five
+follow by convexity from the corresponding
+properties of the two endpoints. Biseparability in that range follows from the explicit decompositions of the endpoints.
+Finally, for $t<0$ the supported witness has
+\[
+ \tr\!\bigl(H_5(X_\partial+tX_\Delta)\bigr)
+ =t\,\frac{25082}{54375}<0,
+\]
+which excludes biseparable mixtures.
+The arithmetic is checked independently (Appendix~\ref{sec:ppt3-verifiers}).
+\end{proof}

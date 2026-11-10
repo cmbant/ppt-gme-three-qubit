@@ -1,0 +1,198 @@
+\section{The rank-five family}\label{sec:ppt3-family}
+
+We first separate two tasks: enforce PPT by symmetry, then exclude biseparability using only product vectors in the
+state's support. Appendix~\ref{sec:ppt3-app-family} supplies the coordinate proofs.
+
+Let $\omega=e^{2\pi i/3}$. In the computational basis of $(\mathbb C^2)^{\otimes3}$ define the five
+\emph{unnormalised} vectors
+\begin{align}
+u&=\ket{000}-\ket{011}-\ket{101}-\ket{110}, & v&=\ket{111}, & w&=\ket{001}+\ket{010}+\ket{100},\notag\\
+e&=\ket{011}+\omega\ket{101}+\omega^2\ket{110}, & o&=\ket{100}+\omega\ket{010}+\omega^2\ket{001}. &&\label{eq:ppt3-vectors}
+\end{align}
+Here $u/2$ is a local-Clifford rotation of the GHZ state and $w,e,o$ are locally related $W$ states.
+Global parity is $Z^{\otimes3}$, with $Z=\operatorname{diag}(1,-1)$; it has eigenvalue $+1$ on $u,e$ (an even number of
+ones) and $-1$ on $v,w,o$. The cyclic permutation $\Pi$ of the qubits, $\Pi\ket{abc}=\ket{cab}$, fixes $u,v,w$ and
+multiplies $e$ and $o$ by $\omega^2$. Together, $Z^{\otimes3}$ and $\Pi$ split $(\mathbb C^2)^{\otimes3}$ into two
+two-dimensional $\Pi$-invariant sectors, $\operatorname{span}\{\ket{000},\ket{011}+\ket{101}+\ket{110}\}$ and
+$\operatorname{span}\{v,w\}$, and four one-dimensional sectors spanned by $e,\bar e$ (even) and $o,\bar o$ (odd).
+Exchanging two qubits swaps $e\leftrightarrow\bar e$ and $o\leftrightarrow\bar o$, and a PPT state invariant under such an
+exchange is separable across a cut (Corollary~\ref{cor:ppt3-symmetrisation}). The support below therefore keeps $u$ from
+the first sector, all of the second, and only one orientation $e,o$ of the one-dimensional sectors.
+Put $B=[u,v,w,e,o]$, an $8\times5$ matrix with $B\dg B=\operatorname{diag}(4,1,3,3,3)$, and $R=\operatorname{ran}B$.
+For $t>0$ set
+\begin{equation}\label{eq:ppt3-rho}
+\rho_t=\frac{t\,uu\dg+3t\,vv\dg+3\,ww\dg+3\,ee\dg+oo\dg}{7(t+3)} .
+\end{equation}
+For a three-qubit operator $X$ write $X^{T_c}$ for its partial transpose on qubit $c\in\{A,B,C\}$; the
+\emph{rank profile} of $X$ is $(\rank X,\rank X^{T_A},\rank X^{T_B},\rank X^{T_C})$. For a vector $x$, $\|x\|$ is the
+Euclidean norm; for an operator $X$, $\|X\|_1$ is the trace norm, $\|X\|_2=(\tr X\dg X)^{1/2}$ the Hilbert--Schmidt norm
+and $\|X\|_\infty$ the operator norm (largest singular value).
+
+\begin{theorem}[the rank-five fully-PPT GME family]\label{thm:ppt3-family}
+\cls{proved; CF-1, CF-2, CF-3, IN-1, IN-2, IN-3, IN-4, IN-5, IN-6, IN-7}
+Every $\rho_t$ has rank five. It is PPT at all three single-qubit cuts exactly
+when
+\begin{equation}\label{eq:ppt3-interval}
+t_-\le t\le t_+,\qquad t_-=\frac{15+9\sqrt{17}}{16}\approx3.257,\qquad t_+=\frac{2(\sqrt{37}-1)}{3}\approx3.389,
+\end{equation}
+and every state in this interval is genuinely multipartite entangled (GME). In the interior the rank profile is
+$(5,8,8,8)$, and at the endpoints it is $(5,7,7,7)$.
+Rank five is minimal among fully-PPT GME three-qubit states.
+\end{theorem}
+
+For minimality, any fully-PPT three-qubit state of rank at most
+four is separable across a $2\times4$ cut by the low-rank PPT
+theorem~\cite{KCKL,HLVC}, and is therefore biseparable.
+
+\emph{Idea of the PPT proof.} Cyclic invariance makes the three partial transposes unitarily equivalent, and global parity
+splits $\rho_t^{T_A}$ into two $4\times4$ blocks (the partial transpose commutes with the real diagonal $Z^{\otimes3}$, whose eigenspaces
+are spanned by $\ket{000},\ket{011},\ket{101},\ket{110}$ and by $\ket{001},\ket{010},\ket{100},\ket{111}$). The even-block
+determinant forces $t\ge t_-$. In that range the odd-block determinant requires $t\le t_+$, and the first three leading
+minors of both blocks are positive on the resulting interval. Sylvester's criterion then gives PPT. At an endpoint one block drops
+to rank three, which gives the profiles. The minors are in Appendix~\ref{sec:ppt3-app-family}; genuine entanglement is proved
+below by a witness on the range.
+
+\subsection{Cut-product rays and a supported witness}\label{sec:ppt3-witness}
+
+A biseparable decomposition of a state supported on $R$ uses pure vectors in $R$ that are products across some
+cut. A Hermitian form nonnegative on all these vectors can therefore exclude biseparability on $R$.
+For $s>0$ put
+$u_s=\ket{000}-s(\ket{011}+\ket{101}+\ket{110})$, $B_s=[u_s,v,w,e,o]$ and $R_s=\operatorname{ran}B_s$, so that $u_1=u$,
+$B_1=B$, $R_1=R$. An operator supported on $R_s$ is written $B_sXB_s\dg$ with a $5\times5$ coefficient matrix $X$;
+subscripts identify the corresponding state. A pure cut-product vector $B_sq$ has
+projector $B_sqq\dg B_s\dg$, so its coefficient matrix is $qq\dg$ and $\tr(H\,qq\dg)=q\dg Hq$ with no metric factor
+$B_s\dg B_s$.
+
+\begin{proposition}[supported witnesses]\label{prop:ppt3-witness}
+\cls{proved analytically; CF-2, CF-3, IN-2, IN-3, IN-4, SW-1, SW-2}
+Let $s>0$.
+\begin{enumerate}
+\item[(a)] The $A|BC$-product rays in $R_s$ are the rays of $B_sq_s(z)$, $z\in\mathbb C$, with
+\begin{equation}\label{eq:ppt3-curve}
+q_s(z)=\bigl(2z,\ -z^2(z^2+3s),\ z^2-s,\ -z(z^2+s),\ z^2+s\bigr)^T,
+\end{equation}
+together with the ray of $v$ (the point $z=\infty$). The other two cuts are given by the cyclic images.
+\item[(b)] Let $H_s=\operatorname{diag}(-12s^3,\ 1,\ 11s^2,\ -6s,\ 14s^2)$ in the basis $(u_s,v,w,e,o)$. For
+$z=x+iy$ and $r=|z|^2$,
+\begin{equation}\label{eq:ppt3-sos}
+q_s(z)\dg H_sq_s(z)=(r-s)^2\bigl[(r-5s)^2+12s\,x^2\bigr]\ \ge0 .
+\end{equation}
+At $s=1$ this is the witness $H_5:=H_1$ used for the first family,
+\begin{equation}\label{eq:ppt3-h5}
+H_5=\operatorname{diag}(-12,1,11,-6,14),
+\qquad
+q_1(z)\dg H_5q_1(z)=(r-1)^2\bigl[(r-5)^2+12x^2\bigr].
+\end{equation}
+Since $H_s$ is diagonal, it is invariant under the cyclic phases acting on $(u_s,v,w,e,o)$. Consequently
+$\tr(H_sX)\ge0$ whenever $B_sXB_s\dg$ is biseparable, including mixtures across different cuts;
+no symmetry hypothesis on $X$ is needed.
+\end{enumerate}
+\end{proposition}
+
+\emph{Idea of the proof.} (a) A vector of $R_s$ is a product across $A|BC$ with first-qubit ray $(1,z)^T$ exactly when
+its two $BC$ rows are proportional with ratio $z$: four linear equations in the five coordinates, with a one-dimensional
+solution $q_s(z)$ for each finite $z$. (b) Since $H_s$ is diagonal, only the squared moduli of the entries of $q_s(z)$
+enter, and the sum collapses to a perfect-square factorisation; a rescaling removes $s$. Diagonal forms commute with the
+cyclic phases, so the other cuts give the same values, and every positive decomposition of an operator supported on $R_s$
+uses vectors in $R_s$, so mixtures across cuts are controlled. The computations are in Appendix~\ref{sec:ppt3-app-family}.
+
+\begin{proof}[Proof of the genuine entanglement in Theorem~\ref{thm:ppt3-family}]
+Write $\rho_t=BX_tB\dg$. Then
+\begin{equation}\label{eq:ppt3-h5-value}
+\tr(H_5X_t)=\frac{29-9t}{7(t+3)}<0\qquad\text{whenever }t>29/9,
+\end{equation}
+and $t_->29/9$. Proposition~\ref{prop:ppt3-witness}(b) therefore proves GME throughout \eqref{eq:ppt3-interval}.
+\end{proof}
+
+For a concrete member, take $t=10/3$. Then the normalised versions of the orthogonal vectors
+$(u,v,w,e,o)$ occur with probabilities
+$(40,30,27,27,9)/133$, all leading minors in
+\eqref{eq:ppt3-minors} are positive, and
+$\tr(H_5X_{10/3})=-3/133$. Thus this fully-PPT GME state is certified by hand.
+Appendix~\ref{sec:ppt3-kernel} lifts the supported witness to a global witness with an explicit noise radius around
+this state (Remark~\ref{rem:ppt3-hand-radius}), again without a semidefinite-program solver.
+
+\subsection{Reflection symmetry and local chirality}\label{sec:ppt3-chirality}
+
+The states select one cyclic phase orientation of the $W$ vectors $e,o$; exchanging two qubits reverses it.
+The following obstruction explains why this asymmetry matters.
+
+\begin{corollary}[reflection symmetry destroys the construction]\label{cor:ppt3-symmetrisation}
+\cls{proved; recalled swap-PPT reduction~\cite{NMG}}
+\begin{enumerate}[label=(\alph*)]
+\item A three-qubit state that is PPT at $A|BC$ and commutes with the swap of $B$ and $C$ is separable across $A|BC$.
+Hence no fully-PPT GME state is invariant under the exchange of two qubits.
+\item For every fully-PPT three-qubit state $\rho$, the permutation average
+$\mathcal S(\rho)=\frac16\sum_{\pi\in S_3}U_\pi\rho U_\pi^\dagger$ is separable across each of the three cuts, so
+\begin{equation}\label{eq:ppt3-asymmetry-upper}
+ D(\rho,\mathrm{BS})\le\tfrac12\|\rho-\mathcal S(\rho)\|_1 ,
+\end{equation}
+where $D(\rho,\sigma)=\frac12\|\rho-\sigma\|_1$ is the trace distance, $D(\rho,\mathrm{BS})=\inf_{\sigma\in\mathrm{BS}}D(\rho,\sigma)$ and
+$\mathrm{BS}$ is the set of biseparable states.
+If $\rho$ is cyclically invariant and $S$ is any transposition of two qubits, the bound is
+$\frac14\|\rho-S\rho S^\dagger\|_1$.
+\item For any three-qubit $\rho$ that is PPT at $A|BC$, pinching with the triplet and singlet projectors $P_3$, $P_1$ of $BC$
+gives an explicit $A|BC$-separable state, and
+\begin{equation}\label{eq:ppt3-pinch}
+D(\rho,\mathrm{BS})\le\|P_3\rho P_1\|_1 .
+\end{equation}
+\end{enumerate}
+These are upper bounds on the distance to $\mathrm{BS}$, not entanglement tests. Coherence between singlet and triplet,
+and the breaking of every pair-exchange symmetry, are therefore necessary for fully-PPT GME.
+\end{corollary}
+\begin{proof}
+(a) The swap-invariant state is block diagonal in the triplet ($\dim3$) and singlet ($\dim1$) subspaces of $BC$, and its
+partial transpose on $A$ preserves these blocks. Each block is PPT on $2\times3$ or $2\times1$, where PPT implies
+separability; this is the mechanism of Novo, Moroder and G\"uhne~\cite[Sec.~III.2]{NMG}. (b) $\mathcal S(\rho)$ is fully
+PPT and invariant under every transposition, so (a) applies at each cut; $\mathcal S(\rho)\in\mathrm{BS}$ gives
+\eqref{eq:ppt3-asymmetry-upper}. For cyclic $\rho$, $\mathcal S(\rho)=(\rho+S\rho S^\dagger)/2$. (c) The pinched state
+$P_3\rho P_3+P_1\rho P_1$ is PPT at $A|BC$ (the partial transpose on $A$ commutes with the pinching on $BC$) and block diagonal as
+in (a), hence separable; its trace distance from $\rho$ is at most $\|P_3\rho P_1\|_1$. Since the swap is
+$S_{BC}=P_3-P_1$, the pinched state equals $(\rho+S_{BC}\rho S_{BC})/2$ and $\|P_3\rho P_1\|_1=\frac14\|\rho-S_{BC}\rho S_{BC}\|_1$,
+so (c) extends the cyclic bound of (b) to every state that is PPT at $A|BC$.
+\end{proof}
+
+The obstruction concerns reflection alone. The real vectors $u_s,v,w$ and the pair $e,o$ of \eqref{eq:ppt3-vectors} are invariant under the
+antiunitary map $K\circ S_{BC}$, the swap of $B$ and $C$ followed by complex conjugation in the computational basis
+(for example $S_{BC}e=\ket{011}+\omega^2\ket{101}+\omega\ket{110}=\bar e$). Hence every state with real coefficients in
+these vectors, including $\rho_t$ and all states of Section~\ref{sec:ppt3-surface}, is invariant under this combined
+reflection and conjugation. The GME states among them are invariant under neither separately: not under the reflection by
+part~(a), and not under conjugation, which exchanges $e$ and $o$ with $\bar e$ and $\bar o$, outside their supports.
+
+\begin{corollary}[intrinsic local chirality]\label{cor:ppt3-chirality}
+\cls{proved; CF-4, SC-1--SC-5}
+\begin{enumerate}[label=(\alph*)]
+\item Throughout \eqref{eq:ppt3-interval}, $\rho_t$ and its complex conjugate are not related by local unitaries. The same
+holds for physical spin time reversal, which differs from complex conjugation by a local unitary.
+\item For every $s>0$, no invertible local filter $F_A\otimes F_B\otimes F_C$ maps $R_s$ onto its complex conjugate. Hence no state
+with range $R_s$, in particular no $\rho_t$, $\sigma_6$, $\rho_{\tau,a}$ or state of the phase-coexistence line, is related to its complex
+conjugate or its spin time reversal by an invertible local filter. The stabiliser of $R_s$ in $\mathrm{PGL}(2,\mathbb C)^{\times3}$ is
+isomorphic to $S_3$, acting by the same M\"obius map on the three qubits.
+\end{enumerate}
+\end{corollary}
+\emph{Idea of the proof.} (a) The eigenrays of $u$ and $v=\ket{111}$ are nondegenerate, so a local unitary relating $\rho_t$
+to $\overline{\rho_t}$ must fix both, leaving only $I$ and $Z^{\otimes3}$; both fix $\rho_t$, which is not real
+($\langle011|\rho_t|101\rangle\propto t+3\omega^2$). (b) $R_s$ contains exactly three fully product rays, $[\ket1^{\otimes3}]$ and
+$[(\ket0\pm i\sqrt s\ket1)^{\otimes3}]$, and a filter must permute them; a M\"obius map is fixed by its action on three points, so the filter is
+$F_0^{\otimes3}$ up to a scalar, which commutes with the cyclic shift. The shift has eigenvalue $\omega^2$ on $e,o\in R_s$ but not on $\overline{R_s}$.
+See Appendix~\ref{sec:ppt3-app-family}.
+
+\subsection{\texorpdfstring{An extreme point of profile $(5,6,6,6)$}{An extreme point of profile (5,6,6,6)}}\label{sec:ppt3-extreme6}
+
+Adjusting the weight of $v$ makes both partial-transpose parity blocks singular and yields an extreme fully-PPT state.
+
+\begin{corollary}[an extreme fully-PPT GME state of profile $(5,6,6,6)$]\label{cor:ppt3-extreme6}
+\cls{exact-symbolic certificate, computer-assisted; the GME part is proved analytically; CF-6}
+Set $a=t_-$ and $b=8(9-a)/5$ ($a\approx3.257$, $b\approx9.189$). Then
+\begin{equation}\label{eq:ppt3-sigma6}
+\sigma_6=\frac{a\,uu\dg+b\,vv\dg+3\,ww\dg+3\,ee\dg+oo\dg}{4a+b+21}
+\end{equation}
+is an extreme point of the set of fully-PPT three-qubit states and is GME. Its coefficient matrix is
+$X_6=\operatorname{diag}(a,b,3,3,1)/(4a+b+21)$.
+\end{corollary}
+\emph{Idea of the proof.} The choice $a=t_-$ makes the even partial-transpose block singular, and that of $b$ makes the odd
+block singular, each with a positive $3\times3$ leading minor, so every partial transpose has rank six. GME follows from the
+witness $H_5$. By the supported-face criterion of~\cite{GIM}, extremality means that the only Hermitian $D$ supported on
+$\operatorname{ran}\sigma_6$ whose partial transposes annihilate the kernels of those of $\sigma_6$ is a multiple of
+$\sigma_6$; an exact rank computation on the $25$-dimensional space of coefficient matrices shows this
+(Appendix~\ref{sec:ppt3-app-family}).

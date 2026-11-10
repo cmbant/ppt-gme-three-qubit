@@ -1,0 +1,196 @@
+\section{Computations for the rank-five family}\label{sec:ppt3-app-family}
+
+This appendix contains the proofs of the statements of Section~\ref{sec:ppt3-family}, whose notation it uses.
+
+\begin{proof}[Proof of Theorem~\ref{thm:ppt3-family}, PPT and rank claims]
+Cyclic permutations of the qubits leave $\rho_t$ invariant, so
+its three partial transposes are unitarily equivalent. The
+unnormalised numerator of $\rho_t^{T_A}$ commutes with the global parity $Z^{\otimes3}$, so it splits into even and
+odd parity blocks. With $\beta=3+\omega$ and $\gamma=t+3\omega^2$ ($|\beta|^2=7$, $|\gamma|^2=t^2-3t+9$), in the respective basis orders
+$(000,011,101,110)$ and $(001,010,100,111)$ these blocks of $7(t+3)\rho_t^{T_A}$ are
+\[
+\text{even: }\begin{pmatrix}
+t & -t & \beta & \bar\beta\\
+-t & t+3 & 0 & 0\\
+\bar\beta & 0 & t+3 & \gamma\\
+\beta & 0 & \bar\gamma & t+3
+\end{pmatrix},\qquad
+\text{odd: }\begin{pmatrix}
+4 & \beta & -t & \bar\gamma\\
+\bar\beta & 4 & -t & \gamma\\
+-t & -t & 4 & 0\\
+\gamma & \bar\gamma & 0 & 3t
+\end{pmatrix},
+\]
+and their leading principal minors are
+\begin{equation}\label{eq:ppt3-minors}
+\begin{aligned}
+\text{even: }&
+t,\quad 3t,\quad (t+3)(3t-7),\quad
+3(8t^2-15t-36),\\
+\text{odd: }&
+4,\quad 9,\quad 3(12-t^2),\quad
+-3(t-3)(3t^2+4t-48).
+\end{aligned}
+\end{equation}
+The even determinant is nonnegative exactly when $t\ge t_-$.
+For $3\le t<2\sqrt3$, the first three leading minors
+of each block are positive, while the odd determinant is
+nonnegative exactly when $t\le t_+$. Since
+$3<t_-<10/3<t_+<2\sqrt3$, the leading $3\times3$ corners are positive definite throughout $[t_-,t_+]$.
+Each block is positive semidefinite exactly when its scalar Schur complement, or equivalently its determinant, is
+nonnegative. This gives PPT precisely on $[t_-,t_+]$.
+Outside this interval one of the displayed determinants
+is negative. At either endpoint exactly one block has
+rank three (its leading $3\times3$ minor stays positive);
+the other has rank four. The stated profiles follow.
+The GME claim is established in Section~\ref{sec:ppt3-witness}, after constructing
+a witness on the range.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:ppt3-witness}]
+\emph{(a).} The product condition reduces to four linear equations. Write a general vector of $R_s$ as
+$B_s(U,V,W,E,O)^T$. It is a product with the first-qubit ray
+$(1,z)^T$ precisely when the two $BC$ rows are proportional
+with ratio $z$. In the computational basis this is
+\[
+\begin{aligned}
+-zU+W+O&=0,&
+-sU-zW+\omega E-z\omega^2O&=0,\\
+-sU-zW+\omega^2E-z\omega O&=0,&
+szU+V-zE&=0.
+\end{aligned}
+\]
+Subtracting the middle equations and using
+$\omega+\omega^2=-1$ gives
+\[
+ E=-zO,\qquad W=zU-O,\qquad
+ (s+z^2)U=2zO,\qquad V=-szU-z^2O.
+\]
+For every finite $z$, the solutions form a one-dimensional
+space, because $s+z^2$ and $2z$ never vanish simultaneously
+when $s>0$. Setting $U=2z$, $O=s+z^2$ gives exactly
+$q_s(z)$ in \eqref{eq:ppt3-curve}; it remains nonzero at
+$z=0$ and $z^2=-s$. At the projective point
+$(0,1)^T$ (i.e.\ $z=\infty$), the upper $BC$ row must
+vanish, which forces $U=W=E=O=0$ and leaves only $V$,
+the ray of $v$. This proves the full cut-product classification.
+
+For Appendix~\ref{sec:ppt3-kernel}, $R^\perp$ is spanned by the three symmetry-sector vectors omitted from $R$, namely
+$\bar e$, $\bar o$ and $3\ket{000}+\ket{011}+\ket{101}+\ket{110}$: the $3\times8$ matrix $K$ whose rows are their bras,
+\[
+K_0=[0,0,0,1,0,\omega,\omega^2,0],\quad
+K_1=[0,\omega^2,\omega,0,1,0,0,0],\quad
+K_2=[3,0,0,1,0,1,1,0]
+\]
+has rank three and $KB=0$, so $R=\ker K$.
+
+\emph{(b).} A rescaling removes the parameter $s$: with
+$D_s=\operatorname{diag}(1,s^{3/2},s^{1/2},s,s^{1/2})$,
+\[
+ q_s(\sqrt s\,z)=\sqrt s\,D_sq_1(z),\qquad
+ H_s=s^3D_s^{-1}H_5D_s^{-1},
+\]
+so $q_s(\sqrt s z)\dg H_sq_s(\sqrt s z)=s^4\,q_1(z)\dg H_5q_1(z)$, and the right side of \eqref{eq:ppt3-sos} at
+$(s,\sqrt s z)$ is $s^4$ times its value at $(1,z)$. It suffices to take $s=1$, which is \eqref{eq:ppt3-h5}. Put $d=\operatorname{Re}(z^2)=x^2-y^2$, so
+$r+d=2x^2$. The squared moduli of the entries of $q_1(z)$ are
+\[
+4r,\quad r^2(r^2+9+6d),\quad r^2+1-2d,\quad r(r^2+1+2d),\quad r^2+1+2d,
+\]
+and $H_5$ is diagonal, so
+\begin{align*}
+q_1\dg H_5q_1&=-48r+r^2(r^2+9+6d)+11(r^2+1-2d)-6r(r^2+1+2d)+14(r^2+1+2d)\\
+&=r^4-6r^3+34r^2-54r+25+6d(r-1)^2 .
+\end{align*}
+Since $(r-1)^2(r^2-4r+25)=r^4-6r^3+34r^2-54r+25$ and $12x^2=6(r+d)$, this equals
+$(r-1)^2\bigl[(r-5)^2+12x^2\bigr]$. This proves \eqref{eq:ppt3-sos}.
+The cyclic permutation of qubits fixes $u_s,v,w$ and
+acts on $e,o$ by phases, which commute with the diagonal $H_s$, so the form controls the other cuts as well.
+The point at infinity contributes $H_{vv}=1$. Finally, every positive pure-state decomposition of an operator
+supported on $R_s$ uses vectors in $R_s$: its expectation
+on $R_s^\perp$ vanishes, and each positive summand must
+vanish there separately. Thus the nonnegative curve
+values also control mixtures across different cuts.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:ppt3-chirality}]
+\emph{(a).} The five nonzero eigenvalues of $\rho_t$ are, up to the common
+factor $1/[7(t+3)]$, $4t,3t,9,9,3$, on the respective
+rays $(u,v,w,e,o)$. Since $t>3$ throughout
+\eqref{eq:ppt3-interval}, the two real eigenrays
+$u$ and $v=\ket{111}$ are each nondegenerate.
+Because $u$ and $v$ are real, $\overline{\rho_t}$ has the same
+nondegenerate eigenrays, so a product unitary mapping $\rho_t$ to
+its complex conjugate must fix the ray of $v=\ket{111}$. Each
+factor then fixes the ray of $\ket1$, hence also the orthogonal
+ray of $\ket0$, and is diagonal. Write its relative local phases as
+$(\theta_A,\theta_B,\theta_C)$. Fixing the $u$ ray forces
+\[
+\theta_A+\theta_B\equiv\theta_A+\theta_C
+\equiv\theta_B+\theta_C\equiv0\pmod{2\pi},
+\]
+so all three phases are $0$ or all are $\pi$.
+Up to a scalar, the only candidates are $I$ and
+$Z\otimes Z\otimes Z$, both of which fix $\rho_t$.
+But, in the computational basis,
+\[
+  \langle011|\rho_t|101\rangle
+       =\frac{t+3\omega^2}{7(t+3)}
+       \notin\mathbb R .
+\]
+Thus $\rho_t\ne\overline{\rho_t}$, and neither candidate
+implements complex conjugation.
+
+\emph{(b).} By Proposition~\ref{prop:ppt3-witness}(a) the $A|BC$-product rays of $R_s$ are $[v]$ and
+$[B_sq_s(z)]=[(\ket0+z\ket1)\otimes\ket{\phi_s(z)}]$, $z\in\mathbb C$, and substituting \eqref{eq:ppt3-curve} shows that the $2\times2$
+coefficient matrix of $\ket{\phi_s(z)}$ has determinant $-3(z^2+s)^2$. So $\ket{\phi_s(z)}$ is a $B|C$ product exactly when
+$z=\pm i\sqrt s$, where $B_sq_s(\pm i\sqrt s)=\pm2i\sqrt s\,(\ket0\pm i\sqrt s\ket1)^{\otimes3}$. Hence $R_s$ contains exactly three fully
+product rays, $P_\infty=[\ket1^{\otimes3}]$ and $P_\pm=[(\ket0\pm i\sqrt s\ket1)^{\otimes3}]$; they span $\operatorname{span}(u_s,v,w)$, because
+$(\ket0\pm i\sqrt s\ket1)^{\otimes3}=u_s\pm i\sqrt s\,(w-sv)$. The conjugate $\overline{R_s}$ contains the conjugate rays, the same three with $P_+$ and $P_-$ exchanged. An invertible
+local filter $F$ that maps $R_s$ onto $R_s$ or onto $\overline{R_s}$ permutes the three rays. Each ray is $[\chi^{\otimes3}]$, so $F_A$,
+$F_B$ and $F_C$ all induce the same permutation of the three distinct points $[\chi]\in\mathbb{CP}^1$, and since a M\"obius map is determined by its action on three
+points, $F=cF_0^{\otimes3}$. Such an $F$ commutes with the cyclic shift $\Pi$, so it maps the $\omega^2$-eigenspace of $\Pi$ into itself. That eigenspace is
+$\operatorname{span}(e,o)\subset R_s$, whereas $\overline{R_s}$ meets it in $0$: $\overline{R_s}\ni\bar e,\bar o$ lies in the $\omega$-eigenspace and the other three
+generators of $\overline{R_s}$ are $\Pi$-invariant. So $F(R_s)\ne\overline{R_s}$. If a state $\rho$ with range $R_s$ satisfied $\rho=F\bar\rho F\dg$ (or the same with $Y^{\otimes3}\bar\rho Y^{\otimes3}$, a local-unitary image of $\bar\rho$), then
+there would be an invertible local filter $F'$ ($F^{-1}$, respectively $Y^{\otimes3\dagger}F^{-1}$) with $F'(R_s)=\overline{R_s}$, which the argument excludes. For the stabiliser, each of the six permutations of the three points is
+induced by a unique M\"obius map, and $F_\pi^{\otimes3}$ permutes $P_\infty,P_\pm$, hence preserves $\operatorname{span}(u_s,v,w)$, and as it commutes with $\Pi$ it preserves
+the $\omega^2$-eigenspace $\operatorname{span}(e,o)$ of $\Pi$ (which is all of that eigenspace in $(\mathbb C^2)^{\otimes3}$). So the stabiliser is $\{[F_\pi]^{\otimes3}\}\cong S_3$.
+
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:ppt3-extreme6}]
+Write the numerator of $\sigma_6$ as $a\,uu\dg+b\,vv\dg+3\,ww\dg+3\,ee\dg+oo\dg$; it is the numerator of
+$\rho_a$ with the weight $3a$ of $vv\dg$ replaced by $b$. The vector $v=\ket{111}$ enters $\sigma_6^{T_A}$ only through the
+$(111,111)$ entry, the bottom diagonal entry of the odd block, and equals $b$ there. Hence the even block, and the three leading
+principal minors of the odd block, are those of $\rho_a^{T_A}$ in \eqref{eq:ppt3-minors}: at $a=t_-$ the even minors
+$a,\ 3a,\ (a+3)(3a-7)$ are positive and, since $8a^2-15a-36=0$, the even determinant vanishes, so the even block is positive
+semidefinite of rank three. The odd minors $4,\ 9,\ 3(12-a^2)$ are positive ($t_-<2\sqrt3$), and the odd determinant is
+affine in $b$,
+\[
+ \det(\text{odd block})=3(12-a^2)\,b+3(5a^2+24a-144),
+\]
+which equals $-3(t-3)(3t^2+4t-48)$ of \eqref{eq:ppt3-minors} at $a=t$, $b=3t$. It vanishes at
+$b=(5a^2+24a-144)/(a^2-12)$, and this equals $8(9-a)/5$ modulo $8a^2-15a-36=0$, since
+$5(5a^2+24a-144)-8(9-a)(a^2-12)=8a^3-47a^2+24a+144$ is divisible by $8a^2-15a-36$
+(the quotient is $a-4$ and the remainder is $0$).
+Hence at $b=8(9-a)/5$ the odd block is positive semidefinite of rank three as well. Thus each partial transpose of $\sigma_6$ has
+rank six.
+The supported witness has expectation
+\[
+\tr(H_5X_6)
+=\frac{b-12a+29}{4a+b+21}
+=\frac{217-68a}{5(4a+b+21)}<0,
+\]
+because $a>13/4>217/68$. This proves GME by
+Proposition~\ref{prop:ppt3-witness}.
+For extremality, $\sigma_6$ is extreme in the set of fully-PPT states exactly when the only Hermitian $D$ with range in $\operatorname{ran}\sigma_6$
+and $D^{T_c}k=0$ for every kernel vector $k$ of $\sigma_6^{T_c}$, at each cut $c$, is a multiple of $\sigma_6$ (the supported-face
+criterion of~\cite{GIM}). Write $D=BX_DB\dg$ with $X_D$ Hermitian. The conditions
+$D^{T_c}k=0$ are a real-linear system on the $25$-dimensional real space of such $X_D$. To compute its rank exactly, complexify:
+let $X_D$ range over all complex $5\times5$ matrices (25 complex unknowns) and impose both $D^{T_c}k=0$ and $k\dg D^{T_c}=0$ for the
+kernel vectors $k$, at each cut. The two sets are adjoint to each other for Hermitian $D$, so the solution space is closed under
+$X_D\mapsto X_D\dg$, and is the complexification of the real solution space on Hermitian $X_D$ (split $X_D$ into its
+Hermitian and anti-Hermitian parts). Real nullity therefore equals complex nullity. The complexified system has rank $24$ over
+$\mathbb Q(\sqrt{17},i\sqrt3)$, which contains the entries of $\sigma_6$ and of the kernel vectors, so its nullspace, and hence the
+real nullspace, is exactly the scalar direction of \eqref{eq:ppt3-sigma6}.
+\end{proof}

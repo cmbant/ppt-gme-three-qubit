@@ -1,0 +1,8 @@
+Corollary 4b: exact fully-PPT GME three-qubit state, rank 5, all partial transposes of rank 5
+family: PASS symbolic in (m,n,a): det(even PT block)=0 and two kernel vectors of the odd PT block
+state: PASS exact PSD rank 5, cyclic and parity invariant; PT ranks [5, 5, 5] (cut A: even block 3, odd block 2)
+GME: PASS level-two DPS dual certificate valid; tr(Y sigma) = -0.0040766298 < 0 (rational); white-noise tolerance p < 0.0040601 (exactly g > 407/100000, tr Y/8 = 1, g/(g+1) > 407/100407 > 81/20000)
+extremality: PASS exact rank 24 of 25 for the face-direction system; sigma is an extreme fully-PPT state
+control: PASS E -> E+1/1000 leaves the surface; PT profile test returns [None, None, None] (None = not PSD)
+control: PASS surface point a=1/2 is fully PPT of profile (5,5,5,5) but tr(Y sigma) > 0 (no detection)
+ALL PASS

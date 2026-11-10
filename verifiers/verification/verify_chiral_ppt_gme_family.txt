@@ -1,0 +1,6 @@
+CF1 PASS exact symbolic: orthogonal five-component family, cyclic/parity symmetry, all PT minors and exact PPT interval
+CF2 PASS exact symbolic: complete constant-rank cut-product curve, including zero and infinity; cyclic transport covers all cuts
+CF3 PASS exact symbolic: three-square supported witness for every k>=5; k=5 factors into two nonnegative factors and detects the whole PPT interval
+CF4 PASS exact: unique GHZ/product spectral rays and nonreal phase projectors supply the analytic local-chirality proof
+CF5 PASS exact: conditioning determinant >=1/81, explicit global witness penalty 202905, physical radius 1/20000000 and PT margin 1/2000
+CF6 PASS exact algebraic: explicit fully-PPT GME state with profile (5,6,6,6); both-sided face constraints have rank 24, hence extremality

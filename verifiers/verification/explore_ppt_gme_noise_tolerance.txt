@@ -1,0 +1,75 @@
+explore_ppt_gme_noise_tolerance.py -- numerical evidence, NOT a proof
+Numerical evidence: noise tolerance of the three-qubit fully-PPT GME family rho_t
+(family.tex, eq:ppt3-rho).
+
+RELAXATION (outer approximation of the biseparable cone, unnormalised):
+    rho = S_A + S_B + S_C,   S_c >= 0 (8x8), S_c in DPS2_c, where for the cut c (qubit c | other two qubits, 2 x 4):
+    S_c = tr_{A2} Omega,  Omega on A1 (x) A2 (x) B  (2x2x4 = 16 dim; the qubit side is extended ONCE, i.e. two
+    copies of the qubit = level-2 of DPS), with
+      * Omega = P_sym Omega P_sym  (supported on Sym^2(C^2) (x) C^4, 12-dim; Omega = V W V^dagger, W>=0 12x12),
+      * Omega^{T_B} >= 0 (full transpose of the 4-dim side) and Omega^{T_{A2}} >= 0.
+    (Omega^{T_{A1}} >= 0 follows from the symmetry.)  Level-1 relaxation: S_c >= 0, S_c^{T_B} >= 0.
+    Cyclic reduction: rho_t and white / local-depolarising noise are invariant under the cyclic qubit permutation C,
+    and the relaxed set is C-invariant and convex, so WLOG S_B, S_C are C-images of S_A. (Checked against the
+    unreduced 3-cut problem at t=10/3.)  Sanity states that are not cyclic use the full 3-cut problem.
+DISTANCES:  robustness  r(rho) = min{ r>=0 : rho + r I/8 in cone }.  Then (1-p) rho + p I/8 is in the cone iff
+    p <= r/(1+r), so p* = r*/(1+r*) with no bisection.  GME is certified for the relaxed set when r > 0.
+    The local-depolarising threshold q* is found by bisection on q with the test r(rho_q) > RTOL.
+    Trace distance d_T = min (1/2)||rho - sigma||_1 over sigma in cone, tr sigma = 1.
+SOLVER: CLARABEL, single threaded (status "optimal_inaccurate" = Clarabel AlmostSolved, final gap ~1e-8 abs; the
+witness_lower_bound() weak-duality check below gives an independent bound on r).  No random numbers are used.
+
+python 3.13.18  numpy 2.3.5  scipy 1.17.0  cvxpy 1.9.3  
+clarabel 0.11.1
+solver CLARABEL tol_gap_abs=tol_gap_rel=tol_feas=1e-08, max_iter=200; GME threshold RTOL=1e-06; no seed (deterministic)
+t_- = 3.256747  t_+ = 3.388508
+
+[PASS] local_depol: trace preserving, q=1 gives I/8, q=0 identity  
+[PASS] rho_t cyclic invariant & trace 1  
+[PASS] rho_{10/3} is PPT at all 3 cuts (min eig PT)  min eig 7.048e-04
+
+-- (i) level-1 (fully PPT) relaxation on rho_{10/3}
+[PASS] (i) rho_{10/3} feasible in level-1 relaxation (r = 0)  r=0.000e+00 status=optimal
+-- (ii),(iii) sanity states, full (non-cyclic-reduced) 3-cut level-2 problem
+code/explore_ppt_gme_noise_tolerance.py:138: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(**SOLVER_KW)
+[PASS] (ii) product |000> feasible  r=3.990e-08 optimal_inaccurate
+[PASS] (ii) 0.4 GHZ + 0.6 I/8 feasible (known biseparable)  r=0.000e+00 optimal
+[PASS] (iii) GHZ infeasible (GME detected)  r=1.333e+00 optimal_inaccurate
+      GHZ white-noise threshold in the relaxation: p* = 0.57143  (exact GME threshold of GHZ+white noise is 4/7 = 0.57143 by the fidelity witness F>1/2; an outer relaxation can only give p* <= 4/7)
+[PASS] GHZ p* = 4/7 (relaxation is tight for GHZ + white noise)  p*=0.571428
+[PASS] cyclic-reduced problem agrees with full 3-cut problem on GHZ  1.333e+00 vs 1.333e+00
+[PASS] cyclic-reduced = full 3-cut robustness at t=10/3  full 8.885457e-04 (4.9s), cyclic 8.884913e-04 (1.0s)
+      white-noise robustness r(rho_10/3) = 8.884913e-04  p* = 8.877026e-04
+
+-- (iv) trace distance of rho_{10/3} to level-2 relaxed set
+code/explore_ppt_gme_noise_tolerance.py:190: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(**SOLVER_KW)
+      min (1/2)||rho - sigma||_1 = 3.187378e-04   (||.||_1 itself = 6.374757e-04); status optimal_inaccurate; EF127 quotes 3.19e-4
+[PASS] (iv) trace distance within 25% of 3.19e-4 (either half-norm or 1-norm convention)  d_T=3.1874e-04
+      level-1 trace distance (should be ~0): -1.200e-08
+
+== main table ==  (r = white-noise robustness, margin = r itself vs RTOL; q* by bisection on r(rho_q) > RTOL)
+code/explore_ppt_gme_noise_tolerance.py:174: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob, r, con = build(rho, level, cyclic, 'robust'); prob.solve(**SOLVER_KW)
+code/explore_ppt_gme_noise_tolerance.py:167: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(**SOLVER_KW)
+t=3.26175  r=2.8865e-04 p*=2.8857e-04 q*=1.2251e-04 | r(0.98p*)=5.57e-06 r(1.02p*)=0.00e+00 r(q*)=1.06e-06 status=optimal_inaccurate witness-bound r>=2.8872e-04  [48s]
+t=3.30000  r=5.6815e-04 p*=5.6783e-04 q*=2.4184e-04 | r(0.98p*)=1.14e-05 r(1.02p*)=0.00e+00 r(q*)=1.04e-06 status=optimal_inaccurate witness-bound r>=5.6774e-04  [74s]
+t=3.33333  r=8.8849e-04 p*=8.8770e-04 q*=3.7881e-04 | r(0.98p*)=1.79e-05 r(1.02p*)=0.00e+00 r(q*)=1.00e-06 status=optimal_inaccurate witness-bound r>=8.8825e-04  [99s]
+t=3.37000  r=1.3209e-03 p*=1.3191e-03 q*=5.6357e-04 | r(0.98p*)=2.63e-05 r(1.02p*)=0.00e+00 r(q*)=1.08e-06 status=optimal_inaccurate witness-bound r>=1.3204e-03  [122s]
+t=3.38351  r=1.5004e-03 p*=1.4982e-03 q*=6.4056e-04 | r(0.98p*)=3.00e-05 r(1.02p*)=0.00e+00 r(q*)=1.20e-06 status=optimal_inaccurate witness-bound r>=1.5000e-03  [145s]
+
+  t        p* (white)   q* (local depol)   r at t (robustness)
+  3.26175  2.8857e-04   1.2251e-04        2.8865e-04
+  3.30000  5.6783e-04   2.4184e-04        5.6815e-04
+  3.33333  8.8770e-04   3.7881e-04        8.8849e-04
+  3.37000  1.3191e-03   5.6357e-04        1.3209e-03
+  3.38351  1.4982e-03   6.4056e-04        1.5004e-03
+most robust (white noise): t=3.38351; (local depolarising): t=3.38351
+[PASS] all five t values certified GME in the DPS-2 relaxation (r > RTOL)  
+[PASS] direct feasibility brackets p*: r(0.98p*) = 0.02 r(1+..) > RTOL (infeasible) and r(1.02p*) <= RTOL (feasible)  r(0.98p*), r(1.02p*) printed per row
+[PASS] witness lower bound agrees with SDP value to 1% (independent weak-duality check)  see 'witness-bound' per row
+
+SANITY FAILURES: none
+total runtime 145 s

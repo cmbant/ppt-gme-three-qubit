@@ -1,0 +1,8 @@
+prop:ppt3-noise-sharp: explicit biseparable decompositions of white-noise mixtures (orbit representatives)
+rho_star: PASS 3 orbit representatives (4 images each), positive definite B_r; residual X has tr X/8 = 1.763E-7, ||X - cI||_2 = 4.202E-8 <= c (Gurvits-Barnum): (1-p) rho + p I/8 is biseparable for every p >= 4319/1000000
+rho_star: control PASS the same test fails at the certified GME level p = 2153/500000
+rho_10/3: PASS 3 orbit representatives (4 images each), positive definite B_r; residual X has tr X/8 = 2.144E-7, ||X - cI||_2 = 6.153E-8 <= c (Gurvits-Barnum): (1-p) rho + p I/8 is biseparable for every p >= 89/100000
+rho_10/3: control PASS the same test fails at the certified GME level p = 87/100000
+robust_state: PASS 3 orbit representatives (4 images each), positive definite B_r; residual X has tr X/8 = 2.287E-7, ||X - cI||_2 = 5.348E-8 <= c (Gurvits-Barnum): (1-p) rho + p I/8 is biseparable for every p >= 5839/250000
+robust_state: control PASS the same test fails at the certified GME level p = 233/10000
+ALL PASS

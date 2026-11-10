@@ -1,0 +1,178 @@
+\section{\texorpdfstring{Profile $(5,5,5,5)$}{Profile (5,5,5,5)}: local-filter orbits}\label{sec:ppt3-surface}
+
+How little partial-transpose rank can a fully-PPT GME state have? We deform the GHZ-type vector and tune the weights to
+make both partial-transpose parity blocks singular. One of the two remaining parameters is an invertible local filter,
+so a single parameter controls PPT and GME. Appendix~\ref{sec:ppt3-app-surface} gives the proofs.
+
+The first family has partial-transpose ranks seven or eight. A fully-PPT state of rank at most four is
+separable~\cite{KCKL,HLVC,KL,ABLS}, and the same theorem bounds each partial-transpose rank from below: if $\rank\rho^{T_c}\le4$, then $\rho^{T_c}$, and hence $\rho$, is separable across that cut~\cite{KCKL,HLVC,KL}.
+Thus $(5,5,5,5)$ is the smallest possible profile for fully-PPT GME. The construction below attains it, including at
+extreme points of the fully-PPT set.
+
+For real $\alpha>0$, $0<W<\alpha$ and $A>0$ put
+$h=\sqrt{\alpha^2+W^2}$, $\kappa=\alpha^2-W^2$, $s=\alpha/A$ and
+\begin{equation}\label{eq:ppt3-weights}
+O=\frac \kappa W,\qquad E=\frac{\kappa(h+W)^2}{\alpha^2A},\qquad G=\frac{\alpha(E-\alpha s)}W,\qquad
+V=\frac{\alpha^2E^2-2\alpha s\kappa E+(\alpha s)^2\kappa}{W\kappa},
+\end{equation}
+\begin{equation}\label{eq:ppt3-rho-surface}
+\rho(\alpha,W,A)=A\,u_su_s\dg+W\,ww\dg+V\,vv\dg+G\,(wv\dg+vw\dg)+E\,ee\dg+O\,oo\dg,
+\end{equation}
+with $u_s,v,w,e,o$ as in Section~\ref{sec:ppt3-family}. The coefficients are chosen
+to make both partial-transpose blocks singular. Where they come from (at $\alpha=A=1$, so $W=\tau$): the odd block of $\rho^{T_A}$ has positive
+$2\times2$ leading minor $3WO$, so it has rank two only if its $3\times3$ leading minor $3O\,(W(W+O)-1)$ vanishes, which gives $O=\kappa/W$; the last
+row and column must then lie in the span of the others, which gives $G=(E-1)/\tau$ and $V=E^2/O+\tau G^2=(E^2-2\kappa E+\kappa)/(\tau\kappa)$ for every $E$, and
+the remaining parameter $E$ is fixed by making the even block singular. The
+operator is homogeneous of degree one in $(\alpha,W,A)$;
+its essential parameters are $\tau=W/\alpha\in(0,1)$
+and $a=A/\alpha>0$. Write
+$\rho_{\tau,a}=\rho(1,\tau,a)$ and
+$\rho_\tau=\rho_{\tau,1}$, with coefficient matrix $X_\tau$. These symbols denote
+\emph{unnormalised} operators, not the normalised state $\rho_t$ and matrix $X_t$ of Section~\ref{sec:ppt3-family}; division by their trace gives physical density matrices. Positive scaling
+does not change PPT, rank or separability.
+
+\begin{lemma}[a $\tau$-independent supported witness]\label{lem:ppt3-h0}
+\cls{proved analytically; SW-7}
+Let $H_0$ be the Hermitian form on $\mathbb C^5$ in the basis $(u,v,w,e,o)$ with diagonal
+$(-24-8\sqrt3,\ 1,\ 9,\ 12+4\sqrt3,\ 12+12\sqrt3)$ and $(H_0)_{vw}=(H_0)_{wv}=-\nu$, $\nu=7+4\sqrt3$. Put
+$y_1=3+2\sqrt3$, $x_0=2\sqrt3-3$, $p=26+16\sqrt3$, $q=\nu^2$ (so $x_0^2q=y_1^2$), and for $z=x+iy$ let $\xi=x^2$,
+$\zeta=y^2$, $r=\xi+\zeta$. Then, with $q_1$ of \eqref{eq:ppt3-curve},
+\begin{equation}\label{eq:ppt3-h0}
+r\,q_1\dg H_0q_1=\zeta(r-1)^2(r-y_1)^2+\xi(r-x_0)^2(r^2+pr+q)+16\nu\,\xi\zeta r\ \ge0 ,
+\end{equation}
+so $H_0$ is nonnegative on all cut-product rays of $R$, and $\tr(H_0X)\ge0$ whenever $BXB\dg$ is biseparable.
+\end{lemma}
+\emph{Idea of the proof.} At fixed $r=|z|^2$ the form $q_1\dg H_0q_1$ is a quadratic in $\xi=x^2$, so it is fixed by its two axis values
+($z$ imaginary and $z$ real) and its leading coefficient. Each axis value is a perfect square times a manifestly nonnegative factor.
+The computation is in Appendix~\ref{sec:ppt3-app-surface}.
+
+\begin{theorem}[fully-PPT GME states of profile $(5,5,5,5)$]\label{thm:ppt3-orbit}
+\cls{proved analytically; FP-1, SW-4, SW-5, SW-6, SW-7}
+For $1/\sqrt3<\tau<1$ and every $a>0$, the normalised
+$\rho_{\tau,a}$ is fully PPT and GME, with rank profile
+$(5,5,5,5)$. The family has the following structure.
+\begin{enumerate}[label=(\alph*)]
+\item Each operator is cyclically and parity invariant,
+with range contained in $R_{1/a}$, and its partial
+transposes have rank at most five. In the stated interval
+the range equals $R_{1/a}$.
+\item For $F_\lambda=\operatorname{diag}(1,\lambda)^{\otimes3}$,
+\[
+\rho(\alpha,W,a\alpha)
+=aF_\lambda\,\rho(\alpha,W,\alpha)F_\lambda^\dagger,
+\qquad \lambda^2=a^{-1}.
+\]
+Thus varying $a$ is an invertible local filter;
+PPT and GME depend only on $\tau$.
+\item The window is sharp within this ansatz:
+$\rho_{\tau,a}$ is not positive for $0<\tau<1/\sqrt3$.
+At $\tau=1/\sqrt3$ it has rank four and is separable
+across every cut. As $\tau\uparrow1$ its normalisation
+tends to a fully separable state
+(Remark~\ref{rem:ppt3-endpoint}).
+\end{enumerate}
+The GME proof uses the fixed supported witness $H_0$
+of Lemma~\ref{lem:ppt3-h0} when $1/\sqrt3<\tau\le3/4$, and
+$H_5$ from Proposition~\ref{prop:ppt3-witness}
+when $3/4\le\tau<1$; the case $a\ne1$ follows because the local filter of (b)
+preserves biseparability, full PPT and ranks.
+\end{theorem}
+
+\emph{Idea of the proof.} Homogeneity and the local filter reduce the problem to $\alpha=A=1$. With
+$Q=\tau+\sqrt{1+\tau^2}$, the odd parity block of $\rho_\tau^{T_A}$ has an explicit Gram factorisation of rank two, and the even block
+has vanishing determinant and a third leading minor that changes sign at $\tau=1/\sqrt3$. Together with positivity of
+$\rho_\tau$, these give the sharp window and ranks; cyclic symmetry covers the other cuts. The two witnesses cover
+the window by one-variable sign checks.
+
+\begin{corollary}[an explicit extreme state with rational weights and profile $(5,5,5,5)$]\label{cor:ppt3-extreme5}
+\cls{exact-rational certificate, computer-assisted; the witness proof of genuine entanglement is exact-symbolic; extremality on the whole surface is an exact-symbolic certificate; FP-2, FP-3, FP-4, FP-5, SW-3, DS-6, SB-2}
+Let $\tilde u=2\ket{000}-\ket{011}-\ket{101}-\ket{110}$, let $v,w,e,o$ be as in \eqref{eq:ppt3-vectors}, and
+\begin{multline}\label{eq:ppt3-sigma5}
+N=825000\,\tilde u\tilde u\dg+1440000\,ww\dg+2021184\,vv\dg\\
++145200\,(wv\dg+vw\dg)+951720\,ee\dg+450625\,oo\dg,
+\qquad\sigma=\frac N{16323219}.
+\end{multline}
+Then $\sigma$ has rank five and is invariant under cyclic permutations and global parity; $N=30000\,\rho(55,48,110)$ is
+the member $(\alpha,W,A)=(55,48,110)$ of Theorem~\ref{thm:ppt3-orbit}, the Pythagorean choice $(m,n,a)=(8,3,2)$ with
+$\alpha=m^2-n^2$, $W=2mn$ and $A=a\alpha$.
+Here $\tau=48/55$ and $s=1/2$; all six coefficients
+in \eqref{eq:ppt3-rho-surface} are rational.
+The projector coefficients are rational, but the matrix entries of $\sigma$ in the computational basis
+belong to $\mathbb Q(\omega)$, since $e$ and $o$ contain cube-root phases.
+All three partial transposes of $\sigma$ are positive semidefinite of rank five (at $A|BC$ the even and odd
+blocks have ranks $3$ and $2$). The state $\sigma$ is an extreme point of the set of fully-PPT three-qubit states
+and is GME, and $(1-p)\sigma+pI/8$ is GME for every $p<4.05\times10^{-3}$ (the certificate is in Appendix~\ref{sec:ppt3-app-surface}, using
+the witness of Corollary~\ref{cor:ppt3-noise-reused}). More generally, \emph{every} normalised $\rho_{\tau,a}$ of Theorem~\ref{thm:ppt3-orbit}
+($1/\sqrt3<\tau<1$, $a>0$) is an extreme point of the set of fully-PPT three-qubit states.
+\end{corollary}
+
+\emph{Idea of the proof.} Theorem~\ref{thm:ppt3-orbit} gives positivity and ranks, and $H_{1/2}$ detects GME directly.
+The noise bound uses the level-two witness $Y_*$ of Corollary~\ref{cor:ppt3-noise-reused}. For extremality, the cyclic, parity and
+reflection symmetries split the rank-$24$ face-direction calculation into blocks whose minors are explicit polynomials in
+$Q=\tau+\sqrt{1+\tau^2}$ with no root in the window (Appendix~\ref{sec:ppt3-app-surface}).
+
+\begin{proposition}[the profile-$(5,5,5,5)$ states are not isolated]\label{prop:ppt3-moduli}
+\cls{exact-symbolic certificate, computer-assisted; the smoothness and openness steps are proved from the exact ranks; MO-1--MO-4, SB-3, SB-4}
+Near every state $\rho$ of Theorem~\ref{thm:ppt3-orbit} (in particular near $\sigma$ of Corollary~\ref{cor:ppt3-extreme5}), the fully-PPT three-qubit states of rank profile $(5,5,5,5)$ form
+a smooth real manifold $\mathcal M$ of dimension $27$, and every state of $\mathcal M$ near $\rho$ is GME and an extreme
+point of the set of fully-PPT states. Invertible local filters ($\rho\mapsto F\rho F\dg/\tr(F\rho F\dg)$,
+$F=F_1\otimes F_2\otimes F_3$) act on $\mathcal M$ with orbits of dimension $18$, so $\mathcal M$ has nine local
+moduli. The construction of Theorem~\ref{thm:ppt3-orbit} is only a two-parameter
+cyclic-symmetric family (one parameter modulo filtering), not a classification.
+\end{proposition}
+
+\emph{Idea of the proof.} Rank-five states have $54$ real parameters. Each rank-five partial transpose imposes
+$(8-5)^2=9$ smooth equations; the symmetry blocks of their differentials have explicit minors in $Q$ that do not vanish on the window, so they are
+independent at every state of the surface. The implicit function theorem gives dimension $27$, and local filters remove
+$18$ parameters (the stabiliser of the support is finite, Corollary~\ref{cor:ppt3-chirality}). GME and extremality persist nearby
+(Appendix~\ref{sec:ppt3-app-surface}).
+
+\begin{remark}[the two endpoints; two witnesses are needed]\label{rem:ppt3-endpoint}
+\cls{proved; endpoints and uniqueness checked symbolically in SW-7, SW-8}
+At $\tau=1/\sqrt3$ ($Q=\sqrt3$) the operator $\rho_\tau$ is a limit of fully-PPT states, hence positive semidefinite with all three
+partial transposes positive semidefinite, and it has rank four, so it is separable across each cut by the $2\times4$
+low-rank theorem~\cite{KCKL,HLVC}. Explicitly, at $a=1$ its coefficient matrix
+$X_{1/\sqrt3}=\operatorname{diag}(1,3\sqrt3,\sqrt3/3,2,2\sqrt3/3)+\sqrt3\,(E_{vw}+E_{wv})$ is a positive combination of four
+$A|BC$-product rays, at the zeros $z=\pm i\sqrt{y_1},\pm\sqrt{x_0}$ of $q_1(z)\dg H_0q_1(z)$ in~\eqref{eq:ppt3-h0}:
+\begin{equation}\label{eq:ppt3-lower-endpoint}
+ X_{1/\sqrt3}
+  =\frac{3\sqrt3-5}{48}\sum_{\pm}q_1\bigl(\pm i\sqrt{y_1}\bigr)q_1\bigl(\pm i\sqrt{y_1}\bigr)\dg
+  +\frac{3\sqrt3+5}{48}\sum_{\pm}q_1\bigl(\pm\sqrt{x_0}\bigr)q_1\bigl(\pm\sqrt{x_0}\bigr)\dg ,
+\end{equation}
+with weights $(3\sqrt3\mp5)/48>0$. Cyclic permutation gives the decompositions across $B|CA$ and $C|AB$, and the local filter in
+Theorem~\ref{thm:ppt3-orbit}(b) carries them to every $a>0$.
+It is not fully separable. Writing the product vectors of Proposition~\ref{prop:ppt3-witness}(a) as
+$B_sq_s(z)=(\ket0+z\ket1)\otimes\phi_s(z)$, the $BC$ coefficient matrix of $\phi_s(z)$ has determinant
+$-3(z^2+s)^2$, so the only fully product rays in $R_s$ are $\ket{111}$ and $(\ket0\pm i\sqrt s\ket1)^{\otimes3}$.
+A fully separable state with range in $R_{1/a}$ therefore has rank at most three, while $\rho_{1/\sqrt3,a}$ has rank four.
+
+At the upper endpoint, for every fixed $a>0$ the limit is fully separable and has rank profile $(2,2,2,2)$.
+Indeed the weights satisfy $(O,E,G,V)\to(0,0,-1/a,1/a^2)$ as $\tau\uparrow1$, giving
+\[
+ \rho_{1,a}:=\lim_{\tau\uparrow1}\rho_{\tau,a}
+    =a\,u_{1/a}u_{1/a}\dg+(w-a^{-1}v)(w-a^{-1}v)\dg.
+\]
+Put $\ket{\eta_\pm(a)}=(\sqrt a\ket0\pm i\ket1)/\sqrt{a+1}$. Expanding the product vectors gives
+\begin{equation}\label{eq:ppt3-upper-endpoint}
+ \frac{\rho_{1,a}}{\tr \rho_{1,a}}
+   =\frac12\left[
+     (\ket{\eta_+(a)}\bra{\eta_+(a)})^{\otimes3}
+    +(\ket{\eta_-(a)}\bra{\eta_-(a)})^{\otimes3}\right],
+ \qquad \tr \rho_{1,a}=\frac{(a+1)^3}{a^2}.
+\end{equation}
+The two local rays are distinct for every finite $a>0$, and remain distinct after conjugating any subset of
+factors. Thus both the state and its three partial transposes have rank exactly two. The GME interval therefore
+terminates at states separable across every cut at both ends; only the upper endpoint is fully separable.
+
+Together, \eqref{eq:ppt3-lower-endpoint} and~\eqref{eq:ppt3-upper-endpoint} explain the origin of $H_0$ and show that no
+single witness detects $\rho_\tau$ on the whole window $1/\sqrt3<\tau<1$, so two witnesses are needed. Only the compression of a
+witness to $R$ matters, and it is a form $H$ on $\mathbb C^5$ nonnegative on the cut-product rays of $R$. If $\tr(HX_\tau)<0$
+on the whole window, continuity gives $\tr(HX_{1/\sqrt3})\le0$ and $\tr(HX_1)\le0$, where $X_1$ is the coefficient matrix of
+$\rho_{1,1}$. Both endpoint matrices are positive
+combinations of cut-product rays, so $q_1(z)\dg Hq_1(z)$ vanishes, and being nonnegative has a double zero, at
+$z=\pm i\sqrt{y_1},\pm\sqrt{x_0}$ and at $z=\pm i$. The cyclic, parity and $K\circ S_{BC}$ symmetries fix every $X_\tau$ and
+permute the cut-product rays, so the average $\bar H$ of $H$ over them has the same properties. These double zeros determine
+$\bar H$ up to a nonnegative multiple of $H_0$ (Appendix~\ref{sec:ppt3-app-surface}). But $\tr(H_0X_\tau)$ changes sign at
+$\tau\approx0.805$, the root of $P(Q)$ (for instance $\tr(H_0X_{48/55})>0$), a contradiction.
+\end{remark}
+

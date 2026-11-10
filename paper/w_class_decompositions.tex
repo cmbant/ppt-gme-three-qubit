@@ -1,0 +1,128 @@
+\section{The states are in the mixed \texorpdfstring{$W$}{W} class}\label{sec:ppt3-w-class}
+
+Pure three-qubit GME states fall into two inequivalent classes under stochastic local operations, represented by the GHZ
+and $W$ states~\cite{DVC}; the GHZ class is distinguished by a nonzero three-tangle~\cite{CKW}, the modulus of Cayley's
+hyperdeterminant $\operatorname{Det}$ (up to a factor four). Ac\'in et al.\ extended this to mixed states and conjectured that PPT entangled three-qubit states
+lie in the mixed $W$ class~\cite{ABLS}. Our states contain the GHZ-type vector $u$ in their spectral decomposition, but
+this does not make them GHZ-class: other decompositions can avoid GHZ-type components altogether, and we construct them.
+Write $\mathcal W$ for the convex hull of pure three-qubit states with vanishing Cayley hyperdeterminant,
+including biseparable states. This is the mixed $W$ class of~\cite{ABLS}; its pure generators have zero three-tangle.
+An invertible local filter preserves this class, since the hyperdeterminant transforms by the squared product
+of the local determinants. Convex mixing and local quantum channels also preserve $\mathcal W$.
+
+\begin{theorem}[the constructed fully-PPT states belong to the mixed $W$ class]\label{thm:ppt3-w-class}
+\cls{proved analytically; WC-1--WC-4}
+Every normalised state $\rho_t$ of Theorem~\ref{thm:ppt3-family} in its PPT interval, the extreme state
+$\sigma_6$ of Corollary~\ref{cor:ppt3-extreme6}, every normalised $\rho_{\tau,a}$ of
+Theorem~\ref{thm:ppt3-orbit} ($1/\sqrt3<\tau<1$, $a>0$), the phase-coexistence line $\sigma(t)$ of
+Proposition~\ref{prop:ppt3-exposed-transition} ($-1/200\le t\le1$), and the full-rank state $\tilde\rho$ of
+Corollary~\ref{cor:ppt3-robust} belong to $\mathcal W$. So do their local-filter images and their mixtures
+with fully separable noise. In their GME ranges these states lie in $\mathcal W\setminus\mathrm{BS}$.
+\end{theorem}
+
+\begin{proof}
+All vectors below are unnormalised. Put $[x]=xx\dg$ and let $\mathcal C$ average the three cyclic permutations,
+while $\mathcal P(X)=(X+Z^{\otimes3}XZ^{\otimes3})/2$ averages parity. These maps preserve $\mathcal W$.
+On either parity subspace only four computational basis states occur, and Cayley's hyperdeterminant reduces to
+\[
+ \operatorname{Det}\Bigl(\sum_{\text{even}}c_{ijk}\ket{ijk}\Bigr)=4c_{000}c_{011}c_{101}c_{110},\qquad
+ \operatorname{Det}\Bigl(\sum_{\text{odd}}c_{ijk}\ket{ijk}\Bigr)=4c_{111}c_{100}c_{010}c_{001}.
+\]
+So a vector of definite parity with one vanishing amplitude has zero hyperdeterminant. This applies to
+$v,w,e,\bar e,o,\bar o$; to the even vectors $u_s+xe+y\bar e$, where $u_s=\ket{000}-s(\ket{011}+\ket{101}+\ket{110})$ and
+$x,y$ are real with $x+y=s$ (the amplitude of $\ket{011}$ is $-s+x+y=0$); and to the odd vectors $v+b(w-o)$, $b\in\mathbb C$
+(the amplitude of $\ket{100}$ vanishes). For vectors mixing the two parities, direct substitution gives
+\[
+ \operatorname{Det}(u+ze)=4(z^3-1),\qquad
+ \operatorname{Det}(u+zv)=z^2-4,\qquad
+ \operatorname{Det}\bigl(xe+i(v-\beta w+\gamma o)\bigr)=4(\gamma^3-\beta^3+3\beta\gamma x^2),
+\]
+so for real $0<\gamma\le\beta$ the last vector has zero hyperdeterminant when $x^2=(\beta^3-\gamma^3)/(3\beta\gamma)$.
+Also $u+i(w-v)=(\ket0+i\ket1)^{\otimes3}$ is a product vector. Hence the following operators lie in the cone over $\mathcal W$:
+\begin{equation}\label{eq:ppt3-w-atoms}
+\begin{aligned}
+ \mathcal C([u_s+xe+y\bar e])&=[u_s]+x^2[e]+y^2[\bar e]\quad(x,y\in\mathbb R,\ x+y=s),\\
+ \mathcal C([v+b(w-o)])&=[v+bw]+|b|^2[o]\quad(b\in\mathbb C),\\
+ \mathcal P([u+2v])&=[u]+4[v],\qquad \mathcal P([u+i(w-v)])=[u]+[w-v],\\
+ \mathcal C\bigl(\mathcal P([xe+i(v-\beta w+\gamma o)])\bigr)&=[v-\beta w]+\gamma^2[o]+\frac{\beta^3-\gamma^3}{3\beta\gamma}[e]
+ \quad(0<\gamma\le\beta).
+\end{aligned}
+\end{equation}
+For $s=1$, $x=1$, $y=0$ the first is $\mathcal C([u+e])=[u]+[e]$.
+
+First consider a positive diagonal coefficient matrix
+$A[u]+V[v]+W[w]+E[e]+O[o]$, with all five weights nonnegative.
+If $A\le E+V/4$, put $r=\min(A,E)$ and $q=A-r$. It equals
+\[
+ r\,\mathcal C([u+e])+q\,\mathcal P([u+2v])
+ +(E-r)[e]+(V-4q)[v]+W[w]+O[o],
+\]
+with nonnegative coefficients. The first family satisfies $A=t$, $V=3t$, $E=3$ and $t\le t_+<4$,
+so $t\le3+3t/4$. For $\sigma_6$, $A=t_-<4$, $E=3$ and $V=8(9-t_-)/5>8$, which also suffice.
+
+For the surface, the filter law in Theorem~\ref{thm:ppt3-orbit}(b) reduces the problem to $a=1$.
+Use the notation of Appendix~\ref{sec:ppt3-app-surface}:
+\[
+ \kappa=1-\tau^2,\quad Q=\tau+\sqrt{1+\tau^2},\quad
+ W=\tau,\quad E=\kappa Q^2,\quad O=\kappa/\tau,\quad G=(E-1)/\tau.
+\]
+and $V=(E^2-2\kappa E+\kappa)/(\tau\kappa)$. The coefficient block on $(v,w)$ is positive semidefinite, since the operator
+is, so $V>0$ and $WV-G^2\ge0$.
+Its other useful identity is
+\begin{equation}\label{eq:ppt3-w-budget}
+ OV-G^2=2E-1.
+\end{equation}
+If $E\ge1$, put $b=G/V$. Then the surface operator is
+\[
+ \mathcal C([u+e])+V\mathcal C([v+b(w-o)])
+ +(W-G^2/V)[w]+(E-1)[e]+(O-G^2/V)[o].
+\]
+All coefficients are nonnegative, the last by~\eqref{eq:ppt3-w-budget}.
+
+If $E<1$, put $\mu=(1-E)/\tau=-G$. Since $Q\ge1$ and $0<\tau<1$, $E=\kappa Q^2\ge\kappa=1-\tau^2\ge1-\tau$, so $0<\mu\le1$ and
+\[
+ W-\mu=\frac{E-\kappa}{\tau}\ge0,\quad
+ V-\mu=\frac{E(E-\kappa)}{\tau\kappa}\ge0,\quad
+ E-1+\mu=(1-E)(\tau^{-1}-1)\ge0.
+\]
+Now the surface operator is
+\[
+ \mu\,\mathcal P([u+i(w-v)])+(1-\mu)\mathcal C([u+e])
+ +(W-\mu)[w]+(V-\mu)[v]+(E-1+\mu)[e]+O[o].
+\]
+This again is a positive sum of zero-three-tangle projectors.
+
+On the phase-coexistence line $\sigma(t)=(1-t)\sigma_\partial+t\sigma_{\rm BS}$ of
+Proposition~\ref{prop:ppt3-exposed-transition}, $\sigma(t)$ is biseparable, hence in $\mathcal W$, for $0\le t\le1$. By
+convexity it remains to treat $t=-1/200$. There the coefficient matrix $(1-t)X_\partial+tX_{\rm BS}$ of
+\eqref{eq:ppt3-xdelta} and~\eqref{eq:ppt3-bs-same-support} has diagonal $(A,V,W,E,O)$ and $(v,w)$ entry $-\mu$ with
+$\mu=10930399/348000000>0$. Subtracting $\mu\,\mathcal P([u+i(w-v)])$ leaves the positive diagonal matrix with weights
+$(A-\mu,V-\mu,W-\mu,E,O)$, and $A-\mu-E=7/31250\le(V-\mu)/4$, so the diagonal case above applies.
+
+Finally, write the full-rank state $\tilde\rho$ of Corollary~\ref{cor:ppt3-robust}, displayed in~\eqref{eq:ppt3-tilde-rho},
+as
+\[
+ 10^7\tilde\rho=c_0[g]+c_1(gh\dg+hg\dg)+c_2[h]+c_e[e]+c_{\bar e}[\bar e]+c_v[v]+c_{vw}(vw\dg+wv\dg)+c_w[w]+c_o[o]+c_{\bar o}[\bar o],
+\]
+with $g=\ket{000}$, $h=\ket{011}+\ket{101}+\ket{110}$ and integer coefficients. The $2\times2$ blocks on $(g,h)$ and
+$(v,w)$ have positive determinants $c_0c_2-c_1^2=382\,804\,344$ and $c_vc_w-c_{vw}^2=257\,058\,514$. With
+$s=-c_1/c_0=232675/238898\in(0,1)$ and $\beta=-c_{vw}/c_v=520181/390647\in(1,4/3)$, completing the square writes them as
+$c_0[u_s]+(c_2-c_0s^2)[h]$ and $c_v[v-\beta w]+(c_w-c_v\beta^2)[w]$, both remainders positive. Take $(x,y)=(\tfrac59s,\tfrac49s)$
+in the first atom of~\eqref{eq:ppt3-w-atoms}, and $\gamma=1$, $x'^2=(\beta^3-1)/(3\beta)<37/108$ in the last. Then
+\begin{multline*}
+ 10^7\tilde\rho=c_0\,\mathcal C([u_s+xe+y\bar e])+c_v\,\mathcal C\bigl(\mathcal P([x'e+i(v-\beta w+o)])\bigr)\\
+ +(c_2-c_0s^2)[h]+r_e[e]+r_{\bar e}[\bar e]+(c_w-c_v\beta^2)[w]+(c_o-c_v)[o]+c_{\bar o}[\bar o],
+\end{multline*}
+where $r_{\bar e}=c_{\bar e}-c_0y^2>c_{\bar e}-\tfrac{16}{81}c_0>0$, $r_e=c_e-c_0x^2-c_vx'^2>c_e-\tfrac{25}{81}c_0-\tfrac{37}{108}c_v>0$
+and $c_o-c_v=165\,771>0$.
+Dividing by the trace converts every displayed conic decomposition to a convex decomposition of normalised states.
+\end{proof}
+
+\begin{remark}[scope of the classification]\label{rem:ppt3-w-class-scope}
+This settles the mixed-$W$-class question for every explicit state constructed in this paper. It also gives fully-PPT GME
+states in $\mathcal W$ with nonempty interior: states separable across $A|BC$ lie in $\mathcal W$ and contain a ball around
+$I/8$~\cite{GB}, so for $0<p\le2\times10^{-5}$ the mixtures $(1-p)\tilde\rho+p\sigma$ with $\sigma$ in that ball form a ball
+in $\mathcal W$, all within trace distance $p$ of $\tilde\rho$ and hence fully PPT and GME by Corollary~\ref{cor:ppt3-robust}.
+It does not settle the conjecture of~\cite{ABLS} for arbitrary fully-PPT three-qubit states. Nor does a zero-three-tangle
+decomposition imply biseparability: these states are GME in their stated ranges.
+\end{remark}

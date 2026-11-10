@@ -1,0 +1,8 @@
+cor:ppt3-noise-reused: reuse the surface witness Y on the surface state rho(312,266,603)
+state: PASS exact PSD rank 5, every partial transpose PSD of rank 5 (tau=133/156, a=201/104)
+witness: PASS Y_* Hermitian and cyclic; level-two certificate (144-coefficient identity, Z1, Z2, P > 0)
+white: PASS tr(Y rho_*) = -0.00433104500643 < -173/40000; p=2153/500000 detected; p=432/100000 not (control)
+local: PASS uniform depolarisation q=81/50000 detected (smaller q_j by the semigroup argument); q=82/50000 not (control)
+ball: PASS -I/4 < Y < 31I/10; GME-only radius 129/100000 around rho_*; radius 331/1000000 around rho_o detected and fully PPT (kappa < 169/140); 34/100000 (GME) and 332/1000000 (PPT) not (controls)
+table: PASS PPT radii 1.01e-4, 5.7e-4, 2.0e-4 (family) and 2.0e-5 (full-rank state) satisfy kappa*r < c
+ALL PASS

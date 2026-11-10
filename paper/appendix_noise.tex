@@ -1,0 +1,140 @@
+\section{Computations for the noise certificates}\label{sec:ppt3-app-noise}
+
+This appendix contains the proofs of the statements of Section~\ref{sec:ppt3-noise} that are not given there. The rational certificate data
+themselves are ancillary (Appendix~\ref{sec:ppt3-verifiers}).
+
+\begin{proof}[Proof of Lemma~\ref{lem:ppt3-dps}]
+For $x=a\otimes b$ write $a\otimes a\otimes b=Vc$. Partial transposition of the product projector gives
+\[
+\|a\|^2\langle x|Y|x\rangle=c\dg Pc+\langle a a\bar b|Z_1|a a\bar b\rangle+\langle a\bar a b|Z_2|a\bar a b\rangle\ \ge0 .
+\]
+One certificate per orbit of cuts under the symmetries of $Y$ suffices, and cyclic invariance covers all cuts on
+three qubits; thus $Y$ is nonnegative on every pure state that is a product across some cut, hence on the convex hull
+$\mathrm{BS}$. The noise threshold is the condition $-(1-p)g+ph<0$. The second bound follows from
+$|\tr(Y(\sigma-\rho))|\le(u-l)D(\sigma,\rho)$ for $\sigma\in\mathrm{BS}$. For the last assertion, fix a cut and a unit vector
+$\phi$, and set $A_\phi=(|\phi\rangle\langle\phi|)^{T_c}$.
+If $\lambda_1\ge\lambda_2\ge\cdots$ are the squared
+Schmidt coefficients of $\phi$ at that cut (padded by zeros if necessary), the spectrum
+of $A_\phi$ consists of $\lambda_i$,
+$\pm\sqrt{\lambda_i\lambda_j}$ for $i<j$, and zeros.
+Since $\lambda_2\le1-\lambda_1$, its spectral width is bounded by
+\[
+\lambda_{\max}(A_\phi)-\lambda_{\min}(A_\phi)
+=\lambda_1+\sqrt{\lambda_1\lambda_2}
+\le\max_{0\le x\le1}\left[x+\sqrt{x(1-x)}\right]
+=\frac{1+\sqrt2}{2}.
+\]
+For $\Delta=\sigma-\rho$ with $\tr\Delta=0$ and
+$D(\rho,\sigma)=r$, the positive and negative parts
+of $\Delta$ each have trace $r$. Consequently
+$|\tr(A_\phi\Delta)|$ is at most $r$ times the
+spectral width of $A_\phi$. Since $\phi$ is arbitrary,
+\[
+ \langle\phi|\sigma^{T_c}|\phi\rangle
+ \ge c-\frac{1+\sqrt2}{2}\,r>0.
+\]
+The same reasoning applies to every cut.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:ppt3-noise}]
+Apply Lemma~\ref{lem:ppt3-dps}. The exact verification checks $Z_1,Z_2,P\succ0$, cyclic symmetry, all $144$
+coefficients of the product-vector identity, outward spectral bounds and every number in the table. For local noise a
+check at the single rate $q_0$ suffices: $\mathcal D_{q_0}$ on all sites is obtained from any rates $q_j\le q_0$ by further
+local depolarisation of rates $(q_0-q_j)/(1-q_j)$, which preserves $\mathrm{BS}$, so a GME output at $q_0$ forces a GME
+input. For uniformity in $t$, the numerator of $\rho_t$ is affine in $t$, so $7(t+3)\tr(Y\rho_t)$ is affine in $t$, and so are
+$7(t+3)\bigl[(1-p)\tr(Y\rho_t)+ph\bigr]$ and $7(t+3)\bigl[\tr(Y\rho_t)+r(u-l)\bigr]$ for the fixed $Y$, with $h=\tr Y/8$,
+$\operatorname{spec}Y\subset[l,u]$ and fixed $p$ and ball radius $r$. An affine function that is negative at both endpoints of the
+rational bracket $[3.2567,3.3886]$, which contains \eqref{eq:ppt3-interval}, is negative throughout it, and $7(t+3)>0$. By
+Lemma~\ref{lem:ppt3-dps} (the noise threshold $-(1-p)g+ph<0$ and the distance bound $D(\rho,\mathrm{BS})\ge g/(u-l)$), the two
+endpoint checks therefore certify the stated interval-wide white-noise and GME-ball bounds.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:ppt3-noise-reused}]
+Write $Y=Y_*$ for the cyclic rational witness of the
+certificate data. Its exact level-two certificate proves $\tr(Y\sigma)\ge0$ on
+all biseparable states. The Pythagorean identity
+$312^2+266^2=410^2$ makes the coefficients of
+$\rho_*$ rational. The exact certificate evaluation gives
+\[
+  g:=-\tr(Y\rho_*)>\frac{173}{40000},\qquad
+  h:=\frac{\tr Y}{8}=1,\qquad
+  -\frac14 I\prec Y\prec\frac{31}{10}I .
+\]
+Thus the spectral width of $Y$ is less than $67/20$.
+These inequalities give the white-noise and trace-distance bounds.
+
+For (i), at $p=2153/500000$,
+\[
+ (1-p)\frac{173}{40000}-p
+ =\frac{7531}{20000000000}>0,
+\]
+so $\tr[Y((1-p)\rho_*+pI/8)]<0$. The inequality
+also holds for smaller $p$. Part (ii) is the
+exact local-noise check at $q=81/50000$:
+all smaller, unequal local rates can be followed by
+additional local depolarisation to reach the checked
+uniform output. Local channels preserve biseparability,
+and these channels preserve full PPT.
+
+For (iii), let $p_0=32/10000$ and $r_0=331/1000000$.
+The witness margin remains strictly negative throughout
+the trace-distance ball because
+\[
+ (1-p_0)\frac{173}{40000}-p_0
+           -\frac{67}{20}r_0
+  =\frac{231}{100000000}>0.
+\]
+Since $\rho_*^{T_c}\succeq0$, mixing with white
+noise also gives $\rho_\circ^{T_c}\succeq p_0I/8$.
+The PPT stability estimate in
+Lemma~\ref{lem:ppt3-dps} applies because
+\[
+ \frac{p_0}{8}-\frac{1+\sqrt2}{2}r_0
+ =\frac{469-331\sqrt2}{2000000}>0.
+\]
+Finally, (iv) follows directly from
+\[
+ \frac{173}{40000}
+ -\frac{67}{20}\frac{129}{100000}
+ =\frac7{2000000}>0.
+\]
+The rational inequalities, including the enclosure
+$\sqrt2<99/70$, are checked exactly from the certified data
+(Appendix~\ref{sec:ppt3-verifiers}).
+\end{proof}
+
+We now give the state $\tilde\rho$ explicitly. With $v,w,e,o$ as in \eqref{eq:ppt3-vectors}, write $\ket g=\ket{000}$ and
+$\ket h=\ket{011}+\ket{101}+\ket{110}$. Then
+\begin{equation}\label{eq:ppt3-tilde-rho}
+\begin{aligned}
+10^7\,\tilde\rho={}&955592\,\ket g\bra g-930700\,(\ket g\bra h+\ket h\bra g)+906857\,\ket h\bra h\\
+&+519407\,\ket e\bra e+208476\,\ket{\bar e}\bra{\bar e}\\
+&+390647\,\ket v\bra v-520181\,(\ket v\bra w+\ket w\bra v)+693325\,\ket w\bra w\\
+&+556418\,\ket o\bra o+104\,\ket{\bar o}\bra{\bar o}.
+\end{aligned}
+\end{equation}
+These ten coefficients are the state's coordinates in the invariant basis of the cyclic, parity and $K\circ S_{BC}$
+symmetries; the witness data of Corollary~\ref{cor:ppt3-robust} are ancillary.
+
+\begin{proof}[Proof of Corollary~\ref{cor:ppt3-robust}]
+Lemma~\ref{lem:ppt3-dps} applies. The exact verification checks trace one, full rank, cyclic and parity invariance, all
+three partial-transpose eigenvalue lower bounds, and the witness and tolerance inequalities. The PPT-only ball radii here
+and in the table of Corollary~\ref{cor:ppt3-noise} follow from those eigenvalue bounds and the stability estimate of
+Lemma~\ref{lem:ppt3-dps}; their rational comparisons are checked against the same constants.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:ppt3-noise-sharp}]
+The lower bounds are Corollaries~\ref{cor:ppt3-noise-reused}, \ref{cor:ppt3-noise} and~\ref{cor:ppt3-robust}. For the
+upper bounds, let $\mathcal C(X)=\frac13\sum_{k=0}^2\Pi^kX\Pi^{-k}$ average over the cyclic qubit permutation $\Pi$. The
+certificate data give, for each of the three states, three orbit representatives: a Gaussian-rational qubit vector $a_r$ and a
+positive definite Gaussian-rational $4\times4$ matrix $\Lambda_r$. The states are invariant under global parity $Z^{\otimes3}$ and
+the antiunitary $K\circ S_{BC}$, which preserve the cut $A|BC$; applying them to $|a_r\rangle\langle a_r|\otimes\Lambda_r$ gives at most four terms
+per representative, and $\theta$ is the sum of all of them (at most twelve terms). Thus $\theta=\sum_i|a_i\rangle\langle a_i|\otimes\Lambda_i$ with $\Lambda_i\succ0$
+is separable across $A|BC$.
+At $p$ equal to the stated upper bound, the residual $\Delta=(1-p)\rho+pI/8-\mathcal C(\theta)$ is cyclically invariant and, with $c=\tr\Delta/8>0$,
+satisfies $\|\Delta-cI\|_2\le c$ exactly. By the bipartite Gurvits--Barnum bound~\cite{GB}, this makes $\Delta$
+separable across $A|BC$. Hence
+$(1-p)\rho+pI/8=\mathcal C(\theta+\Delta)$ is an equal mixture of states separable across the three cuts, so it is biseparable at
+$p$ equal to the stated upper bound. For every larger $p'$, $(1-p')\rho+p'I/8$ is a convex mixture of the state at $p$ with the
+separable state $I/8$, hence biseparable too.
+\end{proof}

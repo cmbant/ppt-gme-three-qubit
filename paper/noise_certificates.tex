@@ -1,0 +1,238 @@
+\section{Noise robustness}\label{sec:ppt3-noise}
+
+How much white noise or independent qubit depolarisation can the states tolerate while remaining GME?
+We bound the tolerance from below with exact symmetric-extension witnesses, and from above with explicit biseparable
+decompositions completed by the Gurvits--Barnum separable ball~\cite{GB}. The bounds meet to within a few per cent in
+relative terms. Appendix~\ref{sec:ppt3-app-noise} gives the certificate checks.
+
+The supported witnesses establish GME on a five-dimensional support.
+Mixing in a small amount of white noise yields full-rank, strictly PPT
+states while preserving GME, giving the following general consequence.
+
+\begin{corollary}[positive volume in any finite dimension]\label{cor:ppt3-volume}
+\cls{proved; analytic consequence of Theorem~\ref{thm:ppt3-family}}
+In any finite multipartite system, if a fully-PPT GME state
+exists, such states have non-empty interior (and hence positive
+volume) among density matrices. In particular this holds for
+three qubits. The conclusion is analytic; the certificates below
+provide explicit noise and preparation radii.
+\end{corollary}
+\begin{proof}
+Let $\rho$ be any fully-PPT GME state on a Hilbert space of total
+dimension $d$. The biseparable set $\mathrm{BS}$ is compact, being the
+convex hull of the union of finitely many compact sets of pure
+cut-product states. Since $\rho\notin\mathrm{BS}$, the noisy state
+$\rho_p=(1-p)\rho+pI/d$ remains outside $\mathrm{BS}$ for all
+sufficiently small $p>0$. But $\rho_p\succeq pI/d$ and
+$\rho_p^{T_S}=(1-p)\rho^{T_S}+pI/d\succeq pI/d$ at every cut $S$.
+Thus $\rho_p$ is full rank and strictly PPT, and it is GME.
+Continuity gives an open neighbourhood of $\rho_p$ in the trace-one
+Hermitian affine space consisting entirely of physical fully-PPT GME
+states. Applying this observation to Theorem~\ref{thm:ppt3-family}
+proves the three-qubit claim.
+\end{proof}
+
+Positive volume does not say how large the margins are. Since PPT tests cannot detect these states, certifying an
+explicit margin requires a stronger relaxation of biseparability. We use dual witnesses
+from level two of the Doherty--Parrilo--Spedalieri (DPS) symmetric-extension hierarchy~\cite{DPS02,DPS,DPS05}, the lowest level
+stronger than PPT. Applying it across each cut to relax biseparability was proposed in Appendix~B of~\cite{JMG}.
+Every cut-product vector extends by duplicating its qubit factor; the following certificate exploits this necessary
+condition. Numerical searches supplied candidates, rounded to rational parameters; only exact checks establish the
+bounds (Appendix~\ref{sec:ppt3-verifiers}).
+Here $\mathrm{Sym}^2(A)$ is the subspace invariant under exchanging the two copies of $A$; tensor subscripts specify
+which factors an operator acts on.
+
+\begin{lemma}[certificate and stability principle]\label{lem:ppt3-dps}
+\cls{proved}
+Let $A|B$ be a bipartition into finite-dimensional factors, let $V$ have full column rank with image
+$\mathrm{Sym}^2(A)\otimes B$ inside $A_1\otimes A_2\otimes B$ (the columns need not be normalised), and let $Y$ be
+Hermitian on $A\otimes B$ and $Z_1,Z_2\succeq0$ on $A_1\otimes A_2\otimes B$ with
+\begin{equation}\label{eq:ppt3-cert}
+P=V\dg\bigl(Y_{A_1B}\otimes I_{A_2}-Z_1^{T_B}-Z_2^{T_{A_2}}\bigr)V\succeq0 .
+\end{equation}
+Then $\langle x|Y|x\rangle\ge0$ for every product vector $x=a\otimes b$. Consequently, on three qubits, if $Y$ is invariant
+under cyclic permutations of the qubits and satisfies \eqref{eq:ppt3-cert} for the cut $A|BC$, then
+$\tr(Y\sigma)\ge0$ for every biseparable state $\sigma$. If moreover $\rho$ is a three-qubit state with
+$\tr(Y\rho)=-g<0$, $h=\tr(Y)/8>0$, and $\operatorname{spec}(Y)\subset[l,u]$, then
+\begin{equation}\label{eq:ppt3-stability}
+(1-p)\rho+pI/8\ \text{is GME for }p<\frac g{g+h},\qquad D(\rho,\mathrm{BS})\ge\frac g{u-l}.
+\end{equation}
+Finally, if $\rho^{T_j}\succeq cI$ at every cut $j$, with positive $c$, then every
+physical state $\sigma$ with
+\[
+D(\rho,\sigma)<\frac{2c}{1+\sqrt2}
+\]
+is strictly PPT across every cut. This constant is dimension independent.
+\end{lemma}
+
+\emph{Idea of the proof.} For a product vector $x=a\otimes b$, the certificate writes $\|a\|^2\langle x|Y|x\rangle$ as the sum of a positive
+semidefinite quadratic form (from $P$) and two nonnegative terms (from $Z_1$ and $Z_2$), so $Y$ is nonnegative on every cut-product vector and hence on $\mathrm{BS}$.
+The noise and trace-distance bounds follow from the sign and spectral width of $Y$. The PPT-stability radius uses that the partial transpose of
+a pure state has spectral width at most $(1+\sqrt2)/2$. Details in Appendix~\ref{sec:ppt3-app-noise}.
+
+Local depolarisation means applying $\mathcal D_{q_j}(X)=(1-q_j)X+q_j\tr(X)I/2$ on qubit $j$, with
+\emph{independent rates} $0\le q_j\le q$. White noise means $(1-p)\rho+pI/8$.
+
+\begin{corollary}[noise and preparation radius of the family]\label{cor:ppt3-noise}
+\cls{exact-rational certificate, with proved PPT stability; DS-1, DS-2, DS-3, DS-6}
+The rational, symmetry-reduced cyclic witnesses $Y_t$ of the ancillary certificate data give the following conservative tolerances, where the balls are trace-distance balls
+around $\rho_t$.
+\begin{center}
+\small\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lcccc@{}}\toprule
+$t$ & white noise $p$ & local $q$ per qubit &
+ GME ball & fully-PPT ball\\\midrule
+$327/100$ & $3.3\times10^{-4}$ & $1.4\times10^{-4}$ &
+ $1.0\times10^{-4}$ & $1.01\times10^{-4}$\\
+$10/3$ & $8.7\times10^{-4}$ & $3.7\times10^{-4}$ &
+ $2.7\times10^{-4}$ & $5.7\times10^{-4}$\\
+$169/50$ & $1.4\times10^{-3}$ & $6.1\times10^{-4}$ &
+ $4.4\times10^{-4}$ & $2.0\times10^{-4}$\\\bottomrule
+\end{tabular}
+\end{center}
+Specifically, white noise
+$(1-p)\rho_t+pI/8$ remains GME for $p$ up to the listed
+value, and independent local depolarisation with rates
+$q_j\le q$ does likewise. Every physical state in each
+listed closed GME ball is GME, while states strictly inside
+the PPT radius remain fully PPT. The minimum of the last
+two entries gives a radius with \emph{both} properties;
+for $t=10/3$ it is $2.7\times10^{-4}$; for $t=327/100$
+the whole listed GME ball is also PPT, and at
+$t=169/50$ the simultaneous radius is
+$2.0\times10^{-4}$ (strictly inside the ball).
+In particular $D(\rho_{10/3},\mathrm{BS})>2.7\times10^{-4}$.
+White noise itself preserves PPT automatically.
+
+One fixed dual witness also certifies \emph{uniformly}
+over the exact interval \eqref{eq:ppt3-interval}:
+$p\le2.4\times10^{-4}$ of white noise and a GME ball
+of radius $7.5\times10^{-5}$. This gives a second GME proof, independent of the analytic witness.
+\end{corollary}
+
+\emph{Idea of the proof.} Exact witnesses satisfy Lemma~\ref{lem:ppt3-dps}. Unequal depolarisation rates reduce to one
+uniform rate because further local noise preserves biseparability. Affine dependence on $t$ reduces the uniform
+interval bound to two endpoint checks (Appendix~\ref{sec:ppt3-app-noise}).
+
+\begin{corollary}[noise bounds for the surface state from one exact witness]
+\label{cor:ppt3-noise-reused}
+\cls{exact-symbolic certificate; DS-6}
+Let $\rho_*$ be the trace-one normalisation of the analytic
+surface operator $\rho(312,266,603)$ in
+\eqref{eq:ppt3-rho-surface}; here
+$\tau=133/156$ and $a=201/104$.
+It is fully PPT and GME, with rank profile $(5,5,5,5)$.
+A single exact level-two witness $Y_*$ (optimised numerically for $\rho_*$ under a spectral bound)
+certifies:
+\begin{enumerate}[label=(\roman*)]
+\item The states $(1-p)\rho_*+pI/8$ remain fully PPT
+and GME for $0\le p\le2153/500000$
+(about $0.43\%$ white noise).
+\item Independent local depolarisation preserves both
+properties whenever each rate is at most
+$81/50000$ (about $0.16\%$ per qubit).
+\item Let
+\[
+ \rho_\circ=\left(1-\frac{32}{10000}\right)\rho_*
+                  +\frac{32}{10000}\frac I8 .
+\]
+Every physical state $\sigma$ with
+$D(\sigma,\rho_\circ)<331/1000000$
+is fully PPT and GME. Thus a full-rank state
+has a simultaneous preparation radius of
+$3.31\times10^{-4}$.
+\item Every physical state $\sigma$ with
+$D(\sigma,\rho_*)\le129/100000$
+is GME (a GME-only radius of $1.29\times10^{-3}$).
+\end{enumerate}
+\end{corollary}
+
+\emph{Idea of the proof.} The certified expectation and spectral bounds of $Y_*$ give each margin by
+Lemma~\ref{lem:ppt3-dps}; white noise opens a positive PPT gap for (iii) (Appendix~\ref{sec:ppt3-app-noise}).
+
+\begin{corollary}[a full-rank fully-PPT GME state tolerating $2.3\%$ white noise]\label{cor:ppt3-robust}
+\cls{exact-rational certificate, with proved PPT stability; DS-4, DS-6}
+The three-qubit density matrix $\tilde\rho$ with seven-decimal rational coordinates in the certificate data (entries in $\mathbb Q(\sqrt{-3})$) has
+full rank, is invariant under cyclic permutations of the qubits and under global parity $Z^{\otimes3}$, has every partial
+transpose strictly above $2.49\times10^{-5}$ times the identity, and is GME: its rational level-two witness is
+nonnegative on every cut-product vector and negative on $\tilde\rho$. Certified tolerances: global white noise
+$p\le2.33\times10^{-2}$, independent depolarising noise with every rate at most $1.0\times10^{-2}$, and every state
+within trace distance $7.3\times10^{-3}$ of $\tilde\rho$ is GME. The ball of radius $2.0\times10^{-5}$ is also certified
+fully PPT, by the verified lower bound $2.49\times10^{-5}$ on the partial transposes and Lemma~\ref{lem:ppt3-dps}.
+These are certified lower bounds; Proposition~\ref{prop:ppt3-noise-sharp} gives the matching upper bound for white noise.
+\end{corollary}
+
+\emph{Idea of the proof.} Lemma~\ref{lem:ppt3-dps} applied to the rational data of $\tilde\rho$, with exact checks of full rank, symmetry and the
+partial-transpose eigenvalue bounds. Details in Appendix~\ref{sec:ppt3-app-noise}.
+
+The state $\tilde\rho$ is obtained from the white-noise mixture $(1-\epsilon)\rho_{\rm opt}+\epsilon I/8$, $\epsilon=2.5\times10^{-4}$, of a
+numerically optimised fully-PPT state $\rho_{\rm opt}$ (Remark~\ref{rem:ppt3-robust-structure}) by rounding to rational
+entries; white noise provides strict PPT before rounding. Its GME ball is more than five times the GME-only radius of
+Corollary~\ref{cor:ppt3-noise-reused}(iv). Its exact coordinates are displayed in Appendix~\ref{sec:ppt3-app-noise}.
+
+For arbitrary physical perturbations, the certified GME radius is $7.3\times10^{-3}$ in trace distance, whereas the
+simultaneous PPT radius is only $2.0\times10^{-5}$ because the smallest partial-transpose eigenvalue is small.
+The much larger white-noise tolerance therefore does not guarantee stability under generic preparation errors.
+
+\begin{proposition}[the white-noise thresholds are essentially sharp]\label{prop:ppt3-noise-sharp}
+\cls{exact-rational/algebraic certificate, computer-assisted; DS-7}
+Let $p_{\rm GME}(\rho)=\sup\{p\in[0,1]:(1-p)\rho+pI/8\text{ is GME}\}$, with $p_{\rm GME}(\rho)=0$ for biseparable $\rho$. Then
+\begin{align*}
+ \frac{2153}{500000}&\le p_{\rm GME}(\rho_*)\le \frac{4319}{1000000},\\
+ \frac{87}{100000}&\le p_{\rm GME}(\rho_{10/3})\le \frac{89}{100000},\\
+ \frac{233}{10000}&\le p_{\rm GME}(\tilde\rho)\le \frac{5839}{250000},
+\end{align*}
+with $\rho_*$ and $\tilde\rho$ as in Corollaries~\ref{cor:ppt3-noise-reused} and~\ref{cor:ppt3-robust}. The noisy state is
+biseparable at, and for every $p$ above, each upper bound.
+\end{proposition}
+
+\emph{Idea of the proof.} The lower bounds are the three corollaries above. For the upper bounds, an explicit separable-across-$A|BC$ operator,
+assembled from three orbit representatives and symmetrised cyclically, is subtracted from the noisy state; the residual lies in the
+Gurvits--Barnum ball around the identity~\cite{GB}, hence is separable, so the noisy state is biseparable. Details in Appendix~\ref{sec:ppt3-app-noise}.
+
+The certified intervals have relative widths of at most $2.3\%$, so the small margins reflect the states, not the
+relaxation. Numerically the agreement is closer: for all three states the optimal level-two bound and the numerical
+value of the optimised three-orbit decomposition agree to within $10^{-7}$ (numerical evidence only); the decompositions use three orbits of qubit directions each.
+
+To guide the search for robust states, we use the convex white-noise robustness $\operatorname{rob}$ below,
+rather than $p_{\rm GME}$ itself.
+
+\begin{proposition}[an extremal reduction for white-noise robustness]\label{prop:ppt3-noise-extremal}
+\cls{proved; general convex duality}
+In any finite multipartite system of dimension $d$, let $\mathcal P$ be the set of fully-PPT states, $\mathrm{BS}$ the
+biseparable states and $\operatorname{rob}(\rho)=\min\{s\ge0:(\rho+sI/d)/(1+s)\in\mathrm{BS}\}$, so that
+$p_{\rm GME}(\rho)=\operatorname{rob}(\rho)/(1+\operatorname{rob}(\rho))$. Then
+\begin{equation}\label{eq:ppt3-robust-dual}
+ \operatorname{rob}(\rho)=\max\Bigl\{0,\ \max_{W\in\mathrm{BS}^*,\ \tr W=d}-\tr(W\rho)\Bigr\},
+\end{equation}
+where $\mathrm{BS}^*$ is the cone of Hermitian operators nonnegative on $\mathrm{BS}$. Consequently $\operatorname{rob}$ is convex,
+its maximum over $\mathcal P$ is attained at an extreme point of $\mathcal P$, and so is that of the increasing function
+$p_{\rm GME}=\operatorname{rob}/(1+\operatorname{rob})$, and for a fixed witness the best state is
+the solution of a semidefinite program. The same holds with $\mathrm{BS}$ replaced by any closed convex set of states
+containing $\mathrm{BS}$, for example the states passing every cyclic level-two test of Lemma~\ref{lem:ppt3-dps}.
+\end{proposition}
+\begin{proof}
+$I/d$ is interior to the cone generated by $\mathrm{BS}$: it is a full-support average of product pure states, whose
+projectors span the Hermitian operators, so no nonzero element of $\mathrm{BS}^*$ vanishes on it. Hence the conic program
+defining $\operatorname{rob}$ is strictly feasible, and conic duality gives \eqref{eq:ppt3-robust-dual} with no gap; each
+$W\in\mathrm{BS}^*$ with $\tr W=d$ gives $s\ge-\tr(W\rho)$. Since $I/d$ is interior, the slice
+$\{W\in\mathrm{BS}^*:\tr W=d\}$ is compact, so $\operatorname{rob}$ is a maximum of affine functions over a compact set and hence
+continuous and convex. By Bauer's maximum principle it attains its maximum over the compact convex set $\mathcal P$ at an
+extreme point. For fixed $W$,
+minimising $\tr(W\rho)$ over $\rho\succeq0$, $\tr\rho=1$, $\rho^{T_S}\succeq0$ is a semidefinite program.
+\end{proof}
+
+\begin{remark}[where the robust states sit]\label{rem:ppt3-robust-structure}
+\cls{numerical evidence; DS-7 generator, DS-4 generator}
+The search for $\tilde\rho$ alternated the two steps of Proposition~\ref{prop:ppt3-noise-extremal}:
+optimising the witness for a state and the fully-PPT state for a witness. For states invariant under the cyclic permutation and global parity, the
+state is block diagonal over six sectors labelled by parity and cyclic charge (the partial-transpose constraints mix
+charges and respect only the two parity blocks): the charge-zero sectors spanned by
+$\{\ket{000},\ket{011}+\ket{101}+\ket{110}\}$ and $\{w,v\}$, and the one-dimensional sectors $e,\bar e,o,\bar o$.
+Extreme points differ in how their rank is distributed among these sectors. The surface of Section~\ref{sec:ppt3-surface}
+occupies $u_s$, the whole $\{w,v\}$ sector, $e$ and $o$, while the optimiser behind $\tilde\rho$ occupies $u_s$, one
+direction $w+cv$, $e$, $\bar e$ and $o$, with $s\approx0.974$ and $c\approx-0.750$: the same symmetries as the surface,
+but one combination of $w$ and $v$ is traded for the opposite-chirality vector $\bar e$. Both have profile $(5,5,5,5)$.
+The level-two white-noise tolerance of $\rho_{\rm opt}$ before mixing is $2.36\times10^{-2}$; whether some fully-PPT
+three-qubit state is more robust is open.
+\end{remark}

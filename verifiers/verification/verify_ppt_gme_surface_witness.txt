@@ -1,0 +1,10 @@
+Proposition 4d: analytic supported witness on the surface of Proposition 4c; exact verification
+A: PASS cut-A product rays of span(u_s,v,w,e,o) are exactly B_s q_s(z), z in C, and v (all s>0)
+B: PASS q_s^+ H_s q_s = (r-s)^2[(r-5s)^2 + 12 s x^2] >= 0 (gauge reduction to s=1 checked; H_5 = diag(-12,1,11,-6,14), expansion r^4-6r^3+34r^2-54r+25+6d(r-1)^2); H_s diagonal, invariant under the cyclic phases
+C: PASS Cor 4b: s=1/2, H_(1/2)=diag(-3/2,1,11/4,-3,7/2), 16323219 X_sigma = diag(4*825000,2021184,1440000,951720,450625)+145200(vw), tr(H sigma)=-493577/32646438 = -0.015118862 < 0; q^+Hq=(r-1/2)^2[(r-5/2)^2+6x^2]
+D: PASS rho(m,n,a) = a F_lam rho(m,n,1) F_lam^+ with lam^2=1/a: the surface is one local-filter orbit, tau=W/alpha only
+E: PASS exact in Q = tau+sqrt(1+tau^2): tV-G^2 = 2Q^2K(Q^2-3); odd PT_A block is the Gram matrix of (L, M) with det L = 3K > 0 (rank 2); even block has det 0 and leading minors 1, E, (Q^2-3)(Q^4+3)K^2/(4t^2) (rank 3); so the PSD/PPT window is Q^2 >= 3, i.e. tau >= 1/sqrt3, profile (5,5,5,5) inside
+F: PASS exact: at a=1 (every a by D), tr(H_5 X_t) = -(Q^2-2Q-1) S_6(Q)/(2Q(Q^2-1)), S_6(2+x) = -1-81x-33x^2+50x^3+41x^4+11x^5+x^6 < 0 on [0, 1/2] (hence on [0, sqrt2-1]) by 50x^3 <= 25x^2, 41x^4+11x^5+x^6 <= (187/32)x < 6x, and Q^2-2Q-1 < 0 for Q < 1+sqrt2: tr(H_5 X_t) < 0 for 3/4 <= tau < 1 (control: S_6(4) > 0)
+G: PASS H0 = diag(-24-8s3, 1, 9, 12+4s3, 12+12s3), H0_vw = -(7+4s3): r q^+H0q = Y(r-1)^2(r-y1)^2 + X(r-x0)^2(r^2+pr+q) + 16 nu X Y r >= 0 (y1=3+2s3, x0=2s3-3, p=26+16s3, q=(7+4s3)^2); tr(H0 X_tau) = -(Q^2-3)(Q^2-2Q-1)P(Q)/(2Q(Q^2-1)) with P convex on Q >= sqrt3, P'(sqrt3) = 28+12s3 > 0, P(2) = 33-24s3 < 0: negative for 1/sqrt3 < tau <= 3/4, zero at 1/sqrt3; explicit 4-term single-cut product decomposition of X_{1/sqrt3} and uniqueness of H0 from the 6 endpoint double roots checked
+H: PASS tau -> 1: (A,W,V,G,E,O) -> (1,1,1,-1,0,0); for every a>0, the normalized limit is the equal mixture of eta_+^(tensor 3) and eta_-^(tensor 3), eta_+/-=(sqrt(a)|0> +/- i|1>)/sqrt(a+1); fully separable, profile (2,2,2,2)
+ALL PASS

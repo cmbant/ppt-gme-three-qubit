@@ -1,0 +1,265 @@
+% Genuinely multipartite bound entanglement of three qubits.
+% Build: pdflatex fully_ppt_three_qubit_gme.tex (twice).
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,enumitem}
+\usepackage{xcolor,xurl}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks
+\newcommand{\ket}[1]{\lvert#1\rangle}
+\newcommand{\bra}[1]{\langle#1\rvert}
+\newcommand{\tr}{\operatorname{tr}}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\dg}{^{\dagger}}
+\newcommand{\cls}[1]{}
+\hypersetup{pdfauthor={Antony Lewis},pdftitle={Genuinely multipartite bound entanglement of three qubits}}
+\title{Genuinely multipartite bound entanglement\\of three qubits}
+\newcommand{\Sussex}{Department of Physics \& Astronomy, University of Sussex, Brighton BN1 9QH, UK}
+\author{Antony Lewis\\[2pt]{\small\normalfont \Sussex}}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+If a three-party state is positive under partial transposition (PPT) across each of its three bipartitions, no local
+protocol can distil any pure entanglement from it: neither singlets between any two parties nor GHZ states. All of its
+entanglement is bound. We show that such a state can nevertheless be genuinely multipartite entangled (GME), meaning
+that it cannot be prepared by mixing states in each of which some party is unentangled from the rest. This already
+happens for three qubits, the smallest system in which the question arises and a common experimental setting
+for multipartite entanglement; to our knowledge no three-qubit example was known. An explicit mixture of five orthogonal
+states (one GHZ-type, three $W$-type and one product state) is PPT across every cut and GME throughout an exact parameter interval, and its rank, five, is
+the minimum possible. Genuine entanglement is proved by a witness acting only on the five-dimensional support, whose
+nonnegativity on the biseparable states in that support reduces to a sum of squares on its curves of product vectors. Such
+states are invisible to the PPT-mixture test, the standard semidefinite relaxation used to certify GME, yet they form
+a set with nonempty interior among density matrices: an explicit full-rank example remains GME under $2.33\%$ white noise, while $2.336\%$
+makes it biseparable. We also construct extreme examples with the smallest possible partial-transpose ranks
+$(5,5,5,5)$. All our explicit states, including the full-rank one, lie in the mixed $W$ class: they are mixtures of pure
+states with vanishing three-tangle, so their genuine entanglement needs no GHZ-type component. Full PPT therefore does not imply
+biseparability, even for three qubits.
+\end{abstract}
+
+\section{Introduction}\label{sec:ppt3-intro}
+
+Entanglement among three or more parties comes in two kinds. A state is \emph{biseparable} if it is a mixture of states
+each separable across one of the bipartitions $A|BC$, $B|AC$, $C|AB$; the bipartition may differ from term to term. Otherwise it is \emph{genuinely multipartite entangled} (GME). Each term of a biseparable mixture is entangled at most within one pair of
+parties, so GME is the multipartite property that experiments with several qubits usually aim to
+certify~\cite{HHH09,GT09}. Showing that a mixed state is GME is harder than showing it entangled across
+each cut: a state can be entangled across every bipartition and still be a mixture of states separable across
+different ones. Biseparability is a property of the convex hull of three sets of separable states, not of each set
+separately.
+
+Entanglement can also be distillable or bound. Entanglement across a cut is \emph{distillable} if many copies can
+be converted to singlets across that cut by local operations and classical communication (LOCC), and \emph{bound}
+otherwise. A state that is positive under partial transposition (PPT) across a cut is undistillable across it~\cite{HHH98},
+and PPT is also necessary for separability~\cite{Peres,HHH96}. For three qubits $A$, $B$, $C$ we call a state
+\emph{fully PPT} when its partial transposes across $A|BC$, $B|AC$ and $C|AB$ are all positive. Every LOCC protocol among
+the three parties is in particular LOCC across each cut, and such operations preserve PPT across that cut~\cite{HHH98,HHH09}.
+Consequently no pure state entangled across any cut, neither singlets between two parties nor GHZ states, can be
+distilled from a fully-PPT state, even asymptotically.
+Whatever entanglement a fully-PPT state has is bound.
+
+This paper asks whether bound entanglement of this extreme kind can still be genuinely multipartite, and answers yes
+for three qubits. A fully-PPT GME state carries entanglement that no single bipartition accounts for and from which no
+pure entanglement can be distilled: it is present only collectively. The question also has a practical side. The standard
+way to certify GME in experiments and numerics relaxes biseparability to \emph{PPT mixtures}, mixtures of states each PPT
+across one cut, which gives a semidefinite program~\cite{JMG,NMG}. A fully-PPT state is already a one-term PPT mixture,
+so its genuine entanglement is invisible to this test and to any test built from PPT conditions across cuts and their
+mixtures. Novo, Moroder and G\"uhne conjectured that for three qubits PPT mixtures and biseparable states coincide~\cite{NMG};
+Ha and Kye refuted this with a state PPT across one chosen cut~\cite{HK}. A fully-PPT GME state is the strongest form of
+the counterexample.
+
+Three qubits are where such a state is least expected. Each cut is $2\times4$, just beyond the $2\times2$ and $2\times3$
+systems where PPT and separability coincide~\cite{HHH96}, and low rank forces separability: a fully-PPT three-qubit
+state of rank at most four is separable across a cut, hence biseparable~\cite{KCKL,HLVC,KL,ABLS}. A fully-PPT GME state therefore
+has rank at least five. Examples are known for more qubits and for higher local dimension (Section~\ref{sec:ppt3-prior}).
+For three qubits, earlier constructions and numerical states were entangled but not shown to be GME, or were PPT across
+one cut only~\cite{HK,KRB,GIM}, and Singh and Banik recently noted that no explicit example is known and derived necessary
+rank conditions for one~\cite{SB}.
+
+Our method follows the physics of the convex hull. Every pure state in a decomposition of $\rho$ lies in its support,
+so a biseparable decomposition of a low-rank state can use only those vectors of the support that are products across some
+cut. We choose a five-dimensional support $R$, spanned by five orthogonal vectors (one GHZ-type, three $W$-type and $\ket{111}$), in which the cut-product
+vectors form one explicit curve per cut, parametrised by a single complex number and related by cyclic permutation of the
+qubits. A Hermitian form that is nonnegative on these three curves is nonnegative on every biseparable state supported on
+$R$; its negative expectation in our state then proves GME. For the form we use, nonnegativity on the curves is an explicit
+factorisation into squares. Full PPT is a separate and elementary step, since cyclic and parity symmetry reduce each
+partial transpose to two $4\times4$ blocks. Robustness to noise needs a test stronger than PPT; we use exact rational
+certificates from the second level of the symmetric-extension hierarchy, together with explicit biseparable decompositions
+that bound the noise thresholds from above.
+
+Our main results are the following.
+\begin{enumerate}[label=(\arabic*),itemsep=0pt,topsep=2pt]
+\item \emph{Minimal-rank family} (Theorem~\ref{thm:ppt3-family}). A mixture $\rho_t$ of five orthogonal
+vectors (GHZ-type, $W$-type and $\ket{111}$) has rank five and is fully PPT and GME for $3.257\lesssim t\lesssim3.389$ (exact endpoints in the
+theorem).
+\item \emph{A witness that sees only the support} (Proposition~\ref{prop:ppt3-witness}). One diagonal Hermitian form,
+nonnegative on the product curves by a square factorisation, excludes biseparable mixtures across cuts, with no
+semidefinite-program solver.
+\item \emph{Extreme states} (Sections~\ref{sec:ppt3-family} and~\ref{sec:ppt3-surface}). Extreme fully-PPT GME states have
+partial-transpose rank profiles $(5,6,6,6)$ and, the smallest possible, $(5,5,5,5)$; the latter lie in an analytic family
+that is fully PPT and GME on the whole window $1/\sqrt3<\tau<1$ (one parameter modulo local filters). Near every member, the
+extreme states of this profile form a $27$-dimensional manifold with nine local-filter moduli. Every state of the family is
+extreme in the fully-PPT set, and the manifold and moduli statement holds around each of them.
+\item \emph{One support, both phases} (Section~\ref{sec:ppt3-coexistence}). One rank-five support carries both
+biseparable and GME fully-PPT states, separated by an exact transition inside the strictly PPT region, so the support alone
+does not decide genuine entanglement.
+\item \emph{Robustness} (Section~\ref{sec:ppt3-noise}). Fully-PPT GME states have positive volume. An explicit full-rank
+fully-PPT state remains GME under $2.33\%$ white noise, $1\%$ independent depolarisation per qubit, or a trace-distance
+perturbation of $7.3\times10^{-3}$; its white-noise threshold is known to within half a per cent in relative terms. A
+surface state of the $(5,5,5,5)$ family tolerates about $0.43\%$.
+\item \emph{Structure} (Sections~\ref{sec:ppt3-chirality} and~\ref{sec:ppt3-relaxations}). No fully-PPT GME state is invariant
+under the exchange of two qubits, so none is permutation invariant~\cite{NMG}, and our family is not locally equivalent
+to its complex conjugate, not even by invertible local filters. Every explicit state we construct, including both extreme states
+and the full-rank state $\tilde\rho$, belongs to the mixed $W$ class (Theorem~\ref{thm:ppt3-w-class}), as conjectured for PPT entangled three-qubit states by Ac\'in et al.~\cite{ABLS}. For every rank-five fully-PPT GME state the product vectors of its support form three rational
+quartic curves, so supported witnesses of the kind used here detect all of them
+(Theorem~\ref{thm:ppt3-universal-moments}).
+\end{enumerate}
+
+Section~\ref{sec:ppt3-relaxations} places the results relative to PPT mixtures and earlier work. The main
+text gives the proof strategy; the computations are in Appendices~\ref{sec:ppt3-app-family}, \ref{sec:ppt3-app-surface},
+\ref{sec:ppt3-app-coexistence} and~\ref{sec:ppt3-app-noise}, in the order of the sections they serve. Appendices~\ref{sec:ppt3-app-moment}
+and~\ref{sec:ppt3-kernel} prove the product-kernel lemma and the moment cone of Section~\ref{sec:ppt3-relaxations} and the kernel-penalty
+lift of the supported witness, and Appendix~\ref{sec:ppt3-verifiers} lists the proof dependencies. Exact-algebraic
+computations are used only for extremality, the moduli count and the noise certificates. The verification scripts with their
+captured output and a Lean~4 formalisation of the main exact statements are in a companion repository~\cite{Companion}.
+
+\input{family}
+\input{rank_five_surface}
+\input{w_class_decompositions}
+\input{phase_coexistence}
+\input{noise_certificates}
+\input{relaxations_and_scope}
+
+\section{Discussion}\label{sec:ppt3-discussion}
+
+Physically, the examples separate two questions that are easy to conflate: whether entanglement can be extracted across
+some bipartition, and whether it is shared by all three parties. Even for three qubits, the first does not decide the second. A
+fully-PPT GME state yields no singlet across any cut and no GHZ state under any LOCC protocol, yet it is not a mixture of
+states each separable across some bipartition. The relevant gap is between the intersection of the three PPT sets and
+the convex hull of the three cut-separable sets. The support of $\rho_t$ contains product vectors across every cut, but no convex mixture of them
+reproduces $\rho_t$; the supported witness detects exactly this failure of mixing. Symmetry plays a definite role.
+Reflection symmetry together with PPT forces separability across a cut (Corollary~\ref{cor:ppt3-symmetrisation}), so the
+states must break every exchange of two qubits; ours do so through the cyclic phases of the $W$-type vectors, and they
+are also locally chiral (Corollary~\ref{cor:ppt3-chirality}).
+
+For certification, PPT-mixture tests cannot certify the genuine entanglement of these states; a stronger relaxation of
+biseparability is one way to do so. The second level of the
+symmetric-extension hierarchy suffices here, and for white noise its certified margins nearly match explicit biseparable
+decompositions (Proposition~\ref{prop:ppt3-noise-sharp}), so the small size of the margins is a property of the states,
+not of the relaxation. By
+Proposition~\ref{prop:ppt3-noise-extremal} a most robust state can be taken extreme in the fully-PPT set, and within one
+symmetry class the extreme points differ in how their rank is distributed among the symmetry sectors
+(Remark~\ref{rem:ppt3-robust-structure}). An NMR experiment has generated pseudo-bound-entangled fully-PPT three-qubit
+states that are not GME~\cite{KPBS}. The state $\tilde\rho$ remains GME under depolarising errors of up to one per cent
+per qubit, but generic preparation errors need much tighter control: its certified PPT-stability radius, $2.0\times10^{-5}$, is far
+smaller than its GME radius, $7.3\times10^{-3}$ (Corollary~\ref{cor:ppt3-robust}); certifying such a state also requires witnesses that go beyond
+partial transposition.
+
+Several questions remain open: whether some fully-PPT three-qubit state tolerates substantially more noise, how to
+describe the family of $\tilde\rho$ analytically, and how to decompose a witness into practical local measurements. The mixed-$W$ conjecture of
+Ac\'in et al.~\cite{ABLS} holds for all our explicit states, including $\tilde\rho$ (Theorem~\ref{thm:ppt3-w-class}), but
+remains open for general PPT entangled three-qubit states. A separate problem is whether every rank-five three-qubit state with maximally mixed one- and
+two-qubit marginals is biseparable (Conjecture~\ref{conj:ppt3-flat}). Our rank-$(5,5,5,5)$ examples show that
+the rank profile alone cannot prove it; the flat-marginal condition must play an essential role.
+
+\section*{Use of AI}
+All results, documents and scripts were generated by AI agents (mainly Claude Opus and Sonnet 5.5, and OpenAI's GPT 6.1 sol)
+with human supervision and many cross-checks, including AI-generated Lean verification of the main exact statements.
+
+\section*{Acknowledgements}
+We acknowledge support by the UK STFC grant ST/T000473/1.
+
+\appendix
+\small
+\input{appendix_family}
+\input{appendix_surface}
+\input{appendix_coexistence}
+\input{appendix_noise}
+\input{appendix_moment_cone}
+\input{kernel_penalty_lemma}
+\input{verification_map}
+
+\begin{thebibliography}{99}
+\small\setlength{\itemsep}{0pt}
+\bibitem{SB} G.~Singh and M.~Banik, On the structure of low-rank PPT entangled states violating Peres conjecture,
+\href{https://arxiv.org/abs/2610.19905}{arXiv:2610.19905} (14 October 2026).
+\bibitem{JMG} B.~Jungnitsch, T.~Moroder and O.~G\"uhne, Taming multiparticle entanglement, Phys.\ Rev.\ Lett.\
+\textbf{106}, 190502 (2011), \href{https://arxiv.org/abs/1010.6049}{arXiv:1010.6049}.
+\bibitem{NMG} L.~Novo, T.~Moroder and O.~G\"uhne, Genuine multiparticle entanglement of permutationally invariant states,
+Phys.\ Rev.\ A \textbf{88}, 012305 (2013), \href{https://arxiv.org/abs/1302.4100}{arXiv:1302.4100}.
+\bibitem{HK} K.-C.~Ha and S.-H.~Kye, Construction of three-qubit genuine entanglement with bipartite positive partial
+transposes, Phys.\ Rev.\ A \textbf{93}, 032315 (2016), \href{https://arxiv.org/abs/1512.04693}{arXiv:1512.04693}.
+\bibitem{HaKye15} K.-C.~Ha and S.-H.~Kye, Multi-partite separable states with unique decompositions and construction of
+three qubit entanglement with positive partial transpose, J.\ Phys.\ A \textbf{48}, 045303 (2015),
+\href{https://arxiv.org/abs/1402.5813}{arXiv:1402.5813}.
+\bibitem{HanK} K.~H.~Han and S.-H.~Kye, Construction of multi-qubit optimal genuine entanglement witnesses, J.\ Phys.\ A
+\textbf{49}, 175303 (2016), \href{https://arxiv.org/abs/1510.03620}{arXiv:1510.03620}.
+\bibitem{ABLS} A.~Ac\'in, D.~Bru\ss, M.~Lewenstein and A.~Sanpera, Classification of mixed three-qubit states, Phys.\ Rev.\
+Lett.\ \textbf{87}, 040401 (2001), \href{https://arxiv.org/abs/quant-ph/0103025}{arXiv:quant-ph/0103025}.
+\bibitem{DVC} W.~D\"ur, G.~Vidal and J.~I.~Cirac, Three qubits can be entangled in two inequivalent ways, Phys.\ Rev.\ A
+\textbf{62}, 062314 (2000), \href{https://arxiv.org/abs/quant-ph/0005115}{arXiv:quant-ph/0005115}.
+\bibitem{CKW} V.~Coffman, J.~Kundu and W.~K.~Wootters, Distributed entanglement, Phys.\ Rev.\ A \textbf{61}, 052306 (2000),
+\href{https://arxiv.org/abs/quant-ph/9907047}{arXiv:quant-ph/9907047}.
+\bibitem{HLVC} P.~Horodecki, M.~Lewenstein, G.~Vidal and I.~Cirac, Operational criterion and constructive checks for the separability of low-rank density matrices, Phys.\ Rev.\ A \textbf{62}, 032310 (2000), \href{https://arxiv.org/abs/quant-ph/0002089}{arXiv:quant-ph/0002089}.
+\bibitem{KL} S.~Karnas and M.~Lewenstein, Separability and entanglement in $2\times2\times N$ composite quantum systems,
+Phys.\ Rev.\ A \textbf{64}, 042313 (2001), \href{https://arxiv.org/abs/quant-ph/0102115}{arXiv:quant-ph/0102115}.
+\bibitem{KPBS} H.~Kampermann, D.~Bru\ss, X.~Peng and D.~Suter, Experimental generation of pseudo-bound-entanglement, Phys.\
+Rev.\ A \textbf{81}, 040304(R) (2010), \href{https://arxiv.org/abs/0909.2743}{arXiv:0909.2743}.
+\bibitem{TV} G.~T\'oth and T.~V\'ertesi, Quantum states with a positive partial transpose are useful for metrology, Phys.\
+Rev.\ Lett.\ \textbf{120}, 020506 (2018), \href{https://arxiv.org/abs/1709.03995}{arXiv:1709.03995}.
+\bibitem{Peres} A.~Peres, Separability criterion for density matrices, Phys.\ Rev.\ Lett.\ \textbf{77}, 1413 (1996),
+\href{https://arxiv.org/abs/quant-ph/9604005}{arXiv:quant-ph/9604005}.
+\bibitem{HHH96} M.~Horodecki, P.~Horodecki and R.~Horodecki, Separability of mixed states: necessary and sufficient
+conditions, Phys.\ Lett.\ A \textbf{223}, 1 (1996), \href{https://arxiv.org/abs/quant-ph/9605038}{arXiv:quant-ph/9605038}.
+\bibitem{HHH98} M.~Horodecki, P.~Horodecki and R.~Horodecki, Mixed-state entanglement and distillation: is there a
+``bound'' entanglement in nature?, Phys.\ Rev.\ Lett.\ \textbf{80}, 5239 (1998),
+\href{https://arxiv.org/abs/quant-ph/9801069}{arXiv:quant-ph/9801069}.
+\bibitem{HHH09} R.~Horodecki, P.~Horodecki, M.~Horodecki and K.~Horodecki, Quantum entanglement, Rev.\ Mod.\ Phys.\
+\textbf{81}, 865 (2009), \href{https://arxiv.org/abs/quant-ph/0702225}{arXiv:quant-ph/0702225}.
+\bibitem{GT09} O.~G\"uhne and G.~T\'oth, Entanglement detection, Phys.\ Rep.\ \textbf{474}, 1 (2009),
+\href{https://arxiv.org/abs/0811.2803}{arXiv:0811.2803}.
+\bibitem{KRB} H.~Krishnan S.~V., A.~Ranjan and M.~Banik, State space structure of tripartite quantum systems,
+Phys.\ Rev.\ A \textbf{104}, 022437 (2021), \href{https://arxiv.org/abs/2104.06938}{arXiv:2104.06938}.
+\bibitem{CD} L.~Chen and D.~\v{Z}.~\DJ{}okovi\'c, Qubit-qudit states with positive partial transpose, Phys.\ Rev.\ A \textbf{86}, 062332 (2012), \href{https://arxiv.org/abs/1210.0111}{arXiv:1210.0111}.
+\bibitem{Gant} F.~R.~Gantmacher, \emph{The Theory of Matrices}, Vol.~II (Chelsea, New York, 1959), Ch.~XII.
+\bibitem{KCKL} B.~Kraus, J.~I.~Cirac, S.~Karnas and M.~Lewenstein, Separability in $2\times N$ composite quantum systems,
+Phys.\ Rev.\ A \textbf{61}, 062302 (2000), \href{https://arxiv.org/abs/quant-ph/9912010}{arXiv:quant-ph/9912010}.
+\bibitem{GB} L.~Gurvits and H.~Barnum, Largest separable balls around the maximally mixed bipartite quantum state,
+Phys.\ Rev.\ A \textbf{66}, 062311 (2002), \href{https://arxiv.org/abs/quant-ph/0204159}{arXiv:quant-ph/0204159}.
+\bibitem{DPS02} A.~C.~Doherty, P.~A.~Parrilo and F.~M.~Spedalieri, Distinguishing separable and entangled states, Phys.\
+Rev.\ Lett.\ \textbf{88}, 187904 (2002), \href{https://arxiv.org/abs/quant-ph/0112007}{arXiv:quant-ph/0112007}.
+\bibitem{DPS} A.~C.~Doherty, P.~A.~Parrilo and F.~M.~Spedalieri, Complete family of separability criteria, Phys.\ Rev.\ A
+\textbf{69}, 022308 (2004), \href{https://arxiv.org/abs/quant-ph/0308032}{arXiv:quant-ph/0308032}.
+\bibitem{DPS05} A.~C.~Doherty, P.~A.~Parrilo and F.~M.~Spedalieri, Detecting multipartite entanglement, Phys.\ Rev.\ A
+\textbf{71}, 032333 (2005), \href{https://arxiv.org/abs/quant-ph/0407143}{arXiv:quant-ph/0407143}.
+\bibitem{TG} G.~T\'oth and O.~G\"uhne, Entanglement and permutational symmetry, Phys.\ Rev.\ Lett.\ \textbf{102}, 170503
+(2009), \href{https://arxiv.org/abs/0812.4453}{arXiv:0812.4453}.
+\bibitem{TAHKSL} J.~Tura, R.~Augusiak, P.~Hyllus, M.~Ku\'s, J.~Samsonowicz and M.~Lewenstein, Four-qubit entangled symmetric
+states with positive partial transpositions, Phys.\ Rev.\ A \textbf{85}, 060302(R) (2012),
+\href{https://arxiv.org/abs/1203.3711}{arXiv:1203.3711}.
+\bibitem{ATSL} R.~Augusiak, J.~Tura, J.~Samsonowicz and M.~Lewenstein, Entangled symmetric states of $N$ qubits with all
+positive partial transpositions, Phys.\ Rev.\ A \textbf{86}, 042316 (2012),
+\href{https://arxiv.org/abs/1206.3088}{arXiv:1206.3088}.
+\bibitem{HS} M.~Huber and R.~Sengupta, Witnessing genuine multipartite entanglement with positive maps, Phys.\ Rev.\ Lett.\
+\textbf{113}, 100501 (2014), \href{https://arxiv.org/abs/1404.7449}{arXiv:1404.7449}.
+\bibitem{PM} M.~Piani and C.~E.~Mora, Class of positive-partial-transpose bound entangled states associated with almost any
+set of pure entangled states, Phys.\ Rev.\ A \textbf{75}, 012305 (2007), \href{https://arxiv.org/abs/quant-ph/0607061}{arXiv:quant-ph/0607061}.
+\bibitem{SBZL} F.~Shi, G.~Bai, X.~Zhang, Q.~Zhao and L.~Li, A minimum-cardinality genuinely unextendible product basis in
+three qutrits, \href{https://arxiv.org/abs/2608.12785}{arXiv:2608.12785} (13 August 2026).
+\bibitem{GIM} {\O}.~S.~Garberg, B.~Irgens and J.~Myrheim, Extremal states of positive partial transpose in a system of
+three qubits, Phys.\ Rev.\ A \textbf{87}, 032302 (2013), \href{https://arxiv.org/abs/1212.5036}{arXiv:1212.5036}.
+\bibitem{Companion} A.~Lewis, Companion repository (paper, verification scripts with captured output, Lean~4 formalisation),
+\href{https://github.com/cmbant/ppt-gme-three-qubit}{\texttt{github.com/cmbant/ppt-gme-three-qubit}}.
+\end{thebibliography}
+\end{document}

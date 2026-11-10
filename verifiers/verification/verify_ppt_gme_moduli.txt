@@ -1,0 +1,7 @@
+MO-1 complex rank of the rank-five tangent map: 55 (expected 55)
+MO-2 cut 0: kernel of sigma^T_c has dimension 3
+MO-2 cut 1: kernel of sigma^T_c has dimension 3
+MO-2 cut 2: kernel of sigma^T_c has dimension 3
+MO-3 rank of the 27 Schur-complement differentials on the tangent: 27 (expected 27); locus dimension 28, trace one 27
+MO-4 complex rank of the local-filter orbit map: 19 (expected 19); with the tangent: 55 (expected 55)
+moduli: 28 - 19 = 9 filter-invariant directions

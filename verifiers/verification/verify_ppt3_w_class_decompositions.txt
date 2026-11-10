@@ -1,0 +1,5 @@
+WC-1 PASS: Cayley hyperdeterminants, parity-tetrahedron & cross-sector atoms, product atom, GHZ and missing-o controls
+WC-2 PASS: actual cyclic/parity projector sums and diagonal-family decompositions
+WC-3 PASS: symbolic surface Gram determinant and every residual-budget identity
+WC-4 PASS: exact surface members of both branches, phase-coexistence line, full-rank state tilde_rho, and local-filter covariance
+ALL PASS: constructed-state mixed-W classification; general PPT-to-W and H/S/R/I remain open

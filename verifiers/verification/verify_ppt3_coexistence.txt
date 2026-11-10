@@ -1,0 +1,7 @@
+PG-2: PASS exact 13-term cyclic/parity biseparable decomposition and rank-five coefficient matrix
+PG-2: PASS strict PPT on all three cuts by exact rational principal minors
+PG-2: PASS BS and GME same-support witnesses and exact transition upper bound
+PG-4: PASS exact exposed BS mixture with H5=0, full rank on R1
+PG-4: PASS strict PPT with min PT eigenvalue > 1/300 by shifted Sylvester minors
+PG-4: PASS exact phase line -1/200 <= lambda <= 1: BS iff lambda >= 0; GME otherwise
+ALL EXACT CHECKS PASS

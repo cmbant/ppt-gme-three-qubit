@@ -1,0 +1,15 @@
+SB-1 PASS: rho_tau^{T_A} K_A(Q) = 0 identically in Q; columns independent for Q>1 (pivots 3(Q^2-1), 12, -6Q)
+   SB-2 [q=1, parity +   [ue, vo, wo]] rank 3: minor = -108*(Q - 1)**2*(Q + 1)**2*(Q**2 + 1)
+   SB-2 [q=1, parity -   [uo, ve, we]] rank 3: minor = 432*(Q - 1)*(Q + 1)*(Q**2 + 1)
+   SB-2 [q=0, parity -, sym  [uv, uw, eo]] rank 3: minor = 108*(Q - 1)*(Q + 1)*(Q**2 + 2*Q - 1)
+   SB-2 [q=0, parity -, anti [uv, uw, eo]] rank 3: minor = 108*I*(Q - 1)*(Q + 1)*(Q**2 - 2*Q - 1)
+   SB-2 [q=0, parity +, anti [vw]] rank 1: minor = 3*I*(Q**2 + 1)
+   SB-2 [q=0, parity +, sym  [uu, vv, vw, ww, ee, oo]] rank 5: minor = 1944*I*(sqrt(3) + I)*(Q - I)*(Q + I)*(Q**2 - 2*Q - 1)*(Q**2 + 2*Q - 1)
+SB-2 PASS: face-direction system has rank 24 = 25-1 for every Q in the window: every rho_tau,a is extreme
+   SB-3 [q=0, parity +1] 9 tangent directions, onto rank 5: minor = -120932352*Q*(Q - 1)**2*(Q + 1)**2*(Q**2 + 1)**2*(Q**2 - 2*Q - 1)*(Q**2 + 2*Q - 1)
+   SB-3 [q=0, parity -1] 10 tangent directions, onto rank 4: minor = -839808*Q**2*(Q - 1)**4*(Q + 1)**4*(Q**2 - 3)*(Q**2 + 1)
+   SB-3 [q=1, parity +1] 9 tangent directions, onto rank 5: minor = -725594112*Q**2*(Q - 1)**4*(Q + 1)**4*(Q**2 - 2*Q - 1)*(Q**2 + 2*Q - 1)
+   SB-3 [q=1, parity -1] 9 tangent directions, onto rank 4: minor = 1679616*Q**2*(Q - 1)**3*(Q + 1)**3*(Q**2 + 1)*(Q**2 - 2*Q - 1)*(Q**2 + 2*Q - 1)
+SB-3 PASS: 55-dim tangent, 27 independent Schur-complement differentials for every Q in the window (manifold dimension 28, trace one 27, minus 18 filter dimensions = 9 moduli)
+SB-4 PASS: at Q=2 (tau=3/4, no block reduction) face-system rank 24, Schur-differential rank 27 on the 55-dim tangent, filter-orbit rank 19
+ALL PASS

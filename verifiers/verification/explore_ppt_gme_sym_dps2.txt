@@ -1,0 +1,33 @@
+explore_ppt_gme_sym_dps2.py -- numerical generator; the exact verifier is certify_ppt_gme_dps2_sym.py
+code/explore_ppt_gme_sym_dps2.py:130: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(**KW)
+t=3.27000: tr(Y rho) = -3.357863e-04, white-noise p* = 3.356736e-04  [0s]
+t=3.33333: tr(Y rho) = -8.837008e-04, white-noise p* = 8.829205e-04  [0s]
+t=3.38000: tr(Y rho) = -1.447857e-03, white-noise p* = 1.445764e-03  [0s]
+Y_*: g(rho_*) = 4.331045e-03, g(sigma) = 4.076630e-03, spec Y in [-0.2341, 3.0663]  [0s]
+  seesaw 0: tr(Y rho) = -2.4165960656e-02, tolerance 2.3595747e-02
+  seesaw 10: tr(Y rho) = -2.4168312547e-02, tolerance 2.3597989e-02
+code/explore_ppt_gme_sym_dps2.py:160: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  pr = cp.Problem(cp.Minimize(cp.real(cp.trace(Y @ Rm))), cons); pr.solve(**KW)
+  seesaw 20: tr(Y rho) = -2.4168313774e-02, tolerance 2.3597990e-02
+  seesaw 30: tr(Y rho) = -2.4168314103e-02, tolerance 2.3597990e-02
+  seesaw 40: tr(Y rho) = -2.4168314148e-02, tolerance 2.3597990e-02
+  seesaw 50: tr(Y rho) = -2.4168314170e-02, tolerance 2.3597991e-02
+  seesaw 60: tr(Y rho) = -2.4168314169e-02, tolerance 2.3597991e-02
+  seesaw 70: tr(Y rho) = -2.4168314167e-02, tolerance 2.3597991e-02
+  seesaw 80: tr(Y rho) = -2.4168314153e-02, tolerance 2.3597991e-02
+  seesaw 90: tr(Y rho) = -2.4168314146e-02, tolerance 2.3597990e-02
+  seesaw 100: tr(Y rho) = -2.4168314174e-02, tolerance 2.3597991e-02
+  seesaw 110: tr(Y rho) = -2.4168314153e-02, tolerance 2.3597991e-02
+  seesaw 120: tr(Y rho) = -2.4168314484e-02, tolerance 2.3597991e-02
+seesaw end after 122 iterations: tolerance 2.3597991e-02
+seesaw optimum: eigenvalues of rho [-0.       -0.        0.        0.062527  0.15583   0.166936  0.247061
+  0.367646]
+   eigenvalue 0.367646: eigenvector (largest entry 1) [ 1.     +0.j  0.     +0.j  0.     -0.j -0.97427+0.j  0.     +0.j
+ -0.97427-0.j -0.97427-0.j -0.     -0.j]
+   eigenvalue 0.247061: eigenvector (largest entry 1) [-0.     +0.j  1.     -0.j  1.     -0.j  0.     -0.j  1.     +0.j
+ -0.     +0.j -0.     -0.j -0.75038+0.j]
+   weights of e, ebar, o, obar: [0.15583, 0.062527, 0.166936, 0.0]
+rounded state: smallest eigenvalue 3.1200e-05, smallest PT eigenvalue 3.1208e-05
+robust witness: tr(Y rho) = -2.390666e-02, white-noise tolerance 2.334848e-02, spec Y in [-0.4146, 2.8567]
+wrote ppt_gme_sym_certificate.json [9s]

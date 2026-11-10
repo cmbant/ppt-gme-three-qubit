@@ -1,0 +1,46 @@
+\section{Proof dependencies and exact certificate data}\label{sec:ppt3-verifiers}
+
+The existence and PPT-window theorems are analytic: the displayed formulas suffice to check the product curves,
+square factorisations, chirality and sign bounds by hand. Extremality, the moduli count and quantitative noise bounds
+also use exact computational certificates. We list their dependencies below; the preceding appendices contain the proofs.
+
+\begin{description}
+\item[Mixed $W$ class.]
+Theorem~\ref{thm:ppt3-w-class} is analytic. The finite cyclic/parity decompositions, zero-hyperdeterminant
+identities, surface coefficient budgets, phase-coexistence line, and full-rank state $\tilde\rho$ are independently checked in exact arithmetic. The check includes both surface branches,
+the phase-coexistence line, $\tilde\rho$, nontrivial local filters, and a GHZ negative control; no numerical convex-roof minimisation is used.
+
+\item[Extremality and moduli.]
+The extremality of Corollary~\ref{cor:ppt3-extreme6} rests on an exact $24$-of-$25$ rank calculation. For every state of the
+$(5,5,5,5)$ surface, the extremality of Corollary~\ref{cor:ppt3-extreme5} and the $27$ independent constraint differentials of
+Proposition~\ref{prop:ppt3-moduli} rest on symmetry-block minors that are explicit polynomials in $Q$, checked symbolically and by an exact rank
+computation at $Q=2$; the local-filter orbit has dimension $19$ because the stabiliser of the range is finite
+(Corollary~\ref{cor:ppt3-chirality}(b)). The proofs are in Appendices~\ref{sec:ppt3-app-family} and~\ref{sec:ppt3-app-surface}. These results are computer-assisted.
+
+\item[One support, both phases.]
+Theorem~\ref{thm:ppt3-phase-coexistence} and Proposition~\ref{prop:ppt3-exposed-transition} rest on exact rational
+expansions of finite cut-product mixtures, principal minors of the partial-transpose parity blocks, witness values and a
+Hilbert--Schmidt bound (Appendix~\ref{sec:ppt3-app-coexistence}).
+
+\item[Noise bounds.]
+The level-two certificates use rational matrices $Y$, $Z_1$, $Z_2$ given in symmetry-adapted coordinates (cyclic symmetry, global
+parity and the antiunitary $K\circ S_{BC}$): $Y$ has $10$ real parameters and each $Z_i$ is a pair of real symmetric $8\times8$
+blocks ($72$ parameters). The required positivity conditions
+and polynomial identities are verified in exact arithmetic. The certificate data consist of the witnesses for the family, the state $\tilde\rho$ with
+its witness, and the witness $Y_*$ for the surface state. Every white-noise bound, radius and table entry of
+Section~\ref{sec:ppt3-noise} (proofs in Appendix~\ref{sec:ppt3-app-noise}) is checked from these data, not inferred from solver output; this includes the spectral
+enclosure $-I/4\prec Y_*\prec31I/10$, the rational value of $\tr(Y_*\sigma)$, the partial-transpose eigenvalue
+bounds and the use of $\sqrt2<99/70$ in the PPT radii. Negative controls lie just beyond each stated
+bound.
+
+\item[Sharp white-noise thresholds.]
+Proposition~\ref{prop:ppt3-noise-sharp} uses explicit biseparable decompositions, stored as three orbit representatives per state
+and expanded under parity and $K\circ S_{BC}$. The exact checks cover positive
+definiteness of every $\Lambda_r$, cyclic invariance of the residual and the Gurvits--Barnum inequality, with a negative
+control at the certified GME noise level.
+\end{description}
+
+Corollary~\ref{cor:ppt3-symmetrisation}, Proposition~\ref{prop:ppt3-noise-extremal}, and the proofs of Appendices~\ref{sec:ppt3-app-moment} and~\ref{sec:ppt3-kernel} are analytic; the constants of Remark~\ref{rem:ppt3-hand-radius} are checked exactly. For publication, the
+certificate data and the exact verifiers must accompany the paper as ancillary material or a version-pinned public
+archive; the PDF alone does not encode the certificate matrices. Witness-search routines supply candidates; only exact checks certify the results.
+

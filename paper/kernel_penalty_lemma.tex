@@ -1,0 +1,88 @@
+\section{Supported witnesses extend by a kernel penalty}\label{sec:ppt3-kernel}
+
+A supported witness need not control product vectors outside its support. Choose $K$ with kernel equal to the support.
+Adding a positive multiple of $K\dg K$ penalises their component outside $\ker K$ while leaving the target state's expectation unchanged. A small identity shift makes
+positivity strict on the supported product rays, allowing compactness to control the rest.
+
+\begin{lemma}[kernel-penalty witness lift]\label{lem:ppt3-kernel-penalty}
+\cls{proved}
+Let $C$ be any compact set of unit vectors in a finite-dimensional Hilbert space, let $K$ be a matrix (below, $\|\cdot\|_\infty$ is the operator norm and $\|\cdot\|$ the Euclidean vector norm) and
+$\mathcal R=\ker K$. If a Hermitian $W_0$ is strictly positive on $C\cap\mathcal R$, then
+\[
+W=W_0+\lambda K\dg K
+\]
+is nonnegative on all of $C$ for some finite $\lambda\ge0$. No constant-rank or smoothness hypothesis is needed. More
+generally, if $W_0$ is merely nonnegative on $C\cap\mathcal R$ and $\tr(W_0\rho)=-g<0$ for a density matrix $\rho$ supported
+on $\mathcal R$, then $W_0+\epsilon I+\lambda K\dg K$ is a global witness for the free set $C$ that detects $\rho$, for every
+$0<\epsilon<g$ and some finite $\lambda$.
+\end{lemma}
+\begin{proof}
+On $C$ put $f(v)=v\dg W_0v$ and $h(v)=\|Kv\|^2$. The compact set $\mathcal B=\{v\in C:f(v)\le0\}$ is disjoint from
+$\{h=0\}$. If $\mathcal B$ is nonempty, $\eta=\min_{\mathcal B}h>0$, so $\lambda\ge\|W_0\|_\infty/\eta$ makes $f+\lambda h\ge0$ there;
+outside $\mathcal B$ it is already positive. If $\mathcal B$ is empty take $\lambda=0$. For the nonstrict version apply
+the argument to $W_0+\epsilon I$. The kernel penalty has zero expectation on $\rho$, leaving $-g+\epsilon<0$.
+\end{proof}
+
+For biseparability, $C$ is the union of the normalised cut-product vectors over the three cuts.
+The lemma also applies to other free pure-state sets, such as fully product vectors or stabiliser vectors.
+
+\begin{proposition}[quantitative form]\label{prop:ppt3-kernel-quant}
+\cls{proved}
+Let $C$ be the set of normalised cut-product vectors $U_c^\dagger(a\otimes b)$, $c\in\{A,B,C\}$, $a$ a unit
+one-qubit vector, where $U_c$ moves qubit $c$ to the first tensor factor. Put
+$M_c(a)=KU_c^\dagger(a\otimes I)$ and $\Omega_c(a)=(a^\dagger\otimes I)U_cW_0U_c^\dagger(a\otimes I)$. Suppose
+$\|W_0\|_\infty\le L$, $\Omega_c(a)\succeq\alpha I$ on $\ker M_c(a)$, and every nonzero eigenvalue of $M_c(a)\dg M_c(a)$ is at least
+$\mu$, uniformly in $a$ and $c$, with constants $L,\alpha,\mu>0$. Then
+\begin{equation}\label{eq:ppt3-lambda}
+\lambda=\frac{L+L^2/\alpha}{\mu}
+\end{equation}
+suffices in Lemma~\ref{lem:ppt3-kernel-penalty}. If additionally $\|K\|_\infty^2\le\beta$ and $\tr(W_0\rho)=-g<0$ for $\rho$
+supported on $\ker K$, then, for the lifted witness $W=W_0+\lambda K\dg K$,
+\begin{equation}\label{eq:ppt3-dist-lift}
+D(\rho,\mathrm{BS})\ge\frac g{2L+\lambda\beta}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Split $b=u+v$ into its components in $\ker M_c(a)$ and its orthogonal complement. The conditional quadratic form
+$(a\otimes b)\dg U_c(W_0+\lambda K\dg K)U_c\dg(a\otimes b)$ is bounded below by
+\[
+\alpha\|u\|^2-2L\|u\|\|v\|+(\lambda\mu-L)\|v\|^2\ \ge0
+\]
+when $\lambda\mu-L\ge L^2/\alpha$, which is \eqref{eq:ppt3-lambda}. For \eqref{eq:ppt3-dist-lift}, the spectrum of $W$
+lies in $[-L,L+\lambda\beta]$, $\tr(W\rho)=-g$ and $\tr(W\sigma)\ge0$ on $\mathrm{BS}$; the distance bound of
+\eqref{eq:ppt3-stability}, whose proof uses only these facts, gives \eqref{eq:ppt3-dist-lift}. The same argument works for any finite union of
+product cuts.
+\end{proof}
+
+Compactness supplies positive $\alpha$ and $\mu$ for constant-rank pencils with strict supported positivity; the next
+remark gives explicit bounds for the family.
+
+\begin{remark}[hand-checkable constants]\label{rem:ppt3-hand-radius}
+\cls{proved; CF-5}
+Without any solver output, Proposition~\ref{prop:ppt3-kernel-quant} gives at $t=10/3$
+\begin{equation}\label{eq:ppt3-hand}
+D(\rho_{10/3},\mathrm{BS})>\frac1{20\,000\,000},\qquad
+\rho_{10/3}^{T_c}\succ I/2000,
+\end{equation}
+so every physical state in that closed trace-distance ball is fully PPT and GME. Corollary~\ref{cor:ppt3-noise} is stronger
+by a factor of about $5000$; \eqref{eq:ppt3-hand} uses no semidefinite
+program, only explicit constants and exact minors.
+
+\emph{Proof.} Let $T=B\dg B$ and $W_0=BT^{-1}H_5T^{-1}B\dg$. Its operator norm is $14/3$ and, by
+\eqref{eq:ppt3-h5-value}, its expectation on $\rho_{10/3}$ is $-3/133$. Normalise the three rows of the annihilator $K$ of
+$R$ (Appendix~\ref{sec:ppt3-app-family}, proof of Proposition~\ref{prop:ppt3-witness}) by $\sqrt3$, $\sqrt3$, $\sqrt{12}$, which gives $KK\dg=I$. For any unit $a$ the
+conditional matrix $M=K(a\otimes I)$ satisfies $MM\dg\preceq I$ and $\det(MM\dg)\ge1/81$: write $|a_0|^2=p$ and
+$a_0\bar a_1=z$; the minimum over $\arg z$ is
+\[
+\det(MM\dg)\ge\frac{1-7p+24p^2-12p^3}{36}\ge\frac1{81},
+\]
+because the numerator minus $4/9$ is $(5-3p)(6p-1)^2/9$. Consequently every nonzero squared singular value is at least
+$1/81$. Take $U_c$ to be the power of the cyclic qubit permutation that moves $c$ to the first factor. The range $R$, hence
+the row space of $K$, and $W_0$ are cyclically invariant, so $KU_c\dg=G_cK$ with $G_c$ unitary and $U_cW_0U_c\dg=W_0$; the
+cuts $B$ and $C$ therefore give the same constants as $A$. Apply Proposition~\ref{prop:ppt3-kernel-quant} to $W_0+I/100$ with $L=5$, $\alpha=1/100$, $\mu=1/81$ and
+$\beta=1$, so $\lambda=202905$. The global witness $W=W_0+I/100+202905\,K\dg K$ has expectation $-167/13300$ on
+$\rho_{10/3}$ and spectral range at most $202915$, which gives the strict distance bound in \eqref{eq:ppt3-hand}. The
+partial-transpose bound is Sylvester's criterion for the two blocks of \eqref{eq:ppt3-minors} after subtracting $I/2000$,
+whose leading minors are positive rationals. The ball statement then follows from the last part of
+Lemma~\ref{lem:ppt3-dps}, since $1/20\,000\,000<2/(2000(1+\sqrt2))$.
+\end{remark}

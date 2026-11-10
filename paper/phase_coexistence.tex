@@ -1,0 +1,80 @@
+\section{One support, both phases}\label{sec:ppt3-coexistence}
+
+The product curves constrain biseparable decompositions, but the support alone does not decide GME. The support
+$R=R_1$ of the first family carries both biseparable and GME fully-PPT states with the same rank profile.
+An explicit line crosses their boundary while remaining strictly PPT. The proofs, with the exact matrices and minors, are in
+Appendix~\ref{sec:ppt3-app-coexistence}.
+
+Biseparable states on $R$ can be written down explicitly from the product curve of Proposition~\ref{prop:ppt3-witness}. For
+finite $z$ let $p_z=Bq_1(z)/\|Bq_1(z)\|$, a normalised $A|BC$-product vector in $R$, let $\Pi$ be the cyclic qubit permutation,
+and define the cyclically and parity symmetrised mixture
+\begin{equation}\label{eq:ppt3-gamma}
+ \Gamma_z=\frac16\sum_{j=0}^2\sum_{\epsilon=\pm1}
+   \Pi^j\ket{p_{\epsilon z}}\bra{p_{\epsilon z}}
+   \Pi^{-j}.
+\end{equation}
+Since $Z^{\otimes3}\ket{p_z}=-\ket{p_{-z}}$, the sum over $\epsilon=\pm1$ is the global parity average, and each $\Gamma_z$
+is an equal mixture of six pure product states across the three cuts, so $\Gamma_z$ and its convex mixtures are biseparable and supported on $R$.
+
+\begin{theorem}[biseparable and GME states on one PPT support]
+\label{thm:ppt3-phase-coexistence}
+\cls{proved; exact rational arithmetic, PG-2}
+The fixed support $R=R_1$ contains both a
+biseparable state and a GME state of rank five,
+\emph{each} PPT with strictly positive partial
+transposes. They therefore have the same rank
+profile $(5,8,8,8)$ and exactly the same
+three cut-product curves. An explicit
+biseparable example is
+$\sigma_{\rm BS}=\frac13\bigl(\ket{111}\bra{111}+\Gamma_2+\Gamma_{2i}\bigr)=BX_{\rm BS}B^\dagger$,
+where the rational coefficient matrix $X_{\rm BS}$ in the basis $(u,v,w,e,o)$ is given in
+\eqref{eq:ppt3-bs-same-support} of Appendix~\ref{sec:ppt3-app-coexistence}.
+The GME example is $\rho_{10/3}$ from
+Theorem~\ref{thm:ppt3-family}.
+Within the trace-one operators supported on $R$,
+the fully-PPT biseparable states and the fully-PPT
+GME states both have nonempty relative interiors.
+\end{theorem}
+
+\emph{Idea of the proof.} The state $\sigma_{\rm BS}$ is biseparable by construction; expanding the mixture gives
+$X_{\rm BS}$, and Sylvester's criterion on the two parity blocks of one partial transpose gives strict PPT. The state
+$\rho_{10/3}$ has the same range and is GME by \eqref{eq:ppt3-h5-value}. Strict PPT, rank five and GME persist under small
+perturbations within $R$. On the biseparable side, averaging curve projectors over a measure of full support gives an
+interior point of the supported biseparable cone: no nonzero supporting form can vanish on that average. Mixing it into
+$\sigma_{\rm BS}$ retains strict PPT (Appendix~\ref{sec:ppt3-app-coexistence}).
+
+\begin{proposition}[an exposed phase boundary inside the strict-PPT region]
+\label{prop:ppt3-exposed-transition}
+\cls{proved; exact rational arithmetic, PG-4}
+With the biseparable cut-product mixtures $\Gamma_z$ of
+\eqref{eq:ppt3-gamma}, define
+\begin{equation}\label{eq:ppt3-exposed-state}
+ \sigma_\partial=\frac15 \Gamma_1+\frac12 \Gamma_i+
+                  \frac3{10}\Gamma_{i\sqrt5}
+ =BX_\partial B^\dagger ,
+\end{equation}
+with the rational matrix $X_\partial$ of \eqref{eq:ppt3-xdelta} in Appendix~\ref{sec:ppt3-app-coexistence}.
+This rank-five biseparable state has
+$\sigma_\partial^{T_c}\succ I/300$ at each cut, yet
+$\tr(H_5X_\partial)=0$. The straight line
+\begin{equation}\label{eq:ppt3-exact-phase-line}
+ \sigma(t)=(1-t)\sigma_\partial+t\sigma_{\rm BS},
+          \qquad -\frac1{200}\le t\le1,
+\end{equation}
+consists entirely of rank-five fully-PPT states
+with strictly positive partial transposes. Along
+this \emph{single fixed-support, fixed-rank} line,
+\[
+ \sigma(t)\text{ is biseparable for }0\le t\le1,
+ \qquad
+ \sigma(t)\text{ is GME for }-1/200\le t<0.
+\]
+Thus $t=0$ is an exact biseparable--GME transition
+\emph{inside} the strict-PPT region, exposed by $H_5$.
+\end{proposition}
+
+\emph{Idea of the proof.} The factorisation \eqref{eq:ppt3-h5} vanishes at $|z|=1$ and at $z=\pm i\sqrt5$, so $H_5$ has zero
+expectation on each summand of $\sigma_\partial$. Since $\tr(H_5X_{\rm BS})>0$, the witness value is linear in $t$ along
+the line and negative exactly for $t<0$, which excludes biseparability there. The PPT margin is a Sylvester check, a
+Hilbert--Schmidt estimate keeps it for the small negative range of $t$, and convexity covers $0\le t\le1$. The exact data are
+in Appendix~\ref{sec:ppt3-app-coexistence}.

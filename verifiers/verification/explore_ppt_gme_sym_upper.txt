@@ -1,0 +1,29 @@
+code/explore_ppt_gme_sym_dps2.py:130: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  prob.solve(**KW)
+rho_star: directions
+  refine: 3 reps, p = 0.004317309 (800 SDPs)
+  3 representatives, p = 0.004317309, most violated direction -4.90e-07
+rho_star: optimal level-two (DPS) white-noise bound p = 0.00431728 (lower bound); last column-generation p = 0.004317309; p_up = 4319/1000000
+  den_z = 1e4: reserved delta = 1.698e-06
+  den_z = 1e4, den_B = 1e7: 3 reps, reserved delta = 1.698e-06, GB ratio inf
+  den_z = 1e4, den_B = 1e8: 3 reps, reserved delta = 1.698e-06, GB ratio inf
+  den_z = 1e4, den_B = 1e9: 3 reps, reserved delta = 1.698e-06, GB ratio 0.238
+rho_10/3: directions
+  refine: 3 reps, p = 0.000887895 (800 SDPs)
+  3 representatives, p = 0.000887895, most violated direction -8.55e-07
+rho_10/3: optimal level-two (DPS) white-noise bound p = 0.00088786 (lower bound); last column-generation p = 0.000887895; p_up = 89/100000
+  den_z = 1e4: reserved delta = 2.108e-06
+  den_z = 1e4, den_B = 1e7: 3 reps, reserved delta = 2.108e-06, GB ratio inf
+  den_z = 1e4, den_B = 1e8: 3 reps, reserved delta = 2.108e-06, GB ratio inf
+  den_z = 1e4, den_B = 1e9: 3 reps, reserved delta = 2.108e-06, GB ratio 0.287
+robust_state: directions
+  refine: 3 reps, p = 0.023353952 (800 SDPs)
+  3 representatives, p = 0.023353952, most violated direction -1.45e-09
+robust_state: optimal level-two (DPS) white-noise bound p = 0.02335395 (lower bound); last column-generation p = 0.023353952; p_up = 5839/250000
+  den_z = 1e4: reserved delta = -1.000e+00
+  den_z = 1e5: reserved delta = -1.000e+00
+  den_z = 1e6: reserved delta = 2.128e-06
+  den_z = 1e6, den_B = 1e7: 3 reps, reserved delta = 2.128e-06, GB ratio inf
+  den_z = 1e6, den_B = 1e8: 3 reps, reserved delta = 2.128e-06, GB ratio inf
+  den_z = 1e6, den_B = 1e9: 3 reps, reserved delta = 2.128e-06, GB ratio 0.234
+wrote ppt_gme_noise_upper_certificate.json; runtime 144 s

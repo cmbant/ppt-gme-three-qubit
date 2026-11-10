@@ -1,0 +1,155 @@
+\section{PPT mixtures and the remaining boundary}\label{sec:ppt3-relaxations}
+
+The examples separate full PPT from biseparability. We explain why PPT-mixture tests miss them, show that the supported
+witness method applies to every minimal-rank example, and distinguish a remaining question about maximally mixed marginals.
+
+\subsection{Why PPT-mixture tests cannot detect the states}
+
+A \emph{PPT mixture} is a convex combination of states, each PPT
+across one of the three cuts~\cite{JMG,NMG}. Every biseparable
+state is a PPT mixture, but the converse fails~\cite{HK}.
+
+\begin{corollary}[PPT mixtures and outer relaxations]\label{cor:ppt3-ppt-mixture}
+\cls{proved; the level-two detection is the exact-rational certificates of Section~\ref{sec:ppt3-noise}}
+Every fully-PPT GME state in Theorems~\ref{thm:ppt3-family}
+and~\ref{thm:ppt3-orbit} and Corollaries~\ref{cor:ppt3-extreme6},
+\ref{cor:ppt3-extreme5} and~\ref{cor:ppt3-robust} is a
+PPT mixture. No PPT-mixture witness can detect any of them.
+The level-two symmetric-extension certificates of
+Section~\ref{sec:ppt3-noise} do detect the first family and
+the states $\rho_*$, $\sigma$ and $\tilde\rho$ of Corollaries~\ref{cor:ppt3-noise-reused},
+\ref{cor:ppt3-extreme5} and~\ref{cor:ppt3-robust}; we do not assert a level-two certificate for
+every member of the local-filter surface.
+\end{corollary}
+\begin{proof}
+Every fully-PPT state is itself a one-term PPT mixture. The GME and level-two witness claims
+were proved in the preceding sections.
+\end{proof}
+
+\begin{remark}[rank-four PPT pieces do not always suffice]\label{rem:ppt3-splitting}
+\cls{proved}
+The family of Theorem~\ref{thm:ppt3-family} also rules out a proposed universal decomposition
+of fully-PPT rank-five states into positive operators
+$\rho=\sigma_A+\sigma_B+\sigma_C$ with
+$\sigma_c^{T_c}\succeq0$ and $\rank\sigma_c\le4$.
+By the $2\times4$ low-rank theorem~\cite{KCKL,HLVC},
+each summand would be separable across its indicated cut,
+making $\rho$ biseparable.
+\end{remark}
+
+\subsection{Every minimal-rank example has the same geometry}\label{sec:ppt3-moment-cone}
+
+The supported-witness method extends beyond our chosen vectors. For a fully-PPT GME state of minimal rank, the kernel contains no cut-product
+vector; this forces the product rays at each cut to form a rational quartic curve spanning the support.
+The three curves determine all its biseparable states and all supported witnesses.
+
+\begin{theorem}[three images of one quartic moment cone]\label{thm:ppt3-universal-moments}
+\cls{proved}
+Let $R\subset(\mathbb C^2)^{\otimes3}$ be a five-dimensional subspace whose orthogonal complement contains no nonzero vector
+that is a product across any of the three cuts; by Lemma~\ref{lem:ppt3-product-kernel} (Appendix~\ref{sec:ppt3-app-moment}) this holds for the range of every
+rank-five fully-PPT GME state. Let $B$ be an $8\times5$ basis matrix of $R$, put $\nu(a)=(a_0^4,a_0^3a_1,a_0^2a_1^2,
+a_0a_1^3,a_1^4)^T$ for $a\in\mathbb C^2$, and let $\mathcal M_4=\operatorname{cone}\{\nu(a)\nu(a)\dg\}$ be the spin-two
+(quartic) moment cone. For each cut $c$ there is an invertible $5\times5$ matrix $T_c$ such that the cut-$c$ product
+rays in $R$ are exactly the rays of $BT_c\nu(a)$, $a\neq0$. Consequently, for Hermitian $X$,
+\begin{equation}\label{eq:ppt3-universal-bs}
+ BXB\dg\ \text{is biseparable}\iff X\in\sum_{c=A,B,C}T_c\mathcal M_4T_c\dg ,
+\end{equation}
+every biseparable operator on $R$ is a sum of at most $25$ cut-product projectors, and a Hermitian $5\times5$ matrix $H$
+satisfies $\tr(HX)\ge0$ for every biseparable $BXB\dg$ if and only if
+\begin{equation}\label{eq:ppt3-universal-dual}
+ \nu(a)\dg T_c\dg HT_c\,\nu(a)\ge0\qquad\text{for all }a\in\mathbb C^2,\ c=A,B,C .
+\end{equation}
+\end{theorem}
+
+\emph{Idea of the proof.} A fully-PPT state whose kernel contains a product vector is separable across that cut, so the
+kernel of a minimal-rank example is product-free. The product vectors $a\otimes b$ in $R$ are then the solutions of a
+$3\times4$ linear pencil in $a$ of constant rank three, which is forced to be a single Kronecker block; its kernel is
+cubic in $a$, so the product vectors trace a rational normal quartic spanning $R$. Appendix~\ref{sec:ppt3-app-moment}.
+
+Thus, on the support of a minimal-rank example, biseparability is decided by where three copies of one universal cone
+sit relative to each other, and genuine multipartite entanglement is certified exactly by a $5\times5$ Hermitian $H$
+whose three quartic forms~\eqref{eq:ppt3-universal-dual} are nonnegative while $\tr(HX)<0$. Such an $H$ exists for
+every GME state of rank five, since the cone in~\eqref{eq:ppt3-universal-bs} is closed. The witnesses $H_s$ and $H_0$ of
+Sections~\ref{sec:ppt3-family} and~\ref{sec:ppt3-surface} are instances, with the quartic forms factorised by hand.
+Testing the nonnegativity of a quartic form in one complex variable is a small problem: a real polynomial of degree eight
+in two variables.
+
+\subsection{The flat-marginal question}\label{sec:ppt3-flat}
+
+A three-qubit state is \emph{flat} if every proper marginal
+is maximally mixed. Our examples settle existence of fully-PPT GME, but leave the following conjecture open:
+\begin{conjecture}[flat rank-five states]\label{conj:ppt3-flat}
+\cls{open; repository name Conjecture R}
+Every flat three-qubit state of rank five is biseparable.
+
+\end{conjecture}
+Every flat three-qubit state is fully PPT, with rank profile $(r,r,r,r)$, $r=\rank\rho$. Indeed
+$\rho=I/8+T$ with $T$ a real combination of three-body Pauli products. Partial transposition on qubit $c$ followed by
+conjugation with $\sigma_y$ on that qubit negates every Pauli factor on $c$, and the antiunitary
+$J=\sigma_y^{\otimes3}K$ ($K$ complex conjugation) negates all three factors, so
+\[
+ \sigma_y^{(c)}\rho^{T_c}\sigma_y^{(c)}=I/8-T=J\rho J^{-1}.
+\]
+Each partial transpose is therefore isospectral to $\rho$. Profiles are unchanged by invertible local filtering.
+
+\begin{remark}[rank profile is not flatness]\label{rem:ppt3-flat-profile}
+\cls{proved}
+The first family has profile $(5,8,8,8)$ in the PPT interval
+and $(5,7,7,7)$ at its endpoints, while
+Corollary~\ref{cor:ppt3-extreme6} has profile $(5,6,6,6)$.
+None is locally filter-equivalent to a flat rank-five state.
+The second family and its extreme member \emph{do} have profile
+$(5,5,5,5)$, yet they are GME. Thus that profile by itself
+cannot imply biseparability; Conjecture~\ref{conj:ppt3-flat} must use the
+flat-marginal condition, not only the ranks.
+\end{remark}
+
+\subsection{Relation to earlier work}\label{sec:ppt3-prior}
+
+Fully-PPT genuine multipartite entanglement is known in systems larger than three qubits. For states supported on the totally
+symmetric subspace, any cut-product vector in the support
+is fully product, so biseparability equals full separability
+there. This connects the symmetric multipartite PPT-entangled
+constructions for four or more qubits~\cite{TG,TAHKSL,ATSL} to GME;
+mere permutation invariance, without support in
+the symmetric subspace, is not sufficient for this inference.
+Fully-PPT GME examples also exist for three qutrits
+and higher local dimensions~\cite{HS,PM,SB,SBZL}; for~\cite{SBZL} the state is the normalised projector onto the
+complement of a genuinely unextendible product basis.
+
+For three qubits, Ac\'in, Bru\ss, Lewenstein and Sanpera gave an early construction of fully-PPT three-qubit edge states, with rank
+profiles up to $(7,7,7,7)$, including an X-shaped family~\cite{ABLS}, of which Kampermann et al.\ generated a pseudo-bound-entangled NMR version~\cite{KPBS}.
+By Han and Kye, every X-shaped fully-PPT multi-qubit state is biseparable~\cite[Cor.~5.4]{HanK}; these NMR
+states are therefore not GME, and, since biseparability and PPT are invariant under local unitaries, the GME states of this
+paper are not X-shaped in any product basis. Explicit three-qubit PPT entangled states of low rank are also given
+in~\cite{HaKye15}.
+
+Ha and Kye gave a three-qubit PPT mixture that is not biseparable, but their rank-seven example was established
+PPT across a selected cut, not all three~\cite{HK}. This already refuted the conjecture of Novo, Moroder and G\"uhne that
+PPT mixtures coincide with biseparable states for three qubits~\cite{NMG}. The states here are a stronger counterexample: a
+single-term PPT mixture that is PPT across all three cuts. By Observation~3 of~\cite{NMG}, a permutation-invariant
+three-qubit state is biseparable if and only if it is a PPT mixture, so no state of this paper is permutation invariant, in
+line with Corollary~\ref{cor:ppt3-symmetrisation}.
+Garberg, Irgens and Myrheim found fully-PPT states
+numerically with many rank profiles, including $(5,5,5,5)$ and extreme states, without a GME
+certificate~\cite{GIM}. Their phrase ``genuine tripartite entanglement'' for rank-$(4,4,4,4)$ states means entangled while
+separable across every bipartition, which is not GME in the present sense.
+Hari Krishnan, Ranjan and Banik~\cite{KRB} provided
+fully-PPT three-qubit states outside
+$\bigcap_c\mathrm{Sep}_c$, the intersection of the
+three cut-separable sets, by cyclically symmetrising an embedded $2\times4$ PPT state and subtracting low-rank terms.
+This does not imply GME:
+the biseparable set is the larger convex hull
+$\mathrm{BS}=\operatorname{conv}(\bigcup_c\mathrm{Sep}_c)$.
+Our supported witness excludes the \emph{convex hull},
+not merely the intersection. T\'oth and V\'ertesi found numerically a three-qubit state that is PPT across all
+bipartitions and nevertheless useful for metrology~\cite{TV}; it is entangled but was not shown to be GME.
+Singh and Banik noted that no explicit three-qubit state that is PPT across all three cuts and GME was known,
+and showed that, if one exists, it can be taken extreme with all four ranks at least five and the smallest equal to five
+or six~\cite{SB}; they did not settle existence. Our extreme states satisfy these restrictions.
+
+To our knowledge these are the first explicit
+\emph{three-qubit} examples proved both fully PPT and GME;
+the claim does not extend to more parties
+or higher local dimensions.
+
