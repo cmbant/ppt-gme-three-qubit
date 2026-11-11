@@ -23,6 +23,8 @@ For $t>0$ set
 \begin{equation}\label{eq:ppt3-rho}
 \rho_t=\frac{t\,uu\dg+3t\,vv\dg+3\,ww\dg+3\,ee\dg+oo\dg}{7(t+3)} .
 \end{equation}
+The weights $(t,3t,3,3,1)$ are a one-parameter choice for which the PPT conditions of the two parity blocks, derived below,
+leave a nonempty interval in $t$.
 For a three-qubit operator $X$ write $X^{T_c}$ for its partial transpose on qubit $c\in\{A,B,C\}$; the
 \emph{rank profile} of $X$ is $(\rank X,\rank X^{T_A},\rank X^{T_B},\rank X^{T_C})$. For a vector $x$, $\|x\|$ is the
 Euclidean norm; for an operator $X$, $\|X\|_1$ is the trace norm, $\|X\|_2=(\tr X\dg X)^{1/2}$ the Hilbert--Schmidt norm
@@ -129,27 +131,29 @@ $\mathcal S(\rho)=\frac16\sum_{\pi\in S_3}U_\pi\rho U_\pi^\dagger$ is separable 
 \end{equation}
 where $D(\rho,\sigma)=\frac12\|\rho-\sigma\|_1$ is the trace distance, $D(\rho,\mathrm{BS})=\inf_{\sigma\in\mathrm{BS}}D(\rho,\sigma)$ and
 $\mathrm{BS}$ is the set of biseparable states.
-If $\rho$ is cyclically invariant and $S$ is any transposition of two qubits, the bound is
-$\frac14\|\rho-S\rho S^\dagger\|_1$.
 \item For any three-qubit $\rho$ that is PPT at $A|BC$, pinching with the triplet and singlet projectors $P_3$, $P_1$ of $BC$
 gives an explicit $A|BC$-separable state, and
 \begin{equation}\label{eq:ppt3-pinch}
-D(\rho,\mathrm{BS})\le\|P_3\rho P_1\|_1 .
+D(\rho,\mathrm{BS})\le\|P_3\rho P_1\|_1=\tfrac14\|\rho-S_{BC}\rho S_{BC}\|_1 ,
 \end{equation}
+where $S_{BC}$ is the swap of $B$ and $C$. For a cyclically invariant fully-PPT $\rho$, \eqref{eq:ppt3-asymmetry-upper}
+gives the same value $\frac14\|\rho-S\rho S^\dagger\|_1$ for every transposition $S$; \eqref{eq:ppt3-pinch} needs only PPT at $A|BC$.
 \end{enumerate}
-These are upper bounds on the distance to $\mathrm{BS}$, not entanglement tests. Coherence between singlet and triplet,
-and the breaking of every pair-exchange symmetry, are therefore necessary for fully-PPT GME.
+These are upper bounds on the distance to $\mathrm{BS}$, not entanglement tests. They show, however, that a fully-PPT
+GME state must have coherence between the singlet and triplet sectors of every pair of qubits (otherwise \eqref{eq:ppt3-pinch} vanishes at that
+cut), and in particular must break every pair-exchange symmetry.
 \end{corollary}
 \begin{proof}
 (a) The swap-invariant state is block diagonal in the triplet ($\dim3$) and singlet ($\dim1$) subspaces of $BC$, and its
 partial transpose on $A$ preserves these blocks. Each block is PPT on $2\times3$ or $2\times1$, where PPT implies
 separability; this is the mechanism of Novo, Moroder and G\"uhne~\cite[Sec.~III.2]{NMG}. (b) $\mathcal S(\rho)$ is fully
 PPT and invariant under every transposition, so (a) applies at each cut; $\mathcal S(\rho)\in\mathrm{BS}$ gives
-\eqref{eq:ppt3-asymmetry-upper}. For cyclic $\rho$, $\mathcal S(\rho)=(\rho+S\rho S^\dagger)/2$. (c) The pinched state
+\eqref{eq:ppt3-asymmetry-upper}. (c) The pinched state
 $P_3\rho P_3+P_1\rho P_1$ is PPT at $A|BC$ (the partial transpose on $A$ commutes with the pinching on $BC$) and block diagonal as
-in (a), hence separable; its trace distance from $\rho$ is at most $\|P_3\rho P_1\|_1$. Since the swap is
-$S_{BC}=P_3-P_1$, the pinched state equals $(\rho+S_{BC}\rho S_{BC})/2$ and $\|P_3\rho P_1\|_1=\frac14\|\rho-S_{BC}\rho S_{BC}\|_1$,
-so (c) extends the cyclic bound of (b) to every state that is PPT at $A|BC$.
+in (a), hence separable; its trace distance from $\rho$ is at most $\|P_3\rho P_1\|_1$. Since
+$S_{BC}=P_3-P_1$, $\rho-S_{BC}\rho S_{BC}=2(P_3\rho P_1+P_1\rho P_3)$, whose trace norm is $4\|P_3\rho P_1\|_1$. For cyclic $\rho$,
+$\mathcal S(\rho)=(\rho+S\rho S^\dagger)/2$ for each transposition $S$, so \eqref{eq:ppt3-asymmetry-upper} becomes $\frac14\|\rho-S\rho S^\dagger\|_1$,
+and cyclic invariance makes this independent of $S$.
 \end{proof}
 
 The obstruction concerns reflection alone. The real vectors $u_s,v,w$ and the pair $e,o$ of \eqref{eq:ppt3-vectors} are invariant under the
@@ -160,19 +164,18 @@ reflection and conjugation. The GME states among them are invariant under neithe
 part~(a), and not under conjugation, which exchanges $e$ and $o$ with $\bar e$ and $\bar o$, outside their supports.
 
 \begin{corollary}[intrinsic local chirality]\label{cor:ppt3-chirality}
-\cls{proved; CF-4, SC-1--SC-5}
+\cls{proved; SC-1, SC-2, SC-3, SC-4, SC-5}
 \begin{enumerate}[label=(\alph*)]
-\item Throughout \eqref{eq:ppt3-interval}, $\rho_t$ and its complex conjugate are not related by local unitaries. The same
+\item For every $t>0$, $\rho_t$ and its complex conjugate are not related by local unitaries. The same
 holds for physical spin time reversal, which differs from complex conjugation by a local unitary.
 \item For every $s>0$, no invertible local filter $F_A\otimes F_B\otimes F_C$ maps $R_s$ onto its complex conjugate. Hence no state
-with range $R_s$, in particular no $\rho_t$, $\sigma_6$, $\rho_{\tau,a}$ or state of the phase-coexistence line, is related to its complex
+with range $R_s$, in particular no $\rho_t$, $\sigma_6$ (Corollary~\ref{cor:ppt3-extreme6}), $\rho_{\tau,a}$ with $1/\sqrt3<\tau<1$
+(Theorem~\ref{thm:ppt3-orbit}) or state of the phase-coexistence line (Proposition~\ref{prop:ppt3-exposed-transition}), is related to its complex
 conjugate or its spin time reversal by an invertible local filter. The stabiliser of $R_s$ in $\mathrm{PGL}(2,\mathbb C)^{\times3}$ is
 isomorphic to $S_3$, acting by the same M\"obius map on the three qubits.
 \end{enumerate}
 \end{corollary}
-\emph{Idea of the proof.} (a) The eigenrays of $u$ and $v=\ket{111}$ are nondegenerate, so a local unitary relating $\rho_t$
-to $\overline{\rho_t}$ must fix both, leaving only $I$ and $Z^{\otimes3}$; both fix $\rho_t$, which is not real
-($\langle011|\rho_t|101\rangle\propto t+3\omega^2$). (b) $R_s$ contains exactly three fully product rays, $[\ket1^{\otimes3}]$ and
+\emph{Idea of the proof.} (a) is the unitary case of (b), since $\operatorname{ran}\rho_t=R_1$ for every $t>0$. (b) $R_s$ contains exactly three fully product rays, $[\ket1^{\otimes3}]$ and
 $[(\ket0\pm i\sqrt s\ket1)^{\otimes3}]$, and a filter must permute them; a M\"obius map is fixed by its action on three points, so the filter is
 $F_0^{\otimes3}$ up to a scalar, which commutes with the cyclic shift. The shift has eigenvalue $\omega^2$ on $e,o\in R_s$ but not on $\overline{R_s}$.
 See Appendix~\ref{sec:ppt3-app-family}.
@@ -183,14 +186,14 @@ Adjusting the weight of $v$ makes both partial-transpose parity blocks singular 
 
 \begin{corollary}[an extreme fully-PPT GME state of profile $(5,6,6,6)$]\label{cor:ppt3-extreme6}
 \cls{exact-symbolic certificate, computer-assisted; the GME part is proved analytically; CF-6}
-Set $a=t_-$ and $b=8(9-a)/5$ ($a\approx3.257$, $b\approx9.189$). Then
+Set $t=t_-$ and $b=8(9-t)/5$ ($t\approx3.257$, $b\approx9.189$). Then
 \begin{equation}\label{eq:ppt3-sigma6}
-\sigma_6=\frac{a\,uu\dg+b\,vv\dg+3\,ww\dg+3\,ee\dg+oo\dg}{4a+b+21}
+\sigma_6=\frac{t\,uu\dg+b\,vv\dg+3\,ww\dg+3\,ee\dg+oo\dg}{4t+b+21}
 \end{equation}
 is an extreme point of the set of fully-PPT three-qubit states and is GME. Its coefficient matrix is
-$X_6=\operatorname{diag}(a,b,3,3,1)/(4a+b+21)$.
+$X_6=\operatorname{diag}(t,b,3,3,1)/(4t+b+21)$.
 \end{corollary}
-\emph{Idea of the proof.} The choice $a=t_-$ makes the even partial-transpose block singular, and that of $b$ makes the odd
+\emph{Idea of the proof.} The choice $t=t_-$ makes the even partial-transpose block singular, and that of $b$ makes the odd
 block singular, each with a positive $3\times3$ leading minor, so every partial transpose has rank six. GME follows from the
 witness $H_5$. By the supported-face criterion of~\cite{GIM}, extremality means that the only Hermitian $D$ supported on
 $\operatorname{ran}\sigma_6$ whose partial transposes annihilate the kernels of those of $\sigma_6$ is a multiple of

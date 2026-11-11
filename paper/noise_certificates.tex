@@ -93,14 +93,11 @@ $169/50$ & $1.4\times10^{-3}$ & $6.1\times10^{-4}$ &
 Specifically, white noise
 $(1-p)\rho_t+pI/8$ remains GME for $p$ up to the listed
 value, and independent local depolarisation with rates
-$q_j\le q$ does likewise. Every physical state in each
-listed closed GME ball is GME, while states strictly inside
-the PPT radius remain fully PPT. The minimum of the last
-two entries gives a radius with \emph{both} properties;
-for $t=10/3$ it is $2.7\times10^{-4}$; for $t=327/100$
-the whole listed GME ball is also PPT, and at
-$t=169/50$ the simultaneous radius is
-$2.0\times10^{-4}$ (strictly inside the ball).
+$q_j\le q$ does likewise. Every physical state in a listed closed GME ball is GME, and every
+state strictly inside a listed PPT ball is fully PPT. Every state at trace distance
+strictly below the smaller of the last two entries therefore has \emph{both} properties:
+below $2.7\times10^{-4}$ for $t=10/3$, below $1.0\times10^{-4}$ for $t=327/100$ (where the
+whole GME ball is also PPT) and below $2.0\times10^{-4}$ for $t=169/50$.
 In particular $D(\rho_{10/3},\mathrm{BS})>2.7\times10^{-4}$.
 White noise itself preserves PPT automatically.
 
@@ -229,10 +226,11 @@ optimising the witness for a state and the fully-PPT state for a witness. For st
 state is block diagonal over six sectors labelled by parity and cyclic charge (the partial-transpose constraints mix
 charges and respect only the two parity blocks): the charge-zero sectors spanned by
 $\{\ket{000},\ket{011}+\ket{101}+\ket{110}\}$ and $\{w,v\}$, and the one-dimensional sectors $e,\bar e,o,\bar o$.
-Extreme points differ in how their rank is distributed among these sectors. The surface of Section~\ref{sec:ppt3-surface}
+The following observations come from floating-point searches and are not certified. Extreme points differ in how their
+rank is distributed among these sectors. The surface of Section~\ref{sec:ppt3-surface}
 occupies $u_s$, the whole $\{w,v\}$ sector, $e$ and $o$, while the optimiser behind $\tilde\rho$ occupies $u_s$, one
 direction $w+cv$, $e$, $\bar e$ and $o$, with $s\approx0.974$ and $c\approx-0.750$: the same symmetries as the surface,
 but one combination of $w$ and $v$ is traded for the opposite-chirality vector $\bar e$. Both have profile $(5,5,5,5)$.
-The level-two white-noise tolerance of $\rho_{\rm opt}$ before mixing is $2.36\times10^{-2}$; whether some fully-PPT
+The level-two white-noise tolerance of $\rho_{\rm opt}$ before mixing is numerically $2.36\times10^{-2}$; whether some fully-PPT
 three-qubit state is more robust is open.
 \end{remark}

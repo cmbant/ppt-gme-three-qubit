@@ -47,28 +47,28 @@ point) certifies the statement; "numerical evidence" is not a proof.
 | Theorem 1, p. 3 | `thm:ppt3-family` | the rank-five fully-PPT GME family | proved | CF-1, CF-2, CF-3, IN-1, IN-2, IN-3, IN-4, IN-5, IN-6, IN-7 |
 | Proposition 2, p. 4 | `prop:ppt3-witness` | supported witnesses | proved analytically | CF-2, CF-3, IN-2, IN-3, IN-4, SW-1, SW-2 |
 | Corollary 3, p. 5 | `cor:ppt3-symmetrisation` | reflection symmetry destroys the construction | proved | – |
-| Corollary 4, p. 5 | `cor:ppt3-chirality` | intrinsic local chirality | proved | CF-4, SC-1–SC-5 |
+| Corollary 4, p. 5 | `cor:ppt3-chirality` | intrinsic local chirality | proved | SC-1, SC-2, SC-3, SC-4, SC-5 |
 | Corollary 5, p. 6 | `cor:ppt3-extreme6` | an extreme fully-PPT GME state of profile `(5,6,6,6)` | exact-symbolic certificate, computer-assisted | CF-6 |
 | Lemma 6, p. 7 | `lem:ppt3-h0` | a `\tau`-independent supported witness | proved analytically | SW-7 |
 | Theorem 7, p. 7 | `thm:ppt3-orbit` | fully-PPT GME states of profile `(5,5,5,5)` | proved analytically | FP-1, SW-4, SW-5, SW-6, SW-7 |
-| Corollary 8, p. 7 | `cor:ppt3-extreme5` | an explicit extreme state with rational weights and profile `(5,5,5,5)` | exact-rational certificate, computer-assisted | FP-2, FP-3, FP-4, FP-5, SW-3, DS-6, SB-2 |
-| Proposition 9, p. 8 | `prop:ppt3-moduli` | the profile-`(5,5,5,5)` states are not isolated | exact-symbolic certificate, computer-assisted | MO-1–MO-4, SB-3, SB-4 |
-| Theorem 11, p. 9 | `thm:ppt3-w-class` | the constructed fully-PPT states belong to the mixed `W` class | proved analytically | WC-1–WC-4 |
-| Theorem 13, p. 11 | `thm:ppt3-phase-coexistence` | biseparable and GME states on one PPT support | proved | PG-2 |
-| Proposition 14, p. 11 | `prop:ppt3-exposed-transition` | an exposed phase boundary inside the strict-PPT region | proved | PG-4 |
-| Corollary 15, p. 12 | `cor:ppt3-volume` | positive volume in any finite dimension | proved | – |
-| Lemma 16, p. 12 | `lem:ppt3-dps` | certificate and stability principle | proved | – |
-| Corollary 17, p. 13 | `cor:ppt3-noise` | noise and preparation radius of the family | exact-rational certificate, with proved PPT stability | DS-1, DS-2, DS-3, DS-6 |
-| Corollary 18, p. 13 | `cor:ppt3-noise-reused` | noise bounds for the surface state from one exact witness | exact-symbolic certificate | DS-6 |
-| Corollary 19, p. 14 | `cor:ppt3-robust` | a full-rank fully-PPT GME state tolerating `2.3\%` white noise | exact-rational certificate, with proved PPT stability | DS-4, DS-6 |
-| Proposition 20, p. 14 | `prop:ppt3-noise-sharp` | the white-noise thresholds are essentially sharp | exact-rational/algebraic certificate, computer-assisted | DS-7 |
-| Proposition 21, p. 14 | `prop:ppt3-noise-extremal` | an extremal reduction for white-noise robustness | proved | – |
-| Corollary 23, p. 15 | `cor:ppt3-ppt-mixture` | PPT mixtures and outer relaxations | proved | – |
-| Theorem 25, p. 16 | `thm:ppt3-universal-moments` | three images of one quartic moment cone | proved | – |
-| Conjecture 26, p. 16 | `conj:ppt3-flat` | flat rank-five states | open | – |
-| Lemma 28, p. 27 | `lem:ppt3-product-kernel` | product kernel | proved | – |
-| Lemma 29, p. 28 | `lem:ppt3-kernel-penalty` | kernel-penalty witness lift | proved | – |
-| Proposition 30, p. 28 | `prop:ppt3-kernel-quant` | quantitative form | proved | – |
+| Corollary 8, p. 7 | `cor:ppt3-extreme5` | an explicit extreme state with rational weights and profile `(5,5,5,5)` | exact-rational certificate, computer-assisted | FP-2, FP-3, FP-4, FP-5, SW-3, DS-6, SB-1, SB-2 |
+| Proposition 9, p. 8 | `prop:ppt3-moduli` | the profile-`(5,5,5,5)` states are not isolated | exact-symbolic certificate, computer-assisted | MO-1, MO-2, MO-3, MO-4, SB-1, SB-3, SB-4 |
+| Theorem 12, p. 9 | `thm:ppt3-w-class` | the constructed fully-PPT states belong to the mixed `W` class | proved analytically | WC-1, WC-2, WC-3, WC-4 |
+| Theorem 14, p. 12 | `thm:ppt3-phase-coexistence` | biseparable and GME states on one PPT support | proved | PG-2 |
+| Proposition 15, p. 12 | `prop:ppt3-exposed-transition` | an exposed phase boundary inside the strict-PPT region | proved | PG-4 |
+| Corollary 16, p. 12 | `cor:ppt3-volume` | positive volume in any finite dimension | proved | – |
+| Lemma 17, p. 13 | `lem:ppt3-dps` | certificate and stability principle | proved | – |
+| Corollary 18, p. 13 | `cor:ppt3-noise` | noise and preparation radius of the family | exact-rational certificate, with proved PPT stability | DS-1, DS-2, DS-3, DS-6 |
+| Corollary 19, p. 14 | `cor:ppt3-noise-reused` | noise bounds for the surface state from one exact witness | exact-symbolic certificate | DS-6 |
+| Corollary 20, p. 14 | `cor:ppt3-robust` | a full-rank fully-PPT GME state tolerating `2.3\%` white noise | exact-rational certificate, with proved PPT stability | DS-4, DS-6 |
+| Proposition 21, p. 15 | `prop:ppt3-noise-sharp` | the white-noise thresholds are essentially sharp | exact-rational/algebraic certificate, computer-assisted | DS-7 |
+| Proposition 22, p. 15 | `prop:ppt3-noise-extremal` | an extremal reduction for white-noise robustness | proved | – |
+| Corollary 24, p. 16 | `cor:ppt3-ppt-mixture` | PPT mixtures and outer relaxations | proved | – |
+| Theorem 26, p. 16 | `thm:ppt3-universal-moments` | three images of one quartic moment cone | proved | – |
+| Conjecture 27, p. 17 | `conj:ppt3-flat` | flat rank-five states | open | – |
+| Lemma 29, p. 28 | `lem:ppt3-product-kernel` | product kernel | proved | – |
+| Lemma 30, p. 29 | `lem:ppt3-kernel-penalty` | kernel-penalty witness lift | proved | – |
+| Proposition 31, p. 29 | `prop:ppt3-kernel-quant` | quantitative form | proved | – |
 
 
 To check one result, run the scripts of every tag in its row. Appendix G of the paper lists the
@@ -106,7 +106,7 @@ lake build
 
 The project has two libraries: the paper's development `lean/PPTThreeQubit/` and the general Gurvits–Barnum separable ball
 `lean/GurvitsBarnum/`, each with an aggregate (`lean/PPTThreeQubit.lean`, `lean/GurvitsBarnum.lean`); the modules are
-`PPTThreeQubit.Basic`, `PPTThreeQubit.Coexistence`, `PPTThreeQubit.CoexistencePPT`, `PPTThreeQubit.CoexistencePPTData`, `PPTThreeQubit.Criterion`, `PPTThreeQubit.CurveParam`, `PPTThreeQubit.CutEquiv`, `PPTThreeQubit.FamilyGME`, `PPTThreeQubit.FamilyPPT`, `PPTThreeQubit.FamilyPPTFactor`, `PPTThreeQubit.Flat`, `PPTThreeQubit.FlatPauli`, `PPTThreeQubit.MomentCone`, `PPTThreeQubit.MomentConeGME`, `PPTThreeQubit.PPTSeparable23`, `PPTThreeQubit.PartialTranspose`, `PPTThreeQubit.PencilKernel`, `PPTThreeQubit.ProductKernel`, `PPTThreeQubit.ProductKernelThree`, `PPTThreeQubit.Surface`, `PPTThreeQubit.SurfaceExtreme`, `PPTThreeQubit.SurfacePPT`, `PPTThreeQubit.SurfacePPTFactor`, `PPTThreeQubit.SurfaceWitness`, `PPTThreeQubit.Witness`, `GurvitsBarnum.Ball`, `GurvitsBarnum.Basic`, `GurvitsBarnum.BlockBound`, `GurvitsBarnum.Choi`, `GurvitsBarnum.Closed`, `GurvitsBarnum.ClosedHull`, `GurvitsBarnum.Contraction`, `GurvitsBarnum.ContractionBase`, `GurvitsBarnum.ContractionPolar`, `GurvitsBarnum.ContractionUnitary`, `GurvitsBarnum.Separation`, `GurvitsBarnum.Witness`. The
+`PPTThreeQubit.Basic`, `PPTThreeQubit.Chirality`, `PPTThreeQubit.ChiralityBasics`, `PPTThreeQubit.ChiralityRays`, `PPTThreeQubit.ChiralityStabiliser`, `PPTThreeQubit.ChiralityUnitary`, `PPTThreeQubit.Coexistence`, `PPTThreeQubit.CoexistencePPT`, `PPTThreeQubit.CoexistencePPTData`, `PPTThreeQubit.Criterion`, `PPTThreeQubit.CurveParam`, `PPTThreeQubit.CutEquiv`, `PPTThreeQubit.ExtremeCriterion`, `PPTThreeQubit.FamilyGME`, `PPTThreeQubit.FamilyPPT`, `PPTThreeQubit.FamilyPPTFactor`, `PPTThreeQubit.Flat`, `PPTThreeQubit.FlatPauli`, `PPTThreeQubit.KernelPenalty`, `PPTThreeQubit.KernelQuantCuts`, `PPTThreeQubit.MomentCone`, `PPTThreeQubit.MomentConeCaratheodory`, `PPTThreeQubit.MomentConeGME`, `PPTThreeQubit.PPTSeparable23`, `PPTThreeQubit.PartialTranspose`, `PPTThreeQubit.PencilKernel`, `PPTThreeQubit.Pinching`, `PPTThreeQubit.ProductKernel`, `PPTThreeQubit.ProductKernelThree`, `PPTThreeQubit.RankProfile`, `PPTThreeQubit.SigmaExtreme`, `PPTThreeQubit.SigmaExtremeAlg`, `PPTThreeQubit.SigmaExtremeData`, `PPTThreeQubit.Surface`, `PPTThreeQubit.SurfaceExtreme`, `PPTThreeQubit.SurfacePPT`, `PPTThreeQubit.SurfacePPTFactor`, `PPTThreeQubit.SurfaceWitness`, `PPTThreeQubit.SwapSymmetric`, `PPTThreeQubit.TraceDistance`, `PPTThreeQubit.WClass`, `PPTThreeQubit.WClassStates`, `PPTThreeQubit.WClassTilde`, `PPTThreeQubit.Witness`, `GurvitsBarnum.Ball`, `GurvitsBarnum.Basic`, `GurvitsBarnum.BlockBound`, `GurvitsBarnum.Choi`, `GurvitsBarnum.Closed`, `GurvitsBarnum.Contraction`, `GurvitsBarnum.ContractionBase`, `GurvitsBarnum.ContractionPolar`, `GurvitsBarnum.ContractionUnitary`, `GurvitsBarnum.Separation`, `GurvitsBarnum.Witness`, `FormalResearch.ConvexGeometry.ClosedHull`, `FormalResearch.ConvexGeometry.ConeCaratheodory`, `FormalResearch.MatrixAnalysis.ExtremeCriterion`, `FormalResearch.MatrixAnalysis.HelstromPure`, `FormalResearch.MatrixAnalysis.KernelQuant`, `FormalResearch.MatrixAnalysis.TraceDistance`, `FormalResearch.MatrixAnalysis.TraceNorm`, `FormalResearch.MatrixAnalysis.TraceNormGeneral`, `FormalResearch.MatrixAnalysis.VectorNorm`. The
 toolchain is pinned in `lean-toolchain` and Mathlib in `lakefile.toml` and `lake-manifest.json`. Each module's docstring
 names the paper label it formalises (`grep` it in `paper/*.tex`). Biseparability is the finite-decomposition definition (a
 sum of rank-one projectors onto vectors that are products across some cut) and GME is its negation. The headline theorems
@@ -118,20 +118,29 @@ arithmetic over `Q(omega)`, `omega^2 = -1 - omega`) and checked by the kernel.
 |---|---|---|
 | `prop:ppt3-witness` | `prodA_classification`, `prodA_of_qs`, `prodA_of_v`, `formH_qs`, `formH_nonneg_of_cutProduct` | every `s > 0`, all three cuts |
 | support argument (proof of GME) | `trace_Hs_nonneg_of_biseparable`, `trace_nonneg_of_biseparable` | any supported form nonnegative on cut products |
-| `thm:ppt3-family` | `ppt3_family_ppt_iff`, `ppt3_family_ppt_gme`, `ppt3_family_gme`, `tInterval_order`, `ppt3_family_explicit_member_ppt` | exact PPT window `[t_-, t_+]` (both directions) and GME; rank profile not formalised |
+| `thm:ppt3-family` | `ppt3_family_ppt_iff`, `ppt3_family_ppt_gme`, `ppt3_family_gme`, `tInterval_order`, `ppt3_family_explicit_member_ppt` | exact PPT window `[t_-, t_+]` (both directions) and GME; ranks: `rank_rhoT` (`rank ρ_t = 5`), `rankProfile_rhoT_interior` (`(5,8,8,8)`), `rankProfile_rhoT_tMinus`, `rankProfile_rhoT_tPlus` (`(5,7,7,7)`); minimality of rank five not formalised |
 | `thm:ppt3-phase-coexistence` | `ppt3_phase_coexistence`, `ppt3_phase_coexistence_full`, `sigmaBS_strict_ppt` | explicit biseparable decomposition; strict PPT |
 | `prop:ppt3-exposed-transition` | `ppt3_exposed_state`, `ppt3_exposed_transition`, `ppt3_exposed_transition_full`, `exposed_line_fully_ppt` | strict PPT along the whole line |
 | `lem:ppt3-h0` | `formH0_qs_identity`, `formH0_nonneg_of_cutProduct`, `trace_H0_nonneg_of_biseparable` | |
-| `thm:ppt3-orbit` (b), PPT and GME | `rhoSurface_filter`, `ppt3_orbit_ppt`, `ppt3_orbit_gme`, `ppt3_orbit_ppt_gme` | every `1/sqrt 3 < tau < 1`, `a > 0`; rank profile and part (c) not formalised |
-| `cor:ppt3-extreme5` (PPT, GME) | `sigma5_eq_member`, `sigma5_gme`, `sigma5_ppt_gme` | extremality and the level-two noise bound not formalised |
+| `thm:ppt3-orbit` (b), PPT and GME | `rhoSurface_filter`, `ppt3_orbit_ppt`, `ppt3_orbit_gme`, `ppt3_orbit_ppt_gme`, `rankProfile_rhoSurface` | every `1/sqrt 3 < tau < 1`, `a > 0`, with the rank profile `(5,5,5,5)`; part (c) not formalised |
+| `cor:ppt3-extreme5` (PPT, GME) | `sigma5_eq_member`, `sigma5_gme`, `sigma5_ppt_gme`, `rankProfile_sigma5` | the level-two noise bound not formalised |
+| `cor:ppt3-extreme5`, extremality of the rational member | `sigma5_extreme` (via `ppt3_extreme_of_sandwich`), `sigma5_null`, `face_solve`, `SigmaExtremeData.cert`, `SigmaExtremeData.kernel_check` | the single state `tau = 48/55`, `Q = 11/5`: the 24 face equations are solved by an exact certificate over `Q(omega)` checked by the kernel. Extremality for all `Q`, and of `sigma_6` (ranks `rankProfile_sigma6`), is not formalised |
+| supported-face criterion (proofs of `cor:ppt3-extreme6`, `cor:ppt3-extreme5`, `thm:ppt3-orbit` extremality) | `mem_extremePoints_iff_faceDirection`, `mem_extremePoints_of_sandwich`, `ppt3_extreme_iff`, `ppt3_extreme_of_sandwich` | a state of the unit-trace set cut out by finitely many real-linear cut maps is extreme iff every face direction is a multiple of it; three-qubit form with `ptA/ptB/ptC` |
+| `cor:ppt3-chirality` (a), (b) | `ppt3_chirality_conj`, `ppt3_chirality_timeReverse`, `ppt3_chirality_window`; `fullProd_mem_Rs_iff`, `no_local_filter_conj`, `no_local_filter_state`, `stabiliser_iff` | (a): no local unitary maps `rho_t` to its conjugate, for every `t > 0`; (b): `R_s` has exactly three fully product rays and no invertible local filter relates it to its conjugate; the abstract isomorphism with `S_3` is not formalised |
+| `cor:ppt3-symmetrisation` | `isSeparable_of_swap`, `no_gme_of_swap_invariant`, `isBiseparable_swap_average`, `isBiseparable_permAvg`; `bsDist_le_permAvg`, `bsDist_le_cyclic`, `bsDist_le_swap_average`, `bsDist_le_tnormG_P3P1` | PPT and swap-invariant implies separable; the distance bounds `eq:ppt3-asymmetry-upper` and `eq:ppt3-pinch` with the trace norm `tnormG X = sup {Re tr(UX) : U†U ≤ 1}` |
+| `lem:ppt3-kernel-penalty`, `prop:ppt3-kernel-quant` | `exists_kernel_penalty`, `kernel_penalty_witness`; `kernel_quant_form`, `kernel_quant_matrix`, `kernel_quant_cutProduct`, `kernel_quant_distance`, `kernel_lift_distance` | the lifted witness is non-negative on every cut-product vector for `lambda = (L + L^2/alpha)/mu`, and `D(rho, BS) >= g/(2L + lambda beta)`; the explicit constants of `rem:ppt3-hand-radius` are not formalised |
+| `thm:ppt3-w-class` (mixed `W` class) | `hyperdet`, `IsWClass`, `isWClass_rhoT`, `isWClass_sigma6`, `isWClass_rhoSurface`, `isWClass_sigma5`, `isWClass_sigmaLine`, `isWClass_rhoTilde`, `ppt3_w_class` | the cone of non-negative combinations of `|phi><phi|` with vanishing hyperdeterminant; membership of the unnormalised operators, diagonal local filters only; `rem:ppt3-w-class-scope` is not formalised |
+| moment cone: Carathéodory and closedness | `ConvexGeometry.ConeCar.exists_coneRep_card_le`, `biseparable_card_le_25`, `isClosed_inMomentCone`, `isClosed_isBiseparable`, `isBiseparable_card_le_64` | conic Carathéodory bound; the 25-term bound given `CutCurve` with invertible `T_c` |
 | flat states fully PPT (Section 7.3) | `Flat.flat_form`, `Flat.flat_pt_conj`, `Flat.flat_fully_ppt` | flatness defined by maximally mixed marginals |
 | local filters preserve biseparability | `isBiseparable_conj_localDiag_iff`, `isBiseparable_smul_pos` | diagonal product filters |
 | `lem:ppt3-product-kernel` | `ppt_product_kernel`, `kernel_free_of_gme` | unconditional; the 2⊗3 PPT separability theorem (Horodecki) it uses is `pptSeparable23`, transported from the vendored math-lab proof (`lean/ThirdParty/math-lab`) |
-| `thm:ppt3-universal-moments` | `ppt3_universal_moments`, `biseparable_iff_mem_cone`, `dual_iff`, `ppt3_universal_moments_of_gme` | unconditional; the 25-term bound is not formalised |
+| `thm:ppt3-universal-moments` | `ppt3_universal_moments`, `biseparable_iff_mem_cone`, `dual_iff`, `ppt3_universal_moments_of_gme` | unconditional (the 25-term bound is in the Carathéodory row) |
 | Gurvits–Barnum ball (PRA 66, 062311 (2002); used in `prop:ppt3-noise-sharp`) | `gurvits_barnum`, `isSeparable_of_sum_norm_sq_sub_smul_one_le`, `sum_norm_sq_le_trace_sq_of_blockPositive` | any finite bipartite dimensions; Hermitian `Δ` with `‖Δ‖₂ ≤ 1` gives `I + Δ` separable (an explicit finite sum of product projectors); the dual inequality `‖W‖₂ ≤ tr W` for block-positive `W` |
 
-Not formalised: rank profiles; extremality and the moduli ranks; the level-two noise certificates; the explicit biseparable
-decompositions behind the white-noise upper bounds (the Gurvits–Barnum step they end with is formalised); the kernel-penalty lift; chirality; the symmetrisation corollary; the mixed-W-class decompositions; the endpoint remark. These rest on the exact verifiers above.
+Not formalised: extremality beyond the single rational state `sigma` of `cor:ppt3-extreme5` (all `Q`; `sigma_6`), which in the paper rests on the `2x4` low-rank theorem
+or the exact verifiers; minimality of rank five; the level-two noise certificates; the explicit biseparable decompositions behind the
+white-noise upper bounds (the Gurvits–Barnum step they end with is formalised); `rem:ppt3-hand-radius`; the endpoint remark. These rest on the exact
+verifiers above.
 A `.lean` file is not a verification until it builds: build the project before relying on it.
 
 ## Rebuilding the PDF

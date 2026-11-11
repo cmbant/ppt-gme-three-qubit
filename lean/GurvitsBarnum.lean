@@ -1,7 +1,7 @@
 module
 
 public import GurvitsBarnum.Basic
-public import GurvitsBarnum.ClosedHull
+public import FormalResearch.ConvexGeometry.ClosedHull
 public import GurvitsBarnum.Closed
 public import GurvitsBarnum.Separation
 public import GurvitsBarnum.Choi

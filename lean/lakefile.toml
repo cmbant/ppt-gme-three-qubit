@@ -1,12 +1,16 @@
 name = "ppt_three_qubit"
 version = "0.1.0"
-defaultTargets = ["PPTThreeQubit", "GurvitsBarnum"]
+defaultTargets = ["PPTThreeQubit", "GurvitsBarnum", "FormalResearch"]
 
 [[lean_lib]]
 name = "PPTThreeQubit"
 
 [[lean_lib]]
 name = "GurvitsBarnum"
+
+[[lean_lib]]
+name = "FormalResearch"
+roots = ["FormalResearch.ConvexGeometry.ClosedHull", "FormalResearch.ConvexGeometry.ConeCaratheodory", "FormalResearch.MatrixAnalysis.ExtremeCriterion", "FormalResearch.MatrixAnalysis.HelstromPure", "FormalResearch.MatrixAnalysis.KernelQuant", "FormalResearch.MatrixAnalysis.TraceDistance", "FormalResearch.MatrixAnalysis.TraceNorm", "FormalResearch.MatrixAnalysis.TraceNormGeneral", "FormalResearch.MatrixAnalysis.VectorNorm"]
 
 [[lean_lib]]
 name = "MathLab"

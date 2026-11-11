@@ -34,10 +34,10 @@ all three cuts and their biseparable mixtures.
 \emph{Filter reduction.} The formulas for $F_\lambda$ follow
 by counting computational-basis excitations. Under
 $aF_\lambda(\,\cdot\,)F_\lambda^\dagger$ with
-$\lambda^2=1/a$, the coefficients $(A,W,V,G,E,O)$ at
-$A=\alpha$ become
-$(a\alpha,W,V/a^2,G/a,E/a,O)$, exactly as in
-\eqref{eq:ppt3-weights}. It therefore suffices to prove the remaining assertions at $\alpha=A=1$.
+$\lambda^2=1/a$, the coefficients $(\gamma,\beta,V,G,E,O)$ of $u_su_s\dg,ww\dg,\dots$ at
+$\gamma=\alpha$ become
+$(a\alpha,\beta,V/a^2,G/a,E/a,O)$, exactly as in
+\eqref{eq:ppt3-weights}. It therefore suffices to prove the remaining assertions at $\alpha=\gamma=1$.
 
 \emph{Rank and PPT.}
 Put $\kappa=1-\tau^2$. Here $\rho_\tau=\rho_{\tau,1}=BX_\tau B\dg$ is the unnormalised surface operator and $X_\tau$ its
@@ -115,7 +115,7 @@ $Q^2=3$ precisely at $\tau=1/\sqrt3$, this proves the
 sharp positivity window, the rank profile and the
 rank-four lower endpoint. Cyclic symmetry gives the
 other cuts. The filter reduction proves the conclusions
-for every $(\alpha,W,A)$, including the rank-at-most-five
+for every $(\alpha,\beta,\gamma)$, including the rank-at-most-five
 assertion as well. The chosen $E$ is the larger root
 $\kappa(\tau+\sqrt{1+\tau^2})^2$ of the even-block determinant
 factor, and $G,V$ complete the odd-block Gram matrix.
@@ -155,7 +155,7 @@ $P(Q)\le P(2)<0$ on $[\sqrt3,2]$.
 Since $Q^2-3>0$ and $Q^2-2Q-1<0$,
 the trace is strictly negative on
 $(1/\sqrt3,3/4]$ and zero at the lower endpoint.
-The two witness ranges overlap and cover the entire open PPT window, so $\rho_{\tau,1}$ is GME there. Finally, by
+The two witness ranges meet at $\tau=3/4$ and together cover the entire open PPT window, so $\rho_{\tau,1}$ is GME there. Finally, by
 Theorem~\ref{thm:ppt3-orbit}(b), $\rho_{\tau,a}=aF_\lambda\rho_{\tau,1}F_\lambda^\dagger$ with $F_\lambda$ invertible and local.
 Such a filter, and its inverse, maps a vector that is a product across a cut to a vector that is a product across the same cut,
 so it maps biseparable states to biseparable states in both directions, and likewise preserves positivity of every partial
@@ -203,7 +203,7 @@ positivity of the dual matrices are checked in exact
 arithmetic, without relying on solver tolerances.
 
 \emph{Extremality.} $\sigma$ is the normalisation of $\rho(55,48,110)$, a state $\rho_{\tau,a}$ of the surface, so it is extreme by the
-proof below, which covers every $\rho_{\tau,a}$. (At $\sigma$ the criterion was also checked directly: with $D=B_\sigma X_DB_\sigma\dg$,
+proofs below, which cover every $\rho_{\tau,a}$. (At $\sigma$ the criterion was also checked directly: with $D=B_\sigma X_DB_\sigma\dg$,
 $B_\sigma=[\tilde u,v,w,e,o]$, the system of the next proof has exact rank $24$ over $\mathbb Q(\sqrt3)$.)
 \end{proof}
 
@@ -217,25 +217,37 @@ $\tau=(Q^2-1)/(2Q)$, $\kappa=(6Q^2-Q^4-1)/(4Q^2)$,
 E=\tfrac14(6Q^2-Q^4-1),\quad O=\frac{6Q^2-Q^4-1}{2Q(Q^2-1)},\quad G=\tfrac12Q(5-Q^2),\quad V=\tfrac12Q(Q^2-1)(6-Q^2).
 \]
 
-\emph{Kernel of $\rho^{T_A}$.} With $\omega$ as in \eqref{eq:ppt3-vectors}, the three vectors, in the bases
-$(\ket{001},\ket{010},\ket{100},\ket{111})$ (odd) and $(\ket{000},\ket{011},\ket{101},\ket{110})$ (even),
+\emph{Kernel of $\rho^{T_A}$.} With $\omega$ as in \eqref{eq:ppt3-vectors}, the two odd vectors $k_1,k_2$, in the basis
+$(\ket{001},\ket{010},\ket{100},\ket{111})$, and the even vector $k_3$, in the basis $(\ket{000},\ket{011},\ket{101},\ket{110})$,
 \begin{align*}
 k_1&=\bigl((3-i\sqrt3)Q,\ (3+i\sqrt3)Q,\ 3(Q^2-1),\ 0\bigr),\\
 k_2&=\bigl(Q(15-3i\sqrt3-(3+i\sqrt3)Q^2),\ Q(15+3i\sqrt3-(3-i\sqrt3)Q^2),\ 0,\ 12\bigr),\\
 k_3&=\bigl(-3Q(Q^2-1),\ -6Q,\ (1-\bar\omega)Q^2+3(1+\bar\omega),\ (1-\omega)Q^2+3(1+\omega)\bigr)
 \end{align*}
-satisfy $\rho^{T_A}k_j=0$ identically in $Q$ (SB-1) and are linearly independent for $Q>1$ (the entries $3(Q^2-1)$ of $k_1$, $12$ of $k_2$ and $-6Q$ of $k_3$ are
+satisfy $\rho^{T_A}k_j=0$ identically in $Q$ and are linearly independent for $Q>1$ (the entries $3(Q^2-1)$ of $k_1$, $12$ of $k_2$ and $-6Q$ of $k_3$ are
 their pivots). Since $\rank\rho^{T_A}=5$ on the window, $K_A=[k_1,k_2,k_3]$ spans $\ker\rho^{T_A}$ there. The cyclic shift $\Pi$ satisfies
 $\Pi\rho\Pi\dg=\rho$ and maps cut $A$ to cut $B$, so $\ker\rho^{T_B}=\Pi\ker\rho^{T_A}$, and similarly for $C$.
 
 \emph{Sectors.} $\Pi$, the parity $Z^{\otimes3}$ and the reflection-conjugation $K\circ S_{BC}$ fix $\rho$. Take the basis
-$(u,v,w,e,o)$ of $R$ extended by $\tilde u=3\ket{000}+h$, $\bar e$, $\bar o$ (spanning $R^\perp$); the matrix units $v_iv_j\dg$ have a $\Pi$-charge
+$(u,v,w,e,o)$ of $R$ extended by $u_\perp=3\ket{000}+\ket{011}+\ket{101}+\ket{110}$, $\bar e$, $\bar o$ (spanning $R^\perp$); the matrix units $v_iv_j\dg$ have a $\Pi$-charge
 $q\in\mathbb Z_3$ ($\Pi v_iv_j\dg\Pi\dg=\omega^qv_iv_j\dg$) and a parity. The real solution space of the face system (and the kernel of the
 constraint map below) is invariant under conjugation by $\Pi$, so it is the sum of its charge components, and for a component of charge $q$ the conditions at
 $B$ and $C$ are the one at $A$ multiplied by phases. Hence it is enough to impose the condition at the cut $A|BC$ on each sector
 separately. The charges $q=1$ and $q=2$ are exchanged by $D\mapsto D\dg$.
 
-\emph{Extremality.} A Hermitian face direction is $D=BXB\dg$, $X$ a Hermitian $5\times5$ matrix ($25$ real parameters), with $D^{T_A}K_A=0$ (the
+\emph{Extremality from the $2\times4$ theorem.} Let $\rho$ be a $\rho_{\tau,a}$. Its profile is $(5,5,5,5)$ and it is GME, hence entangled across $A|BC$.
+Suppose $\rho$ were not extreme in the set $\mathcal P_A$ of states with $\sigma^{T_A}\succeq0$. A ray from $\rho$ inside the face of $\mathcal P_A$ generated by
+$\rho$ leaves the face at a state $\rho'$ with $\operatorname{ran}\rho'\subseteq\operatorname{ran}\rho$, $\operatorname{ran}\rho'^{T_A}\subseteq\operatorname{ran}\rho^{T_A}$
+and $\min(\rank\rho',\rank\rho'^{T_A})\le4$. Such a $2\times4$ PPT state is separable~\cite{KCKL,HLVC} (if only $\rank\rho'^{T_A}\le4$, apply
+the theorem to the PPT state $\rho'^{T_A}$), so $\rho'=\sum_i\ket{a_ib_i}\bra{a_ib_i}$ with
+$\ket{a_1b_1}\in\operatorname{ran}\rho$ and $\ket{\bar a_1b_1}\in\operatorname{ran}\rho^{T_A}$. Put $\rho''=\rho-\epsilon\ket{a_1b_1}\bra{a_1b_1}$
+with $\epsilon>0$ maximal such that $\rho''\succeq0$ and $\rho''^{T_A}\succeq0$. Then $\min(\rank\rho'',\rank\rho''^{T_A})\le4$, so $\rho''$
+is separable across $A|BC$ by~\cite{KCKL,HLVC} again, and so is $\rho=\rho''+\epsilon\ket{a_1b_1}\bra{a_1b_1}$, contradicting entanglement. Hence $\rho$ is extreme in
+$\mathcal P_A$, and therefore in the fully-PPT set. The second step alone shows that $\rho$ is an edge state across $A|BC$: a product vector in
+$\operatorname{ran}\rho$ with partial conjugate in $\operatorname{ran}\rho^{T_A}$ would make $\rho$ separable. The same holds at every cut, and for every GME state of profile $(5,5,5,5)$.
+
+\emph{Extremality by symmetry blocks.} The following direct computation gives a second proof and the blocks reused for Proposition~\ref{prop:ppt3-moduli}.
+A Hermitian face direction is $D=BXB\dg$, $X$ a Hermitian $5\times5$ matrix ($25$ real parameters), with $D^{T_A}K_A=0$ (the
 other cuts follow, and $K_c\dg D^{T_c}=0$ is the adjoint). Its sectors are:
 charge $q=1$ and parity $+$ or $-$, each three complex parameters ($ue\dg,vo\dg,wo\dg$ and $uo\dg,ve\dg,we\dg$); and for $q=0$ the real parameters
 $\operatorname{Re}/\operatorname{Im}$ of $(uv\dg,uw\dg,eo\dg)$ (parity $-$, three each) and, with parity $+$, $i(vw\dg-wv\dg)$ (one) and
@@ -248,29 +260,31 @@ $q=1$, parity $-$ & $432\,(Q^2-1)(Q^2+1)$ \\
 $q=0$, parity $-$, real parts & $108\,(Q^2-1)(Q^2+2Q-1)$ \\
 $q=0$, parity $-$, imaginary parts & $108\,i\,(Q^2-1)(Q^2-2Q-1)$ \\
 $q=0$, parity $+$, $i(vw\dg-wv\dg)$ & $3i\,(Q^2+1)$ \\
-$q=0$, parity $+$, $(vv\dg,\ vw\dg{+}wv\dg,\ ww\dg,\ ee\dg,\ oo\dg)$ & $1944\,i(\sqrt3+i)(Q^2+1)(Q^2-2Q-1)(Q^2+2Q-1)$ \\\bottomrule
+$q=0$, parity $+$, $(uu\dg,\ vv\dg,\ vw\dg{+}wv\dg,\ ww\dg,\ ee\dg)$ & $1944\,i(\sqrt3+i)(Q^2+1)(Q^2-2Q-1)(Q^2+2Q-1)$ \\\bottomrule
 \end{tabular}
 \end{center}
-(SB-2). On the window $Q^2-1$, $Q^2+1$ and $Q^2+2Q-1$ are positive and $Q^2-2Q-1<0$, so no minor vanishes. Hence the system has rank
+On the window $Q^2-1$, $Q^2+1$ and $Q^2+2Q-1$ are positive and $Q^2-2Q-1<0$, so no minor vanishes. Hence the system has rank
 $12+3+3+1+5=24$ (the sectors $q=1,2$ together contribute $12$, since each sector map is injective on its six real parameters), and its nullspace is spanned by $\rho$,
 which lies in the last sector of six parameters. By the
-supported-face criterion~\cite{GIM}, $\rho_{\tau,a}$ is extreme for every $\tau\in(1/\sqrt3,1)$ and $a>0$.
+supported-face criterion~\cite{GIM}, $\rho_{\tau,a}$ is extreme for every $\tau\in(1/\sqrt3,1)$ and $a>0$, as already shown.
 
 \emph{Constraint differentials.} The tangent space of rank-five Hermitian matrices at $\rho$ consists of $D$ vanishing on
-$\ker\rho\times\ker\rho$: the $55$ matrix units $v_iv_j\dg$ with $\min(i,j)\le5$ in the basis $(u,v,w,e,o;\tilde u,\bar e,\bar o)$. The differential of
+$\ker\rho\times\ker\rho$: the $55$ matrix units $v_iv_j\dg$ with $\min(i,j)\le5$ in the basis $(u,v,w,e,o;u_\perp,\bar e,\bar o)$. The differential of
 the Schur-complement equation at cut $A$ is $L(D)=K_A\dg D^{T_A}K_A$, a Hermitian $3\times3$ matrix, and the same sector argument applies to the
 $27$ equations of the three cuts. $L$ maps the sector of charge $q$ onto $3\times3$ matrices exactly when its two parity parts are onto:
 the parity-$+$ part has the five outputs $(k_1,k_1),(k_1,k_2),(k_2,k_1),(k_2,k_2),(k_3,k_3)$ and the parity-$-$ part the four outputs
 $(k_1,k_3),(k_2,k_3),(k_3,k_1),(k_3,k_2)$. Square submatrices of the sector maps have determinants
 \begin{align*}
-q=0,\ +:&\ -120932352\,Q(Q^2-1)^2(Q^2+1)^2(Q^4-6Q^2+1), & q=0,\ -:&\ -839808\,Q^2(Q^2-1)^4(Q^2-3)(Q^2+1),\\
-q=1,\ +:&\ -725594112\,Q^2(Q^2-1)^4(Q^4-6Q^2+1), & q=1,\ -:&\ 1679616\,Q^2(Q^2-1)^3(Q^2+1)(Q^4-6Q^2+1)
+q=0,\ +:&\ -120932352\,Q(Q^2-1)^2(Q^2+1)^2(Q^4-6Q^2+1),\\
+q=0,\ -:&\ -839808\,Q^2(Q^2-1)^4(Q^2-3)(Q^2+1),\\
+q=1,\ +:&\ -725594112\,Q^2(Q^2-1)^4(Q^4-6Q^2+1),\\
+q=1,\ -:&\ 1679616\,Q^2(Q^2-1)^3(Q^2+1)(Q^4-6Q^2+1)
 \end{align*}
-(SB-3), and $Q^4-6Q^2+1=(Q^2-2Q-1)(Q^2+2Q-1)$ vanishes only at $Q=1+\sqrt2$ and $Q=\sqrt2-1$. So on the window
+and $Q^4-6Q^2+1=(Q^2-2Q-1)(Q^2+2Q-1)$ vanishes only at $Q=1+\sqrt2$ and $Q=\sqrt2-1$. So on the window
 every sector map is onto, the $27$ differentials are independent on the $55$-dimensional tangent space for every state of the surface, and the
 zero set of the $27$ equations is a smooth manifold of dimension $55-27=28$. The factors $Q^2-3$ and $Q^4-6Q^2+1$ vanish exactly at the two
 ends $\tau=1/\sqrt3$ and $\tau=1$ of the window. An independent exact computation of these ranks at $Q=2$ ($\tau=3/4$), without any symmetry reduction, is part of the same
-check (SB-4).
+check.
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:ppt3-moduli}]

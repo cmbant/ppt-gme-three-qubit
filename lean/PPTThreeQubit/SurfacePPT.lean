@@ -23,7 +23,7 @@ Covered (proved, no numerical input):
 * `ppt3_orbit_ppt` / `ppt3_orbit_ppt_gme`: for `1/√3 < τ < 1` and every `a > 0`, `ρ_{τ,a}` is
   positive semidefinite and fully PPT (and GME);
 * `sigma5_ppt_gme`: the same for `σ` of `cor:ppt3-extreme5` (`τ = 48/55`, `a = 2`).
-Not covered: the rank profile `(5,5,5,5)`, part (a) beyond cyclic invariance, part (c) of
+Not covered: the rank profile `(5,5,5,5)` (see `RankProfile.lean`), part (a) beyond cyclic invariance, part (c) of
 `thm:ppt3-orbit`, extremality of `σ`.
 -/
 
@@ -196,14 +196,14 @@ theorem ptA_conj_filterDiag (lam : ℝ) (M : Matrix (Fin 8) (Fin 8) ℂ) :
   simp only [ptA, of_apply, diagonal_conjTranspose, diagonal_mul, mul_diagonal, Pi.star_apply, hs]
   fin_cases i <;> fin_cases j <;> simp [filterDiag] <;> ring
 
-/-! ### Cyclic invariance of `ρ(α, W, A)` -/
+/-! ### Cyclic invariance of `ρ(α, β, γ)` -/
 
 theorem uVec_cycShift_s (s : ℝ) : uVec s ∘ cycShift = uVec s := by
   funext i; fin_cases i <;> simp [cycShift, uVec]
 
-/-- `ρ(α, W, A)` is invariant under the cyclic shift of the qubits (`thm:ppt3-orbit`(a)). -/
-theorem rhoSurface_cycShift (α W A : ℝ) :
-    (rhoSurface α W A).submatrix cycShift cycShift = rhoSurface α W A := by
+/-- `ρ(α, β, γ)` is invariant under the cyclic shift of the qubits (`thm:ppt3-orbit`(a)). -/
+theorem rhoSurface_cycShift (α β γ : ℝ) :
+    (rhoSurface α β γ).submatrix cycShift cycShift = rhoSurface α β γ := by
   ext i j
   rw [submatrix_apply, rhoSurface_eq]
   simp only [Matrix.add_apply, Matrix.smul_apply, smul_eq_mul]

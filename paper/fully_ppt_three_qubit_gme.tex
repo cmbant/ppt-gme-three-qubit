@@ -84,7 +84,7 @@ systems where PPT and separability coincide~\cite{HHH96}, and low rank forces se
 state of rank at most four is separable across a cut, hence biseparable~\cite{KCKL,HLVC,KL,ABLS}. A fully-PPT GME state therefore
 has rank at least five. Examples are known for more qubits and for higher local dimension (Section~\ref{sec:ppt3-prior}).
 For three qubits, earlier constructions and numerical states were entangled but not shown to be GME, or were PPT across
-one cut only~\cite{HK,KRB,GIM}, and Singh and Banik recently noted that no explicit example is known and derived necessary
+one cut only~\cite{HK,KRB,GIM}, and Singh and Banik noted that no explicit example is known and derived necessary
 rank conditions for one~\cite{SB}.
 
 Our method follows the physics of the convex hull. Every pure state in a decomposition of $\rho$ lies in its support,
@@ -108,9 +108,9 @@ nonnegative on the product curves by a square factorisation, excludes biseparabl
 semidefinite-program solver.
 \item \emph{Extreme states} (Sections~\ref{sec:ppt3-family} and~\ref{sec:ppt3-surface}). Extreme fully-PPT GME states have
 partial-transpose rank profiles $(5,6,6,6)$ and, the smallest possible, $(5,5,5,5)$; the latter lie in an analytic family
-that is fully PPT and GME on the whole window $1/\sqrt3<\tau<1$ (one parameter modulo local filters). Near every member, the
-extreme states of this profile form a $27$-dimensional manifold with nine local-filter moduli. Every state of the family is
-extreme in the fully-PPT set, and the manifold and moduli statement holds around each of them.
+that is fully PPT and GME on the whole window $1/\sqrt3<\tau<1$ (one parameter modulo local filters). Every state of the family is
+extreme in the fully-PPT set, and near every member the extreme states of this profile form a $27$-dimensional manifold with
+nine local-filter moduli.
 \item \emph{One support, both phases} (Section~\ref{sec:ppt3-coexistence}). One rank-five support carries both
 biseparable and GME fully-PPT states, separated by an exact transition inside the strictly PPT region, so the support alone
 does not decide genuine entanglement.
@@ -130,9 +130,13 @@ Section~\ref{sec:ppt3-relaxations} places the results relative to PPT mixtures a
 text gives the proof strategy; the computations are in Appendices~\ref{sec:ppt3-app-family}, \ref{sec:ppt3-app-surface},
 \ref{sec:ppt3-app-coexistence} and~\ref{sec:ppt3-app-noise}, in the order of the sections they serve. Appendices~\ref{sec:ppt3-app-moment}
 and~\ref{sec:ppt3-kernel} prove the product-kernel lemma and the moment cone of Section~\ref{sec:ppt3-relaxations} and the kernel-penalty
-lift of the supported witness, and Appendix~\ref{sec:ppt3-verifiers} lists the proof dependencies. Exact-algebraic
-computations are used only for extremality, the moduli count and the noise certificates. The verification scripts with their
-captured output and a Lean~4 formalisation of the main exact statements are in a companion repository~\cite{Companion}.
+lift of the supported witness, and Appendix~\ref{sec:ppt3-verifiers} lists the proof dependencies. All theorems,
+propositions, lemmas and corollaries are proved, analytically or with the exact computations named next; numerical
+observations appear only in remarks and are labelled as such. Exact rational or algebraic
+computations are used only for the extremality of $\sigma_6$ and the independent extremality check on the $(5,5,5,5)$ surface, the moduli count, the phase-coexistence minors and the noise certificates. The verification scripts with their
+captured output are in a companion repository~\cite{Companion}, together with a Lean~4 formalisation of the main analytic
+results and of the extremality of one state of the surface; the noise certificates, the moduli count, the extremality of
+$\sigma_6$ and of the whole surface, and the minimality of rank five are checked by the exact scripts or cited, not formalised.
 
 \input{family}
 \input{rank_five_surface}
@@ -148,7 +152,7 @@ some bipartition, and whether it is shared by all three parties. Even for three 
 fully-PPT GME state yields no singlet across any cut and no GHZ state under any LOCC protocol, yet it is not a mixture of
 states each separable across some bipartition. The relevant gap is between the intersection of the three PPT sets and
 the convex hull of the three cut-separable sets. The support of $\rho_t$ contains product vectors across every cut, but no convex mixture of them
-reproduces $\rho_t$; the supported witness detects exactly this failure of mixing. Symmetry plays a definite role.
+reproduces $\rho_t$; the supported witness certifies this failure of mixing. Symmetry plays a definite role.
 Reflection symmetry together with PPT forces separability across a cut (Corollary~\ref{cor:ppt3-symmetrisation}), so the
 states must break every exchange of two qubits; ours do so through the cyclic phases of the $W$-type vectors, and they
 are also locally chiral (Corollary~\ref{cor:ppt3-chirality}).
@@ -158,9 +162,9 @@ biseparability is one way to do so. The second level of the
 symmetric-extension hierarchy suffices here, and for white noise its certified margins nearly match explicit biseparable
 decompositions (Proposition~\ref{prop:ppt3-noise-sharp}), so the small size of the margins is a property of the states,
 not of the relaxation. By
-Proposition~\ref{prop:ppt3-noise-extremal} a most robust state can be taken extreme in the fully-PPT set, and within one
-symmetry class the extreme points differ in how their rank is distributed among the symmetry sectors
-(Remark~\ref{rem:ppt3-robust-structure}). An NMR experiment has generated pseudo-bound-entangled fully-PPT three-qubit
+Proposition~\ref{prop:ppt3-noise-extremal} a most robust state can be taken extreme in the fully-PPT set, and numerical searches
+suggest that within one symmetry class the extreme points differ in how their rank is distributed among the symmetry
+sectors (Remark~\ref{rem:ppt3-robust-structure}). An NMR experiment has generated pseudo-bound-entangled fully-PPT three-qubit
 states that are not GME~\cite{KPBS}. The state $\tilde\rho$ remains GME under depolarising errors of up to one per cent
 per qubit, but generic preparation errors need much tighter control: its certified PPT-stability radius, $2.0\times10^{-5}$, is far
 smaller than its GME radius, $7.3\times10^{-3}$ (Corollary~\ref{cor:ppt3-robust}); certifying such a state also requires witnesses that go beyond
@@ -175,7 +179,7 @@ the rank profile alone cannot prove it; the flat-marginal condition must play an
 
 \section*{Use of AI}
 All results, documents and scripts were generated by AI agents (mainly Claude Opus and Sonnet 5.5, and OpenAI's GPT 6.1 sol)
-with human supervision and many cross-checks, including AI-generated Lean verification of the main exact statements.
+with human supervision and many cross-checks, including AI-generated Lean verification of the main analytic results.
 
 \section*{Acknowledgements}
 We acknowledge support by the UK STFC grant ST/T000473/1.

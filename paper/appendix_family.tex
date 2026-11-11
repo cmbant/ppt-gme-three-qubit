@@ -114,32 +114,8 @@ values also control mixtures across different cuts.
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:ppt3-chirality}]
-\emph{(a).} The five nonzero eigenvalues of $\rho_t$ are, up to the common
-factor $1/[7(t+3)]$, $4t,3t,9,9,3$, on the respective
-rays $(u,v,w,e,o)$. Since $t>3$ throughout
-\eqref{eq:ppt3-interval}, the two real eigenrays
-$u$ and $v=\ket{111}$ are each nondegenerate.
-Because $u$ and $v$ are real, $\overline{\rho_t}$ has the same
-nondegenerate eigenrays, so a product unitary mapping $\rho_t$ to
-its complex conjugate must fix the ray of $v=\ket{111}$. Each
-factor then fixes the ray of $\ket1$, hence also the orthogonal
-ray of $\ket0$, and is diagonal. Write its relative local phases as
-$(\theta_A,\theta_B,\theta_C)$. Fixing the $u$ ray forces
-\[
-\theta_A+\theta_B\equiv\theta_A+\theta_C
-\equiv\theta_B+\theta_C\equiv0\pmod{2\pi},
-\]
-so all three phases are $0$ or all are $\pi$.
-Up to a scalar, the only candidates are $I$ and
-$Z\otimes Z\otimes Z$, both of which fix $\rho_t$.
-But, in the computational basis,
-\[
-  \langle011|\rho_t|101\rangle
-       =\frac{t+3\omega^2}{7(t+3)}
-       \notin\mathbb R .
-\]
-Thus $\rho_t\ne\overline{\rho_t}$, and neither candidate
-implements complex conjugation.
+\emph{(a).} The weights $t,3t,3,3,1$ of $\rho_t$ in \eqref{eq:ppt3-rho} are positive for every $t>0$, so
+$\operatorname{ran}\rho_t=R_1$. A local unitary is an invertible local filter, so (a) is a special case of (b), proved next.
 
 \emph{(b).} By Proposition~\ref{prop:ppt3-witness}(a) the $A|BC$-product rays of $R_s$ are $[v]$ and
 $[B_sq_s(z)]=[(\ket0+z\ket1)\otimes\ket{\phi_s(z)}]$, $z\in\mathbb C$, and substituting \eqref{eq:ppt3-curve} shows that the $2\times2$
@@ -159,29 +135,29 @@ the $\omega^2$-eigenspace $\operatorname{span}(e,o)$ of $\Pi$ (which is all of t
 \end{proof}
 
 \begin{proof}[Proof of Corollary~\ref{cor:ppt3-extreme6}]
-Write the numerator of $\sigma_6$ as $a\,uu\dg+b\,vv\dg+3\,ww\dg+3\,ee\dg+oo\dg$; it is the numerator of
-$\rho_a$ with the weight $3a$ of $vv\dg$ replaced by $b$. The vector $v=\ket{111}$ enters $\sigma_6^{T_A}$ only through the
+Write the numerator of $\sigma_6$ as $t\,uu\dg+b\,vv\dg+3\,ww\dg+3\,ee\dg+oo\dg$; it is the numerator of
+$\rho_t$ with the weight $3t$ of $vv\dg$ replaced by $b$. The vector $v=\ket{111}$ enters $\sigma_6^{T_A}$ only through the
 $(111,111)$ entry, the bottom diagonal entry of the odd block, and equals $b$ there. Hence the even block, and the three leading
-principal minors of the odd block, are those of $\rho_a^{T_A}$ in \eqref{eq:ppt3-minors}: at $a=t_-$ the even minors
-$a,\ 3a,\ (a+3)(3a-7)$ are positive and, since $8a^2-15a-36=0$, the even determinant vanishes, so the even block is positive
-semidefinite of rank three. The odd minors $4,\ 9,\ 3(12-a^2)$ are positive ($t_-<2\sqrt3$), and the odd determinant is
+principal minors of the odd block, are those of $\rho_t^{T_A}$ in \eqref{eq:ppt3-minors}: at $t=t_-$ the even minors
+$t,\ 3t,\ (t+3)(3t-7)$ are positive and, since $8t^2-15t-36=0$, the even determinant vanishes, so the even block is positive
+semidefinite of rank three. The odd minors $4,\ 9,\ 3(12-t^2)$ are positive ($t_-<2\sqrt3$), and the odd determinant is
 affine in $b$,
 \[
- \det(\text{odd block})=3(12-a^2)\,b+3(5a^2+24a-144),
+ \det(\text{odd block})=3(12-t^2)\,b+3(5t^2+24t-144),
 \]
-which equals $-3(t-3)(3t^2+4t-48)$ of \eqref{eq:ppt3-minors} at $a=t$, $b=3t$. It vanishes at
-$b=(5a^2+24a-144)/(a^2-12)$, and this equals $8(9-a)/5$ modulo $8a^2-15a-36=0$, since
-$5(5a^2+24a-144)-8(9-a)(a^2-12)=8a^3-47a^2+24a+144$ is divisible by $8a^2-15a-36$
-(the quotient is $a-4$ and the remainder is $0$).
-Hence at $b=8(9-a)/5$ the odd block is positive semidefinite of rank three as well. Thus each partial transpose of $\sigma_6$ has
+which equals $-3(t-3)(3t^2+4t-48)$ of \eqref{eq:ppt3-minors} at $b=3t$. It vanishes at
+$b=(5t^2+24t-144)/(t^2-12)$, and this equals $8(9-t)/5$ modulo $8t^2-15t-36=0$, since
+$5(5t^2+24t-144)-8(9-t)(t^2-12)=8t^3-47t^2+24t+144$ is divisible by $8t^2-15t-36$
+(the quotient is $t-4$ and the remainder is $0$).
+Hence at $b=8(9-t)/5$ the odd block is positive semidefinite of rank three as well. Thus each partial transpose of $\sigma_6$ has
 rank six.
 The supported witness has expectation
 \[
 \tr(H_5X_6)
-=\frac{b-12a+29}{4a+b+21}
-=\frac{217-68a}{5(4a+b+21)}<0,
+=\frac{b-12t+29}{4t+b+21}
+=\frac{217-68t}{5(4t+b+21)}<0,
 \]
-because $a>13/4>217/68$. This proves GME by
+because $t>13/4>217/68$. This proves GME by
 Proposition~\ref{prop:ppt3-witness}.
 For extremality, $\sigma_6$ is extreme in the set of fully-PPT states exactly when the only Hermitian $D$ with range in $\operatorname{ran}\sigma_6$
 and $D^{T_c}k=0$ for every kernel vector $k$ of $\sigma_6^{T_c}$, at each cut $c$, is a multiple of $\sigma_6$ (the supported-face

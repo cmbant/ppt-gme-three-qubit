@@ -9,23 +9,23 @@ separable~\cite{KCKL,HLVC,KL,ABLS}, and the same theorem bounds each partial-tra
 Thus $(5,5,5,5)$ is the smallest possible profile for fully-PPT GME. The construction below attains it, including at
 extreme points of the fully-PPT set.
 
-For real $\alpha>0$, $0<W<\alpha$ and $A>0$ put
-$h=\sqrt{\alpha^2+W^2}$, $\kappa=\alpha^2-W^2$, $s=\alpha/A$ and
+For real $\alpha>0$, $0<\beta<\alpha$ and $\gamma>0$ put
+$h=\sqrt{\alpha^2+\beta^2}$, $\kappa=\alpha^2-\beta^2$, $s=\alpha/\gamma$ and
 \begin{equation}\label{eq:ppt3-weights}
-O=\frac \kappa W,\qquad E=\frac{\kappa(h+W)^2}{\alpha^2A},\qquad G=\frac{\alpha(E-\alpha s)}W,\qquad
-V=\frac{\alpha^2E^2-2\alpha s\kappa E+(\alpha s)^2\kappa}{W\kappa},
+O=\frac \kappa\beta,\qquad E=\frac{\kappa(h+\beta)^2}{\alpha^2\gamma},\qquad G=\frac{\alpha(E-\alpha s)}\beta,\qquad
+V=\frac{\alpha^2E^2-2\alpha s\kappa E+(\alpha s)^2\kappa}{\beta\kappa},
 \end{equation}
 \begin{equation}\label{eq:ppt3-rho-surface}
-\rho(\alpha,W,A)=A\,u_su_s\dg+W\,ww\dg+V\,vv\dg+G\,(wv\dg+vw\dg)+E\,ee\dg+O\,oo\dg,
+\rho(\alpha,\beta,\gamma)=\gamma\,u_su_s\dg+\beta\,ww\dg+V\,vv\dg+G\,(wv\dg+vw\dg)+E\,ee\dg+O\,oo\dg,
 \end{equation}
 with $u_s,v,w,e,o$ as in Section~\ref{sec:ppt3-family}. The coefficients are chosen
-to make both partial-transpose blocks singular. Where they come from (at $\alpha=A=1$, so $W=\tau$): the odd block of $\rho^{T_A}$ has positive
-$2\times2$ leading minor $3WO$, so it has rank two only if its $3\times3$ leading minor $3O\,(W(W+O)-1)$ vanishes, which gives $O=\kappa/W$; the last
+to make both partial-transpose blocks singular. Where they come from (at $\alpha=\gamma=1$, so $\beta=\tau$): the odd block of $\rho^{T_A}$ has positive
+$2\times2$ leading minor $3\tau O$, so it has rank two only if its $3\times3$ leading minor $3O\,(\tau(\tau+O)-1)$ vanishes, which gives $O=\kappa/\tau$; the last
 row and column must then lie in the span of the others, which gives $G=(E-1)/\tau$ and $V=E^2/O+\tau G^2=(E^2-2\kappa E+\kappa)/(\tau\kappa)$ for every $E$, and
 the remaining parameter $E$ is fixed by making the even block singular. The
-operator is homogeneous of degree one in $(\alpha,W,A)$;
-its essential parameters are $\tau=W/\alpha\in(0,1)$
-and $a=A/\alpha>0$. Write
+operator is homogeneous of degree one in $(\alpha,\beta,\gamma)$;
+its essential parameters are $\tau=\beta/\alpha\in(0,1)$
+and $a=\gamma/\alpha>0$. Write
 $\rho_{\tau,a}=\rho(1,\tau,a)$ and
 $\rho_\tau=\rho_{\tau,1}$, with coefficient matrix $X_\tau$. These symbols denote
 \emph{unnormalised} operators, not the normalised state $\rho_t$ and matrix $X_t$ of Section~\ref{sec:ppt3-family}; division by their trace gives physical density matrices. Positive scaling
@@ -58,8 +58,8 @@ transposes have rank at most five. In the stated interval
 the range equals $R_{1/a}$.
 \item For $F_\lambda=\operatorname{diag}(1,\lambda)^{\otimes3}$,
 \[
-\rho(\alpha,W,a\alpha)
-=aF_\lambda\,\rho(\alpha,W,\alpha)F_\lambda^\dagger,
+\rho(\alpha,\beta,a\alpha)
+=aF_\lambda\,\rho(\alpha,\beta,\alpha)F_\lambda^\dagger,
 \qquad \lambda^2=a^{-1}.
 \]
 Thus varying $a$ is an invertible local filter;
@@ -78,14 +78,14 @@ when $3/4\le\tau<1$; the case $a\ne1$ follows because the local filter of (b)
 preserves biseparability, full PPT and ranks.
 \end{theorem}
 
-\emph{Idea of the proof.} Homogeneity and the local filter reduce the problem to $\alpha=A=1$. With
+\emph{Idea of the proof.} Homogeneity and the local filter reduce the problem to $\alpha=\gamma=1$. With
 $Q=\tau+\sqrt{1+\tau^2}$, the odd parity block of $\rho_\tau^{T_A}$ has an explicit Gram factorisation of rank two, and the even block
 has vanishing determinant and a third leading minor that changes sign at $\tau=1/\sqrt3$. Together with positivity of
 $\rho_\tau$, these give the sharp window and ranks; cyclic symmetry covers the other cuts. The two witnesses cover
 the window by one-variable sign checks.
 
 \begin{corollary}[an explicit extreme state with rational weights and profile $(5,5,5,5)$]\label{cor:ppt3-extreme5}
-\cls{exact-rational certificate, computer-assisted; the witness proof of genuine entanglement is exact-symbolic; extremality on the whole surface is an exact-symbolic certificate; FP-2, FP-3, FP-4, FP-5, SW-3, DS-6, SB-2}
+\cls{exact-rational certificate, computer-assisted; the witness proof of genuine entanglement is exact-symbolic; extremality on the whole surface is proved from the $2\times4$ low-rank theorem and independently certified by exact-symbolic block minors; FP-2, FP-3, FP-4, FP-5, SW-3, DS-6, SB-1, SB-2}
 Let $\tilde u=2\ket{000}-\ket{011}-\ket{101}-\ket{110}$, let $v,w,e,o$ be as in \eqref{eq:ppt3-vectors}, and
 \begin{multline}\label{eq:ppt3-sigma5}
 N=825000\,\tilde u\tilde u\dg+1440000\,ww\dg+2021184\,vv\dg\\
@@ -93,8 +93,8 @@ N=825000\,\tilde u\tilde u\dg+1440000\,ww\dg+2021184\,vv\dg\\
 \qquad\sigma=\frac N{16323219}.
 \end{multline}
 Then $\sigma$ has rank five and is invariant under cyclic permutations and global parity; $N=30000\,\rho(55,48,110)$ is
-the member $(\alpha,W,A)=(55,48,110)$ of Theorem~\ref{thm:ppt3-orbit}, the Pythagorean choice $(m,n,a)=(8,3,2)$ with
-$\alpha=m^2-n^2$, $W=2mn$ and $A=a\alpha$.
+the member $(\alpha,\beta,\gamma)=(55,48,110)$ of Theorem~\ref{thm:ppt3-orbit}, the Pythagorean choice $(m,n,a)=(8,3,2)$ with
+$\alpha=m^2-n^2$, $\beta=2mn$ and $\gamma=a\alpha$.
 Here $\tau=48/55$ and $s=1/2$; all six coefficients
 in \eqref{eq:ppt3-rho-surface} are rational.
 The projector coefficients are rational, but the matrix entries of $\sigma$ in the computational basis
@@ -103,16 +103,18 @@ All three partial transposes of $\sigma$ are positive semidefinite of rank five 
 blocks have ranks $3$ and $2$). The state $\sigma$ is an extreme point of the set of fully-PPT three-qubit states
 and is GME, and $(1-p)\sigma+pI/8$ is GME for every $p<4.05\times10^{-3}$ (the certificate is in Appendix~\ref{sec:ppt3-app-surface}, using
 the witness of Corollary~\ref{cor:ppt3-noise-reused}). More generally, \emph{every} normalised $\rho_{\tau,a}$ of Theorem~\ref{thm:ppt3-orbit}
-($1/\sqrt3<\tau<1$, $a>0$) is an extreme point of the set of fully-PPT three-qubit states.
+($1/\sqrt3<\tau<1$, $a>0$) is an extreme point of the set of fully-PPT three-qubit states, and an edge state across every cut: no product
+vector across a cut lies in its range with its partial conjugate in the range of the corresponding partial transpose.
 \end{corollary}
 
 \emph{Idea of the proof.} Theorem~\ref{thm:ppt3-orbit} gives positivity and ranks, and $H_{1/2}$ detects GME directly.
-The noise bound uses the level-two witness $Y_*$ of Corollary~\ref{cor:ppt3-noise-reused}. For extremality, the cyclic, parity and
+The noise bound uses the level-two witness $Y_*$ of Corollary~\ref{cor:ppt3-noise-reused}. For extremality, a $2\times4$ PPT state of birank $(5,5)$ that is entangled across a cut is extreme in that cut's PPT set, because a state on the boundary of its face has rank or partial-transpose rank at most four
+and is then separable~\cite{KCKL,HLVC}; independently, the cyclic, parity and
 reflection symmetries split the rank-$24$ face-direction calculation into blocks whose minors are explicit polynomials in
 $Q=\tau+\sqrt{1+\tau^2}$ with no root in the window (Appendix~\ref{sec:ppt3-app-surface}).
 
 \begin{proposition}[the profile-$(5,5,5,5)$ states are not isolated]\label{prop:ppt3-moduli}
-\cls{exact-symbolic certificate, computer-assisted; the smoothness and openness steps are proved from the exact ranks; MO-1--MO-4, SB-3, SB-4}
+\cls{exact-symbolic certificate, computer-assisted; the smoothness and openness steps are proved from the exact ranks; MO-1, MO-2, MO-3, MO-4, SB-1, SB-3, SB-4}
 Near every state $\rho$ of Theorem~\ref{thm:ppt3-orbit} (in particular near $\sigma$ of Corollary~\ref{cor:ppt3-extreme5}), the fully-PPT three-qubit states of rank profile $(5,5,5,5)$ form
 a smooth real manifold $\mathcal M$ of dimension $27$, and every state of $\mathcal M$ near $\rho$ is GME and an extreme
 point of the set of fully-PPT states. Invertible local filters ($\rho\mapsto F\rho F\dg/\tr(F\rho F\dg)$,
@@ -174,5 +176,24 @@ $z=\pm i\sqrt{y_1},\pm\sqrt{x_0}$ and at $z=\pm i$. The cyclic, parity and $K\ci
 permute the cut-product rays, so the average $\bar H$ of $H$ over them has the same properties. These double zeros determine
 $\bar H$ up to a nonnegative multiple of $H_0$ (Appendix~\ref{sec:ppt3-app-surface}). But $\tr(H_0X_\tau)$ changes sign at
 $\tau\approx0.805$, the root of $P(Q)$ (for instance $\tr(H_0X_{48/55})>0$), a contradiction.
+\end{remark}
+
+\begin{remark}[the edge condition fails exactly at the endpoint rays]\label{rem:ppt3-edge-overlap}
+\cls{exact-symbolic certificate, computer-assisted; EO-1, EO-2, EO-3, EO-4, EO-5}
+Take $a=1$; invertible local filters map product vectors to product vectors and commute with partial conjugation up to the conjugate
+filter, so they preserve the edge property. By Proposition~\ref{prop:ppt3-witness}(a) the $A|BC$ product rays of $R_1$ are those of
+$\psi(z)=Bq_1(z)=(\ket0+z\ket1)\otimes\phi_1(z)$, $z\in\mathbb C$, and of $v=\ket{111}$. So $\rho_\tau$ is an edge state across $A|BC$ exactly when none of them has its partial conjugate
+$\psi^{T_A}(z)=(\ket0+\bar z\ket1)\otimes\phi_1(z)$ in $\operatorname{ran}\rho_\tau^{T_A}$, that is, orthogonal to the kernel vectors $k_1,k_2,k_3$ of Appendix~\ref{sec:ppt3-app-surface}.
+For $z=x+iy$,
+\[
+k_1\dg\psi^{T_A}(z)=6\bigl((Q^2-1)|z|^2+Q(z^2-1)\bigr),\qquad\operatorname{Im}=12Qxy .
+\]
+A zero therefore has $y=0$, $x^2=Q/(Q^2+Q-1)$, or $x=0$, $y^2=Q/(Q^2-Q-1)$, and there
+\[
+k_3\dg\psi^{T_A}=-\frac{6Qx(Q^2-3)(Q^2+2Q-1)}{Q^2+Q-1}\quad\text{resp.}\quad-\frac{6iQy(Q^2-3)(Q^2-2Q-1)}{Q^2-Q-1},
+\]
+while $k_2\dg\ket{111}=12$. On $\sqrt3<Q<1+\sqrt2$ no factor vanishes, so the edge condition holds; this checks the edge property across $A|BC$ directly, and across the other cuts by
+the cyclic shift. At the endpoints the factors $Q^2-3$ and $Q^2-2Q-1$ vanish. At $Q=\sqrt3$ the two branches give $z=\pm\sqrt{x_0},\pm i\sqrt{y_1}$, the four rays of~\eqref{eq:ppt3-lower-endpoint}, and at $Q=1+\sqrt2$
+the imaginary branch gives $z=\pm i$, the rays of~\eqref{eq:ppt3-upper-endpoint}. So at both ends the common zeros of the overlaps with $k_1,k_2,k_3$ are exactly the product rays of the separable decomposition of the limit state.
 \end{remark}
 

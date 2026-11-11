@@ -69,7 +69,7 @@ cubic in $a$, so the product vectors trace a rational normal quartic spanning $R
 Thus, on the support of a minimal-rank example, biseparability is decided by where three copies of one universal cone
 sit relative to each other, and genuine multipartite entanglement is certified exactly by a $5\times5$ Hermitian $H$
 whose three quartic forms~\eqref{eq:ppt3-universal-dual} are nonnegative while $\tr(HX)<0$. Such an $H$ exists for
-every GME state of rank five, since the cone in~\eqref{eq:ppt3-universal-bs} is closed. The witnesses $H_s$ and $H_0$ of
+every GME state supported on $R$, since the cone in~\eqref{eq:ppt3-universal-bs} is closed. The witnesses $H_s$ and $H_0$ of
 Sections~\ref{sec:ppt3-family} and~\ref{sec:ppt3-surface} are instances, with the quartic forms factorised by hand.
 Testing the nonnegativity of a quartic form in one complex variable is a small problem: a real polynomial of degree eight
 in two variables.
@@ -77,7 +77,9 @@ in two variables.
 \subsection{The flat-marginal question}\label{sec:ppt3-flat}
 
 A three-qubit state is \emph{flat} if every proper marginal
-is maximally mixed. Our examples settle existence of fully-PPT GME, but leave the following conjecture open:
+is maximally mixed. Flat states are a natural place to look for further examples, because every flat state is automatically fully
+PPT (shown below), so only biseparability is in question. Our examples settle existence of fully-PPT GME, but leave the following
+conjecture open:
 \begin{conjecture}[flat rank-five states]\label{conj:ppt3-flat}
 \cls{open; repository name Conjecture R}
 Every flat three-qubit state of rank five is biseparable.
@@ -123,6 +125,9 @@ By Han and Kye, every X-shaped fully-PPT multi-qubit state is biseparable~\cite[
 states are therefore not GME, and, since biseparability and PPT are invariant under local unitaries, the GME states of this
 paper are not X-shaped in any product basis. Explicit three-qubit PPT entangled states of low rank are also given
 in~\cite{HaKye15}.
+A PPT state is an edge state across a cut if no product vector of its range has its partial conjugate in the range of the partial
+transpose. The states of the $(5,5,5,5)$ surface are edge states across every cut (Corollary~\ref{cor:ppt3-extreme5}). The interior states $\rho_t$ are not: their partial transposes are invertible
+and the range contains the product vector $\ket{111}$.
 
 Ha and Kye gave a three-qubit PPT mixture that is not biseparable, but their rank-seven example was established
 PPT across a selected cut, not all three~\cite{HK}. This already refuted the conjecture of Novo, Moroder and G\"uhne that

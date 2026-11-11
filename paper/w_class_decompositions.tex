@@ -11,7 +11,7 @@ An invertible local filter preserves this class, since the hyperdeterminant tran
 of the local determinants. Convex mixing and local quantum channels also preserve $\mathcal W$.
 
 \begin{theorem}[the constructed fully-PPT states belong to the mixed $W$ class]\label{thm:ppt3-w-class}
-\cls{proved analytically; WC-1--WC-4}
+\cls{proved analytically; WC-1, WC-2, WC-3, WC-4}
 Every normalised state $\rho_t$ of Theorem~\ref{thm:ppt3-family} in its PPT interval, the extreme state
 $\sigma_6$ of Corollary~\ref{cor:ppt3-extreme6}, every normalised $\rho_{\tau,a}$ of
 Theorem~\ref{thm:ppt3-orbit} ($1/\sqrt3<\tau<1$, $a>0$), the phase-coexistence line $\sigma(t)$ of
@@ -51,23 +51,23 @@ Also $u+i(w-v)=(\ket0+i\ket1)^{\otimes3}$ is a product vector. Hence the followi
 For $s=1$, $x=1$, $y=0$ the first is $\mathcal C([u+e])=[u]+[e]$.
 
 First consider a positive diagonal coefficient matrix
-$A[u]+V[v]+W[w]+E[e]+O[o]$, with all five weights nonnegative.
-If $A\le E+V/4$, put $r=\min(A,E)$ and $q=A-r$. It equals
+$d_u[u]+d_v[v]+d_w[w]+d_e[e]+d_o[o]$, with all five weights nonnegative.
+If $d_u\le d_e+d_v/4$, put $r=\min(d_u,d_e)$ and $q=d_u-r$. It equals
 \[
  r\,\mathcal C([u+e])+q\,\mathcal P([u+2v])
- +(E-r)[e]+(V-4q)[v]+W[w]+O[o],
+ +(d_e-r)[e]+(d_v-4q)[v]+d_w[w]+d_o[o],
 \]
-with nonnegative coefficients. The first family satisfies $A=t$, $V=3t$, $E=3$ and $t\le t_+<4$,
-so $t\le3+3t/4$. For $\sigma_6$, $A=t_-<4$, $E=3$ and $V=8(9-t_-)/5>8$, which also suffice.
+with nonnegative coefficients. The first family satisfies $d_u=t$, $d_v=3t$, $d_e=3$ and $t\le t_+<4$,
+so $t\le3+3t/4$. For $\sigma_6$, $d_u=t_-<4$, $d_e=3$ and $d_v=8(9-t_-)/5>8$, which also suffice.
 
 For the surface, the filter law in Theorem~\ref{thm:ppt3-orbit}(b) reduces the problem to $a=1$.
-Use the notation of Appendix~\ref{sec:ppt3-app-surface}:
+Use the notation of Appendix~\ref{sec:ppt3-app-surface}: the weights of $u$ and $w$ are $1$ and $\tau$, and
 \[
  \kappa=1-\tau^2,\quad Q=\tau+\sqrt{1+\tau^2},\quad
- W=\tau,\quad E=\kappa Q^2,\quad O=\kappa/\tau,\quad G=(E-1)/\tau.
+ E=\kappa Q^2,\quad O=\kappa/\tau,\quad G=(E-1)/\tau.
 \]
 and $V=(E^2-2\kappa E+\kappa)/(\tau\kappa)$. The coefficient block on $(v,w)$ is positive semidefinite, since the operator
-is, so $V>0$ and $WV-G^2\ge0$.
+is, so $V>0$ and $\tau V-G^2\ge0$.
 Its other useful identity is
 \begin{equation}\label{eq:ppt3-w-budget}
  OV-G^2=2E-1.
@@ -75,29 +75,29 @@ Its other useful identity is
 If $E\ge1$, put $b=G/V$. Then the surface operator is
 \[
  \mathcal C([u+e])+V\mathcal C([v+b(w-o)])
- +(W-G^2/V)[w]+(E-1)[e]+(O-G^2/V)[o].
+ +(\tau-G^2/V)[w]+(E-1)[e]+(O-G^2/V)[o].
 \]
 All coefficients are nonnegative, the last by~\eqref{eq:ppt3-w-budget}.
 
 If $E<1$, put $\mu=(1-E)/\tau=-G$. Since $Q\ge1$ and $0<\tau<1$, $E=\kappa Q^2\ge\kappa=1-\tau^2\ge1-\tau$, so $0<\mu\le1$ and
 \[
- W-\mu=\frac{E-\kappa}{\tau}\ge0,\quad
+ \tau-\mu=\frac{E-\kappa}{\tau}\ge0,\quad
  V-\mu=\frac{E(E-\kappa)}{\tau\kappa}\ge0,\quad
  E-1+\mu=(1-E)(\tau^{-1}-1)\ge0.
 \]
 Now the surface operator is
 \[
  \mu\,\mathcal P([u+i(w-v)])+(1-\mu)\mathcal C([u+e])
- +(W-\mu)[w]+(V-\mu)[v]+(E-1+\mu)[e]+O[o].
+ +(\tau-\mu)[w]+(V-\mu)[v]+(E-1+\mu)[e]+O[o].
 \]
 This again is a positive sum of zero-three-tangle projectors.
 
 On the phase-coexistence line $\sigma(t)=(1-t)\sigma_\partial+t\sigma_{\rm BS}$ of
 Proposition~\ref{prop:ppt3-exposed-transition}, $\sigma(t)$ is biseparable, hence in $\mathcal W$, for $0\le t\le1$. By
 convexity it remains to treat $t=-1/200$. There the coefficient matrix $(1-t)X_\partial+tX_{\rm BS}$ of
-\eqref{eq:ppt3-xdelta} and~\eqref{eq:ppt3-bs-same-support} has diagonal $(A,V,W,E,O)$ and $(v,w)$ entry $-\mu$ with
+\eqref{eq:ppt3-xdelta} and~\eqref{eq:ppt3-bs-same-support} has diagonal $(d_u,d_v,d_w,d_e,d_o)$ and $(v,w)$ entry $-\mu$ with
 $\mu=10930399/348000000>0$. Subtracting $\mu\,\mathcal P([u+i(w-v)])$ leaves the positive diagonal matrix with weights
-$(A-\mu,V-\mu,W-\mu,E,O)$, and $A-\mu-E=7/31250\le(V-\mu)/4$, so the diagonal case above applies.
+$(d_u-\mu,d_v-\mu,d_w-\mu,d_e,d_o)$, and $d_u-\mu-d_e=7/31250\le(d_v-\mu)/4$, so the diagonal case above applies.
 
 Finally, write the full-rank state $\tilde\rho$ of Corollary~\ref{cor:ppt3-robust}, displayed in~\eqref{eq:ppt3-tilde-rho},
 as

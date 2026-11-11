@@ -1,0 +1,6 @@
+EO-1 PASS: psi(z) = (|0>+z|1>) x phi(z); rho^{T_A} K_A = 0 identically in Q
+EO-2 PASS: k_1^+ psi^T = 6((Q^2-1)|z|^2 + Q(z^2-1)), imaginary part 12 Q x y
+EO-3 PASS: k_3^+ psi^T on the two branches, and k_2^+ |111> = 12
+EO-4 PASS: no factor has a root in (sqrt3, 1+sqrt2); signs +,+,+,+,- on the window
+EO-5 PASS: at Q = sqrt3 the rays z = +-sqrt(2 sqrt3 - 3), +-i sqrt(3 + 2 sqrt3), and at Q = 1+sqrt2 the rays z = +-i, are in the overlap kernel
+ALL PASS

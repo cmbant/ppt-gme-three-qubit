@@ -14,7 +14,7 @@ image of `stdSimplex × K^(D+1)`.  Used for plan lemma D1 of the Gurvits–Barnu
 @[expose] public section
 
 
-namespace GurvitsBarnum
+namespace FormalResearch.ConvexGeometry
 
 open Set Finset
 
@@ -87,8 +87,8 @@ theorem isCompact_convexHull_of_isCompact {K : Set E} (hK : IsCompact K) :
   rw [← himg]
   exact hA.image hF
 
-/-- info: 'GurvitsBarnum.isCompact_convexHull_of_isCompact' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+/-- info: 'FormalResearch.ConvexGeometry.isCompact_convexHull_of_isCompact' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs (whitespace := lax) in
 #print axioms isCompact_convexHull_of_isCompact
 
-end GurvitsBarnum
+end FormalResearch.ConvexGeometry
